@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "yarn dev",
-    "build": "yarn build",
+    "build": "yarn run build",
     "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start",
     "lint": "next lint"
   },
