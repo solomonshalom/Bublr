@@ -1,0 +1,37 @@
+{
+  "name": "ospress",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.4.0",
+    "@radix-ui/react-dialog": "^0.0.19",
+    "@radix-ui/react-icons": "^1.0.3",
+    "@radix-ui/react-id": "^0.0.6",
+    "@react-firebase/auth": "^0.2.10",
+    "@tiptap/extension-image": "^2.0.0-beta.15",
+    "@tiptap/extension-link": "^2.0.0-beta.19",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.26",
+    "@tiptap/react": "^2.0.0-beta.53",
+    "@tiptap/starter-kit": "^2.0.0-beta.83",
+    "firebase": "^8.7.1",
+    "html-to-text": "^8.0.0",
+    "modern-normalize": "^1.1.0",
+    "next": "11.0.1",
+    "next-themes": "^0.0.15",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-firebase-hooks": "^3.0.4",
+    "sanitize-html": "^2.4.0",
+    "tinykeys": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "7.31.0",
+    "eslint-config-next": "11.0.1"
+  }
+}

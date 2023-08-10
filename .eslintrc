@@ -1,0 +1,13 @@
+{
+  "extends": ["next", "next/core-web-vitals"],
+  "rules": {
+    // Since some fonts are only needed on some pages. e.g. Newsreader is only
+    // used on post and profile pages, would be wasteful to include it on the
+    // dashboard page.
+    "@next/next/no-page-custom-font": "off",
+    // The only places we use <img> are for user's profile pictures. Those are
+    // provided throught firebase's oauth providers, meaning we can never know
+    // their host to add to our <Image> configuration.
+    "@next/next/no-img-element": "off"
+  }
+}
