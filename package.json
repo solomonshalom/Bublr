@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "yarn dev",
+    "build": "yarn build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start",
     "lint": "next lint"
   },
   "engines" : { 
-    "node" : "20.x"
+    "node" : "18.x"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
