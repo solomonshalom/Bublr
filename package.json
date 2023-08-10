@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "yarn dev",
     "build": "next build",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start",
-    "lint": "next lint"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start"
   },
   "engines" : { 
     "node" : "18.x"
@@ -32,9 +31,5 @@
     "react-firebase-hooks": "^3.0.4",
     "sanitize-html": "^2.4.0",
     "tinykeys": "^1.2.0"
-  },
-  "devDependencies": {
-    "eslint": "7.31.0",
-    "eslint-config-next": "11.0.1"
   }
 }
