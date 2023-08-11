@@ -8,7 +8,7 @@
     "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start"
   },
   "engines" : { 
-    "node" : "16.20.1"
+    "node" : "18.12.0"
   },
   
   "dependencies": {
