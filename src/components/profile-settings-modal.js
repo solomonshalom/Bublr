@@ -141,7 +141,7 @@ function Editor({ user }) {
       >
         See your profile live at:{' '}
         <a target="_blank" rel="noreferrer" href={`/${user.name}`}>
-          ospress.co/{user.name}
+          theabyss.ink/{user.name}
         </a>
       </p>
 

@@ -505,7 +505,7 @@ function Editor({ post }) {
                   rel="noreferrer"
                   href={`/${userdata.name}/${post.slug}`}
                 >
-                  ospress.co/{userdata.name}/{post.slug}
+                  theabyss.ink/{userdata.name}/{post.slug}
                 </a>
               </p>
             ) : (
