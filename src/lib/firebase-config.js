@@ -1,7 +1,7 @@
 // ENV configs for firebase (Super Important!)
 
 export const FIREBASE_CONFIG = {
-  apiKey: process.env.apiKey,
+  apiKey: "AIzaSyCvNNl9gwEE-leiuZs9hbsDdfOD5c8yRfg",
   authDomain: "the-abyss-78a1b.firebaseapp.com",
   projectId: "the-abyss-78a1b",
   storageBucket: "the-abyss-78a1b.appspot.com",
