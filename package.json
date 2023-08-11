@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "yarn dev",
     "build": "next build",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider npm run start"
+    "start": "npm run start"
   },
   "engines" : { 
-    "node" : "18.16.1"
+    "node" : "16.20.1"
   },
   
   "dependencies": {
