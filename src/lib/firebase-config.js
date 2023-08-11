@@ -1,4 +1,4 @@
-// ENV configs for firebase
+// ENV configs for firebase (Super Important!)
 
 export const FIREBASE_CONFIG = {
   apiKey: process.env.apiKey,
