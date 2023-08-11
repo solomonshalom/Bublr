@@ -1,7 +1,7 @@
 {
-  "name": "ospress",
+  "name": "the-abyss",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "yarn dev",
     "build": "next build",
