@@ -1,3 +1,5 @@
+// Those sweet writer links for them to share it to the world <3
+
 /** @jsxImportSource @emotion/react */
 import Head from 'next/head'
 import tinykeys from 'tinykeys'

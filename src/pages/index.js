@@ -54,7 +54,7 @@ export default function Home() {
           margin-bottom: 1.5rem;
         `}
       >
-        An ultra-minimal platform for anybody who writes
+        An ultra-minimal platform to let your thoughts out
       </h1>
       <ul
         css={css`
@@ -74,8 +74,8 @@ export default function Home() {
           }
         `}
       >
-        <li>No ads</li>
-        <li>No paywalls</li>
+        <li>Free</li>
+        <li>Minimal</li>
         <li>Open-source</li>
       </ul>
       {loading ? (
@@ -164,9 +164,9 @@ Home.getLayout = function HomeLayout(page) {
         {meta({
           title: 'The Abyss',
           description:
-            'An ultra minimal blogging platform for anybody who writes',
+            'An ultra minimal journal to let your thought out, both private and for the world',
           url: '/',
-          image: '/images/socials.png',
+          image: '/images/socials.jpg',
         })}
       </Head>
       {page}
