@@ -16,7 +16,7 @@ export default function NotFound() {
           margin-top: 1.5rem;
         `}
       >
-        Looks like we can&apos;t find what you were looking for.
+        Looks like we can&apos;t find what you were looking for 😓
       </p>
     </Container>
   )

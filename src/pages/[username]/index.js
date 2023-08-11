@@ -15,7 +15,7 @@ export default function Profile({ user }) {
     <Container maxWidth="640px">
       <Head>
         {meta({
-          title: `${user.displayName} (@${user.name}) / OSPress`,
+          title: `${user.displayName} (@${user.name}) / The Abyss`,
           description: user.about,
           url: `/${user.name}`,
           image: user.photo,

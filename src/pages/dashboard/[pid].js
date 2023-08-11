@@ -287,7 +287,7 @@ function Editor({ post }) {
       <Head>
         <title>
           {clientPost.title
-            ? `Editing post: ${clientPost.title} / OSPress`
+            ? `Editing post: ${clientPost.title} / The Abyss`
             : 'Editing...'}
         </title>
         <link

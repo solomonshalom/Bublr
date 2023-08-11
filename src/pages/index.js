@@ -162,7 +162,7 @@ Home.getLayout = function HomeLayout(page) {
     <Container maxWidth="420px">
       <Head>
         {meta({
-          title: 'OSPress',
+          title: 'The Abyss',
           description:
             'An ultra minimal blogging platform for anybody who writes',
           url: '/',
