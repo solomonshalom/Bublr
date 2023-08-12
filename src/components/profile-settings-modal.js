@@ -145,6 +145,8 @@ function Editor({ user }) {
         </a>
           <br>
           </br>
+          <br>
+          </br>
         <p>Made w/ ❤️ by the <a href="https://linktr.ee/theabyssofficial">Team</a></p>
       </p>
       <Button
