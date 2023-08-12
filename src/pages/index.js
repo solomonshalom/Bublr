@@ -140,7 +140,6 @@ export default function Home() {
                     displayName: 'Anonymous',
                     about: 'Say something about yourself 😃',
                     posts: [],
-                    photo: null,
                     readingList: [],
                   });
                 }
