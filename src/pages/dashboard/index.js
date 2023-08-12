@@ -52,6 +52,9 @@ export default function Dashboard() {
           <a>Reading List</a>
         </Link>
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+        <Link href="#">
+          <a>Contact</a>
+        </Link>
         <button onClick={() => auth.signOut()}>Sign Out</button>
       </Header>
 
