@@ -82,7 +82,7 @@ export default function Dashboard() {
                 margin-top: 2.5rem;
               `}
             >
-              You have no posts yet 😔
+              Free your mind ✨
             </p>
           ) : (
             <ul
