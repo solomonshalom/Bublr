@@ -54,7 +54,7 @@ export default function Home() {
           margin-bottom: 1.5rem;
         `}
       >
-        An ultra-minimal platform to let your thoughts out
+        The Abyss
       </h1>
       <ul
         css={css`
