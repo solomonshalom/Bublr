@@ -73,10 +73,10 @@ export default function Home() {
             margin-right: 0.5rem;
           }
         `}
-      >
-        <li>Free</li>
-        <li>Minimal</li>
-        <li>Open-source</li>
+      >Express Yourself without Limitations
+        <li>Express Yourself without Limitations</li>
+        <li>A Sanctuary for Unconscious Expression</li>
+        <li>A Fusion of Expression and Art</li>
       </ul>
       {loading ? (
         <Button>
