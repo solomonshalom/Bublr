@@ -29,6 +29,10 @@ The Abyss is intentionally kept simple and focused on individual expression. As 
 
 For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com).
 
+## Credits & History
+
+Originally based on [Espresso](https://github.com/solomonshalom/the-abyss)
+
 ## Disclaimer
 
 The Abyss is a platform for personal expression. While we respect freedom of speech, we do not endorse or condone any harmful, offensive, or inappropriate content shared within The Abyss. Users are solely responsible for their submissions. Though, if any posts are against the values of The Abyss or its partners, we will remove them without any further notice to keep you and the community safe!
