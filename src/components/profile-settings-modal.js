@@ -143,10 +143,8 @@ function Editor({ user }) {
         <a target="_blank" rel="noreferrer" href={`/${user.name}`}>
           theabyss.ink/{user.name}
         </a>
-          <br>
-          </br>
-          <br>
-          </br>
+          <br/>
+          <br/>
         <p>Made w/ ❤️ by the <a href="https://linktr.ee/theabyssofficial">Team</a></p>
       </p>
       <Button
