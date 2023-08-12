@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import avater from 'public/images/avater.jpg';
 
 import firebase, { auth } from '../lib/firebase'
 import { setUser, userWithIDExists } from '../lib/db'
@@ -118,7 +119,7 @@ export default function Home() {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
                     displayName: cred.user.displayName || 'Anonymous',
-                    about: 'Nothing to say about you.',
+                    about: 'Say something about yourself 😃',
                     posts: [],
                     photo: cred.user.photoURL,
                     readingList: [],
@@ -138,9 +139,9 @@ export default function Home() {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
                     displayName: 'Anonymous',
-                    about: 'Nothing to say about you.',
+                    about: 'Say something about yourself 😃',
                     posts: [],
-                    photo: null,
+                    photo: avater,
                     readingList: [],
                   });
                 }
