@@ -11,3 +11,5 @@ There's a lot more I need to do, especially the issue with NodeJS version `18.x`
 This is the second, optimized and production build. Although this has the same issues as the previou version, it did come w/ a lot of makeover. One of the key points of this build is the use of colour, emojis and a newly added contact page.
 
 OH, I now officially also include annonymous login :D but I am still trying to figure out on how to moderate these contents, as that is a major challenge.
+
+This is still considered beta due to the now and then code changes happening which could potenially break the UI, which is why I suggest to use it w/ care and not to play rough, atleast for now.
