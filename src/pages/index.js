@@ -147,7 +147,7 @@ export default function Home() {
               });
             }}
           >
-            Anonymous Login
+            Anonymous Sign In
           </Button>
         </div>
       )}

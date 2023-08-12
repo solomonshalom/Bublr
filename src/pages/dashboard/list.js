@@ -102,7 +102,7 @@ function List({ uid }) {
       </ul>
     )
 
-  return <p>You have no posts saved to read later.</p>
+  return <p>You have no posts saved to read later 😔</p>
 }
 
 export default function ReadingList() {
