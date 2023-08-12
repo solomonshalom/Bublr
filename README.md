@@ -12,7 +12,7 @@
 
 - **No Social Interaction**: The Abyss is not a social media platform. There are no likes, comments, or shares. It's a solitary space for your thoughts.
 
-- **Private and Secure**: Your submissions are your own. We do not store personal information neither do we sell them, it's you and you only who own your data.
+- **Private and Secure**: Your submissions are your own. We do not store personal information nor do we sell them, it's you and you only who owns your data.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@
 
 ## Contributing
 
-The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [contact@theabyss.com](mailto:contact@theabyss.com).
+The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [contact@theabyss.com](mailto:contact@theabyss.com).
 
 ## Support
 
@@ -31,7 +31,7 @@ For any inquiries, troubleshooting, or feedback, please contact us at [support@t
 
 ## Disclaimer
 
-The Abyss is a platform for personal expression. While we respect freedom of speech, we do not endorse or condone any harmful, offensive, or inappropriate content shared within The Abyss. Users are solely responsible for their submissions. Though, if any posts are against the values of The Abyss or it's partners, we will remove it without any further notice to keep you and the community safe!
+The Abyss is a platform for personal expression. While we respect freedom of speech, we do not endorse or condone any harmful, offensive, or inappropriate content shared within The Abyss. Users are solely responsible for their submissions. Though, if any posts are against the values of The Abyss or its partners, we will remove them without any further notice to keep you and the community safe!
 
 ---
 
