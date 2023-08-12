@@ -85,7 +85,7 @@ export default function Dashboard() {
                 margin-top: 2.5rem;
               `}
             >
-              Free your mind ✨
+              Free your mind ✨ Why don't you check out some suggested <a href="#">topics</a> 🤔?
             </p>
           ) : (
             <ul
