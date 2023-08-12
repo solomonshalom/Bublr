@@ -145,7 +145,7 @@ function Editor({ user }) {
         </a>
           <br/>
           <br/>
-        <p>Made w/ ❤️ by the <a href="https://linktr.ee/theabyssofficial">Team</a></p>
+        <p>Made w/ ❤️ by the <a href="https://linktr.ee/theabyssofficial">X-Men</a></p>
       </p>
       <Button
         css={css`

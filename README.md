@@ -6,7 +6,7 @@
 
 - **Simplicity at its Core**: The Abyss embraces minimalism. The focus is solely on your thoughts and words, without any distractions.
 
-- **Anonymity** (Coming Soon): Feel free to express yourself without revealing your identity. Your thoughts can be shared without any personal information attached.
+- **Anonymity**: Feel free to express yourself without revealing your identity. Your thoughts can be shared without any personal information attached.
 
 - **Unfiltered Expression**: There are no constraints on the content you can share. Whether it's a fleeting idea, a profound realization, or an abstract concept, you can release it into The Abyss.
 
@@ -31,7 +31,7 @@ For any inquiries, troubleshooting, or feedback, please contact us at [support@t
 
 ## Credits & History
 
-Originally based on [Espresso](https://github.com/solomonshalom/the-abyss)
+Originally based on [Espresso](https://github.com/solomonshalom/the-abyss), read more about it here: [The Future Of Espresso](https://github.com/solomonshalom/espresso/discussions/3)
 
 ## Disclaimer
 
