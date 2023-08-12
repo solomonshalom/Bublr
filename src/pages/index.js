@@ -73,7 +73,9 @@ export default function Home() {
             margin-right: 0.5rem;
           }
         `}
-      >Express Yourself without Limitations
+      >Welcome to The Abyss
+      <br >
+      </br >
         <li>Express Yourself without Limitations</li>
         <li>A Sanctuary for Unconscious Expression</li>
         <li>A Fusion of Expression and Art</li>
