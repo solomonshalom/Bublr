@@ -131,23 +131,20 @@ export default function Home() {
           </Button>
           <Button
             onClick={() => {
-              const signInAnonymously = new firebase.auth.signInAnonymously()
-              auth.signInWithPopup(signInAnonymously).then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid)
-
-                console.log(cred.user)
-
+              auth.signInAnonymously().then(async cred => {
+                let userExists = await userWithIDExists(cred.user.uid);
+                
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
-                    displayName: cred.user.displayName || 'Anonymous',
+                    displayName: 'Anonymous',
                     about: 'Nothing to say about you.',
                     posts: [],
-                    photo: cred.user.photoURL,
+                    photo: null,
                     readingList: [],
-                  })
+                  });
                 }
-              })
+              });
             }}
           >
             Anonymous Login
@@ -165,7 +162,7 @@ Home.getLayout = function HomeLayout(page) {
         {meta({
           title: 'The Abyss',
           description:
-            'An ultra minimal journal to let your thought out, both private and for the world',
+            'The Abyss',
           url: '/',
           image: '/images/socials.jpg',
         })}
