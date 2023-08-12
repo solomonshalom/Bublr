@@ -144,6 +144,7 @@ function Editor({ user }) {
           theabyss.ink/{user.name}
         </a>
       </p>
+      <p>Made w/ ❤️ by Jeremy Daniel, Dane Kurien & Solomon Shalom Lijo</p>
 
       <Button
         css={css`
