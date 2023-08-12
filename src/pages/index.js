@@ -73,9 +73,7 @@ export default function Home() {
             margin-right: 0.5rem;
           }
         `}
-      >Welcome to The Abyss
-      <br >
-      </br >
+      >
         <li>Express Yourself without Limitations</li>
         <li>A Sanctuary for Unconscious Expression</li>
         <li>A Fusion of Expression and Art</li>
@@ -115,6 +113,7 @@ export default function Home() {
               const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
               auth.signInWithPopup(googleAuthProvider).then(async cred => {
                 let userExists = await userWithIDExists(cred.user.uid)
+                
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -132,8 +131,8 @@ export default function Home() {
           </Button>
           <Button
             onClick={() => {
-              const githubAuthProvider = new firebase.auth.GithubAuthProvider()
-              auth.signInWithPopup(githubAuthProvider).then(async cred => {
+              const signInAnonymously = new firebase.auth.signInAnonymously()
+              auth.signInWithPopup(signInAnonymously).then(async cred => {
                 let userExists = await userWithIDExists(cred.user.uid)
 
                 console.log(cred.user)
@@ -151,7 +150,7 @@ export default function Home() {
               })
             }}
           >
-            GitHub Sign In
+            Anonymous Login
           </Button>
         </div>
       )}
