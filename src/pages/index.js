@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import avater from 'public/images/avater.jpg';
+import avater from './public/images/avater.jpg';
 
 import firebase, { auth } from '../lib/firebase'
 import { setUser, userWithIDExists } from '../lib/db'
