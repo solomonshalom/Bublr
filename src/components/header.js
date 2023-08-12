@@ -26,7 +26,7 @@ const Header = props => (
 
       a:hover,
       button:hover {
-        color: var(--grey-3);
+        color: #b6977d;
       }
 
       button:last-of-type {
