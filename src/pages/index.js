@@ -127,7 +127,7 @@ export default function Home() {
               })
             }}
           >
-            Google Sign In
+            Start as a User
           </Button>
           <Button
             onClick={() => {
@@ -147,7 +147,7 @@ export default function Home() {
               });
             }}
           >
-            Anonymous Sign In
+            Start as a Guest
           </Button>
         </div>
       )}
