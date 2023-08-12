@@ -52,7 +52,7 @@ export default function Dashboard() {
           <a>Reading List</a>
         </Link>
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-        <Link href="#">
+        <Link href="https://linktr.ee/theabyssofficial">
           <a>Contact</a>
         </Link>
         <button onClick={() => auth.signOut()}>Sign Out</button>
