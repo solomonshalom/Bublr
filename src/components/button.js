@@ -22,7 +22,7 @@ const buttonStyles = css`
   transition: all 200ms ease;
 
   &:hover {
-    background: #402745;
+    background: var(--grey-4);
   }
 
   &:disabled {
@@ -133,7 +133,7 @@ const iconButtonStyles = css`
   transition: all 200ms ease;
 
   &:hover {
-    background: #402745;
+    background: var(--grey-2);
     opacity: 0.4;
   }
 
