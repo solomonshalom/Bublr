@@ -96,7 +96,7 @@ export default function Home() {
             outline
             onClick={() => auth.signOut()}
           >
-            Sign Out
+            Sign Out 🚪🚶
           </Button>
         </div>
       ) : (
@@ -127,7 +127,7 @@ export default function Home() {
               })
             }}
           >
-            Start as a User
+            User ⛹️
           </Button>
           <Button
             onClick={() => {
@@ -146,7 +146,7 @@ export default function Home() {
               });
             }}
           >
-            Start as a Guest
+            Anonymous 🐱‍👤
           </Button>
         </div>
       )}
