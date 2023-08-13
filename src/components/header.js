@@ -18,7 +18,7 @@ const Header = props => (
 
       a,
       button {
-        color: #BF40BF;
+        color: var(--grey-2);
         cursor: pointer;
         margin-right: 1.5rem;
         transition: all 200ms ease;
