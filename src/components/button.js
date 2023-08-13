@@ -1,7 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import { css } from '@emotion/react'
-
+/*
+&:hover {
+    background: var(--grey-4);
+  }
+*/
 const buttonStyles = css`
   display: block;
   border: none;
@@ -18,7 +22,7 @@ const buttonStyles = css`
   transition: all 200ms ease;
 
   &:hover {
-    background: var(--grey-4);
+    background: #402745;
   }
 
   &:disabled {
@@ -27,7 +31,19 @@ const buttonStyles = css`
     color: var(--grey-2);
   }
 `
+/*
+  &:hover {
+    background: var(--grey-1);
+    border: 1px solid var(--grey-3);
+  }
+*/
 
+/*
+    &:hover {
+      background: var(--grey-1);
+      border: 1px solid var(--grey-3);
+    }
+*/
 const outlineButtonStyles = css`
   ${buttonStyles}
 
@@ -37,7 +53,7 @@ const outlineButtonStyles = css`
 
   &:hover {
     background: var(--grey-1);
-    border: 1px solid var(--grey-3);
+    border: 1px solid #402745;
   }
 
   &:disabled {
@@ -46,7 +62,7 @@ const outlineButtonStyles = css`
 
     &:hover {
       background: var(--grey-1);
-      border: 1px solid var(--grey-2);
+      border: 1px solid #402745;
     }
   }
 `
@@ -117,7 +133,7 @@ const iconButtonStyles = css`
   transition: all 200ms ease;
 
   &:hover {
-    background: var(--grey-2);
+    background: #402745;
     opacity: 0.4;
   }
 

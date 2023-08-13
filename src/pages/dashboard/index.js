@@ -81,7 +81,7 @@ export default function Dashboard() {
               router.push(`/dashboard/${newPostsId}`)
             }}
           >
-            Write 🖋️
+            Write A Post
           </Button>
 
           {posts.length === 0 ? (
