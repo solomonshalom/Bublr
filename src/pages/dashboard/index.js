@@ -60,7 +60,7 @@ export default function Dashboard() {
 
         <ProfileSettingsModal Trigger={() => 'Profile 🙇'} uid={user?.uid} />
 
-        <button onClick={() => auth.signOut()}>Sign Out 🛺</button>
+        <button onClick={() => auth.signOut()}>Sign Out 🚪🚶</button>
       </Header>
 
       {userError || postsError ? (

@@ -173,7 +173,7 @@ function Editor({ user }) {
                 'Username can only consist of letters (a-z,A-Z), numbers (0-9) and dashes (-).',
               )
               return
-            } else if (clientUser.name === 'dashboard') {
+            } else if (clientUser.name === 'dashboard 🕹️') {
               setUsernameErr('That username is reserved.')
               return
             }
