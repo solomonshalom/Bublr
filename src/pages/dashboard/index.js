@@ -49,18 +49,18 @@ export default function Dashboard() {
     <>
       <Header>
         <Link href="/dashboard/list">
-          <a>Reading List 📚</a>
+          <a>Reading List</a>
         </Link>
 
         {/*Adds a new Link to the FAQ Page*/}
 
         <Link href="https://www.theabyss.ink/solomonlijo/thefirstpost">
-          <a>FAQ 🔥</a>
+          <a>FAQ</a>
         </Link>
 
-        <ProfileSettingsModal Trigger={() => 'Profile 🙇'} uid={user?.uid} />
+        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
 
-        <button onClick={() => auth.signOut()}>Sign Out 🚪🚶</button>
+        <button onClick={() => auth.signOut()}>Sign Out</button>
       </Header>
 
       {userError || postsError ? (

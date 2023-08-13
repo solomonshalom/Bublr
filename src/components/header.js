@@ -18,7 +18,7 @@ const Header = props => (
 
       a,
       button {
-        color: var(--grey-2);
+        color: #BF40BF;
         cursor: pointer;
         margin-right: 1.5rem;
         transition: all 200ms ease;
@@ -26,7 +26,7 @@ const Header = props => (
 
       a:hover,
       button:hover {
-        color: var(--grey-3);
+        color: #BF40BF;
       }
 
       button:last-of-type {

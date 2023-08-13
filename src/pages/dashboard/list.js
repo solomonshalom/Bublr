@@ -121,10 +121,10 @@ export default function ReadingList() {
     <>
       <Header>
         <Link href="/dashboard">
-          <a>Dashboard 🕹️</a>
+          <a>Dashboard</a>
         </Link>
-        <ProfileSettingsModal Trigger={() => 'Profile 🙇'} uid={user?.uid} />
-        <button onClick={() => auth.signOut()}>Sign Out 🚪🚶</button>
+        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+        <button onClick={() => auth.signOut()}>Sign Out</button>
       </Header>
 
       {userError ? (
