@@ -49,13 +49,18 @@ export default function Dashboard() {
     <>
       <Header>
         <Link href="/dashboard/list">
-          <a>Reading List</a>
+          <a>Reading List 📚</a>
         </Link>
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-        <Link href="https://linktr.ee/theabyssofficial">
-          <a>Contact</a>
+
+        {/*Adds a new Link to the FAQ Page*/}
+
+        <Link href="https://www.theabyss.ink/solomonlijo/thefirstpost">
+          <a>FAQ 🔥</a>
         </Link>
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+
+        <ProfileSettingsModal Trigger={() => 'Profile 🙇'} uid={user?.uid} />
+
+        <button onClick={() => auth.signOut()}>Sign Out 🛺</button>
       </Header>
 
       {userError || postsError ? (
@@ -85,7 +90,7 @@ export default function Dashboard() {
                 margin-top: 2.5rem;
               `}
             >
-              Free your mind ✨ Why don&apos;t you check out some suggested <a href="https://www.theabyss.ink/solomonlijo/thefirstpost">topics</a> 🤔?
+              Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
             </p>
           ) : (
             <ul
