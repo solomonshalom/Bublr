@@ -17,7 +17,7 @@
 ## Getting Started
 
 1. Visit [The Abyss](https://theabyss.ink) in your web browser.
-2. Click on the "Dive In" button to begin your journey.
+2. Click on the "Write" button (available in your dashboard) to begin your journey.
 3. Start typing your thoughts. There's no need to worry about formatting or editing. Just let it all out.
 4. When you're done, click "Release" to send your thoughts into The Abyss.
 

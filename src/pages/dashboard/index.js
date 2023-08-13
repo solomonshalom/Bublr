@@ -76,7 +76,7 @@ export default function Dashboard() {
               router.push(`/dashboard/${newPostsId}`)
             }}
           >
-            Dive In
+            Write
           </Button>
 
           {posts.length === 0 ? (
