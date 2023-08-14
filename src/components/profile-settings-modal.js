@@ -79,7 +79,6 @@ function Editor({ user }) {
             }
           />
         </div>
-c
         <div>
           <StyledLabel htmlFor="profile-username">Name (*Please do not capitalize it)</StyledLabel>
           <Input

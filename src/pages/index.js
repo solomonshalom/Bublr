@@ -44,6 +44,8 @@ export default function Home() {
         
           html[data-theme='dark'] & {
             background-image: url('/images/logo.png');
+            
+            background-size: contain;
           }
         `}
       ></div>
