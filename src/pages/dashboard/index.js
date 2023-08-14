@@ -88,7 +88,18 @@ export default function Dashboard() {
           >
             Write A Post
           </Button>
-
+            //
+          <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
+          <Button
+            outline
+            css={css`
+              font-size: 0.9rem;
+              margin-right: auto;
+            `}
+          >
+            Guide Me
+          </Button>
+          </a>
           {posts.length === 0 ? (
             <p
               css={css`
