@@ -145,7 +145,8 @@ function Editor({ user }) {
         </a>
           <br/>
           <br/>
-        <p>Made w/ ❤️ by <a href="https://linktr.ee/theabyssofficial">GOC!</a></p>
+          {/*It's our Lord and Saviour, Jesus Christ who helped us make it! It's not out of our own wisdom but it was provided by God!*/}
+        <p>Made w/ ❤️</p>
       </p>
       <Button
         css={css`
