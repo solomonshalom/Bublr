@@ -1,3 +1,4 @@
+![Abyss Logo](https://github.com/The-Abyss/main/public/images/logo.png)
 # The Abyss
 
 **The Abyss** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into The Abyss and let your thoughts flow freely.
