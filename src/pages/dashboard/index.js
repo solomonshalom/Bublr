@@ -167,7 +167,7 @@ export default function Dashboard() {
                 ))}
             </ul>
           )}
-          "Confused on what to write? Check out this detailed Guide!"
+          &#39;Confused on what to write? Check out this detailed Guide!&#39; 
         </>
       ) : (
         <Spinner />
