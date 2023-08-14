@@ -34,8 +34,8 @@ export default function Home() {
             margin-bottom: 10rem;
           }
 
-          width: 150px;
-          height: 150px;
+          width: 1rem;
+          height: 1rem;
 
           background-image: url('/images/logo-light.png');
           background-position: center;
