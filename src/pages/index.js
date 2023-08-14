@@ -28,14 +28,14 @@ export default function Home() {
       <div
         css={css`
           margin-top: 0rem;
-          margin-bottom: 2.5rem;
+          margin-bottom: .2rem;
 
           @media (max-width: 500px) {
             margin-bottom: 10rem;
           }
 
-          width: 50px; /* Adjust the desired width in pixels */
-          height: 50px; /* Adjust the desired height in pixels */
+          width: 120px; /* Adjust the desired width in pixels */
+          height: 120px; /* Adjust the desired height in pixels */
         
           background-position: center;
           background-repeat: no-repeat;
@@ -44,7 +44,7 @@ export default function Home() {
         
           html[data-theme='dark'] & {
             background-image: url('/images/logo.png');
-            
+
             background-size: contain;
           }
         `}
