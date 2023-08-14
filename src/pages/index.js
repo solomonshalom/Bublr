@@ -30,9 +30,6 @@ export default function Home() {
           margin-top: 0rem;
           margin-bottom: 2.5rem;
 
-          width: 2rem;
-          height: 2rem;
-
           background-image: url('/images/logo-light.png');
           background-position: center;
           background-repeat: no-repeat;
