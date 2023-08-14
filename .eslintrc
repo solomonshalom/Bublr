@@ -3,8 +3,6 @@
     "rules": {
       // Fixes a bug in which "css" was being stated as an un-used / unknown property
       "react/no-unknown-property": ["error", { "ignore": ["css"] }],
-      // Fixes the "Comments inside children section of tag should be placed inside braces" error
-      "react/jsx-no-comment-textnodes": false,
       // Since some fonts are only needed on some pages. e.g. Newsreader is only
       // used on post and profile pages, would be wasteful to include it on the
       // dashboard page.
