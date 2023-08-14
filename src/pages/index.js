@@ -29,6 +29,8 @@ export default function Home() {
         css={css`
           margin-top: 0rem;
           margin-bottom: .2rem;
+          position: relative;
+          right: 1rem;
 
           @media (max-width: 500px) {
             margin-bottom: 10rem;
