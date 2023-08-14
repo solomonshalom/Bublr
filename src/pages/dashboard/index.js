@@ -55,12 +55,12 @@ export default function Dashboard() {
           <a>Guide</a>
         </Link>
 
-        <Link href="https://linktr.ee/theabyssofficial">
-          <a>Contact</a>
-        </Link>
-
         <Link href="/dashboard/list">
           <a>Reading List</a>
+        </Link>
+
+        <Link href="https://linktr.ee/theabyssofficial">
+          <a>Contact</a>
         </Link>
 
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />

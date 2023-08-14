@@ -33,7 +33,7 @@ export default function Home() {
           right: 1rem;
 
           @media (max-width: 500px) {
-            margin-bottom: 10rem;
+            margin-bottom: 1rem;
           }
 
           width: 120px; /* Adjust the desired width in pixels */
