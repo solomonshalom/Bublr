@@ -85,10 +85,6 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-          <div style="text-align: centre; position: relative; left: 9.9rem; bottom: 1.8rem">
-            <p>&</p>
-          </div>
-
           <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
 
           <Button 
