@@ -86,7 +86,7 @@ export default function Dashboard() {
           </Button>
 
           <div style="text-align: centre; position: relative; left: 9.9rem; bottom: 1.8rem">
-            <p>-</p>
+            <p>&</p>
           </div>
 
           <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
@@ -104,7 +104,7 @@ export default function Dashboard() {
           >
             Guide Me
           </Button>
-          
+
           </a>
 
           {posts.length === 0 ? (
