@@ -1,4 +1,5 @@
-![Abyss Logo](https://raw.githubusercontent.com/solomonshalom/The-Abyss/main/public/images/logo.png)
+![image](https://github.com/solomonshalom/The-Abyss/assets/71135230/99d4a9f1-c41c-4710-92e5-abb3b7125012)
+
 # The Abyss
 
 **The Abyss** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into The Abyss and let your thoughts flow freely.
