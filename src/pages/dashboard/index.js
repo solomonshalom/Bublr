@@ -48,14 +48,19 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
+
+        {/*Adds a new Link to the Guide Page*/}
+
+        <Link href="https://www.theabyss.ink/solomonlijo/guideofabyss">
+          <a>Guide</a>
         </Link>
 
-        {/*Adds a new Link to the FAQ Page*/}
+        <Link href="https://linktr.ee/theabyssofficial">
+          <a>Contact</a>
+        </Link>
 
-        <Link href="https://www.theabyss.ink/solomonlijo/theabyss">
-          <a>FAQ</a>
+        <Link href="/dashboard/list">
+          <a>Reading List</a>
         </Link>
 
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />

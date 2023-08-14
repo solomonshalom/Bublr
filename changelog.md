@@ -15,4 +15,4 @@ OH, I now officially also include an anonymous login :D but I am still trying to
 This is still considered beta due to the now-and-then code changes happening which could potentially break the UI, which is why I suggest using it w/ care and not playing rough, at least for now.
 
 # Alabaster - Beta (14 Aug'23)
-FINALLY, we're officially in Beta! W/ a production DB and a FAQ tab added - this will be a game-changer! There are still going to be a lot of commits being pushed but nothing that will potentially break (Can't promise!). Though, you can play rough!
+FINALLY, we're officially in Beta! W/ a production DB and a Guide tab added - this will be a game-changer! There are still going to be a lot of commits being pushed but nothing that will potentially break (Can't promise!). Though, you can play rough!
