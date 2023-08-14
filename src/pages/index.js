@@ -43,7 +43,7 @@ export default function Home() {
           background-size: 2rem;
 
           html[data-theme='dark'] & {
-            background-image: url('/images/logo-dark.png');
+            background-image: url('/images/logo.png');
           }
         `}
       ></div>
