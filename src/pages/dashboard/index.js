@@ -85,23 +85,26 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-          <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
+          <div style={{ textAlign: 'center', position: 'relative', left: '9.9rem', bottom: '1.8rem' }}>
+          <p>//</p>
+          </div>
 
-          <Button 
-          style="
-          position: relative; 
-          bottom: 3.6rem; 
-          left: 12rem"
+          <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
+           <Button 
+             style={{
+                      position: 'relative',
+                      bottom: '3.6rem',
+                      left: '12rem'
+                    }}
             outline
             css={css`
-              font-size: 0.9rem;
-              margin-right: auto;
-            `}
-          >
+                      font-size: 0.9rem;
+                        margin-right: auto;
+                `}
+            >
             Guide Me
           </Button>
-
-          </a>
+            </a>
 
           {posts.length === 0 ? (
             <p
