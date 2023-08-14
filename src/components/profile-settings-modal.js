@@ -145,7 +145,7 @@ function Editor({ user }) {
           <br/>
           <br/>
           {/*It's our Lord and Saviour, Jesus Christ who helped us make it! It's not out of our own wisdom but it was provided by God!*/}
-        <p>Made w/ ❤️</p>
+        <p>Made w/ ❤️ near a 🌴</p>
       </p>
       <Button
         css={css`
