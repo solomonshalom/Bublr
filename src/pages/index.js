@@ -34,13 +34,12 @@ export default function Home() {
             margin-bottom: 10rem;
           }
 
-          width: 2rem;
-          height: 2rem;
+          width: 500px;
+          height: 500px;
 
           background-image: url('/images/logo-light.png');
           background-position: center;
           background-repeat: no-repeat;
-          background-size: 8rem;
 
           html[data-theme='dark'] & {
             background-image: url('/images/logo.png');
