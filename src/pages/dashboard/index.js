@@ -90,7 +90,7 @@ export default function Dashboard() {
           </div>
 
           <a 
-          href="https://theabyss.ink.com/solomonlijo/guideofabyss"
+          href="https://theabyss.ink/solomonlijo/guideofabyss"
           style={{
             textDecoration: 'none', 
           }}
