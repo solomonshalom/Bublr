@@ -27,6 +27,17 @@
 
 The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [contact@theabyss.com](mailto:contact@theabyss.com).
 
+### How to develop through localhost:
+
+```bash
+1. git clone https://github.com/solomonshalom/espresso
+
+2. cd espresso
+
+3. yarn install && yarn dev
+```
+*Remember to fill in the ENVs
+
 ## Support
 
 For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com).
