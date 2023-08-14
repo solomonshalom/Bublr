@@ -49,15 +49,11 @@ export default function Dashboard() {
     <>
       <Header>
 
-        {/*Adds a new Link to the Guide Page*/}
-
-        <Link href="https://www.theabyss.ink/solomonlijo/guideofabyss">
-          <a>Guide</a>
-        </Link>
-
         <Link href="/dashboard/list">
           <a>Reading List</a>
         </Link>
+
+       {/*Adds a new Link to the Contact Page*/}
 
         <Link href="https://linktr.ee/theabyssofficial">
           <a>Contact</a>
@@ -88,9 +84,13 @@ export default function Dashboard() {
           >
             Write A Post
           </Button>
-            //
+          <p style="text-align: centre; position: relative; left: 9.7rem; bottom: 1.8rem">//</p>
           <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
-          <Button
+          <Button 
+          style="
+          position: relative; 
+          bottom: 3.6rem; 
+          left: 12rem"
             outline
             css={css`
               font-size: 0.9rem;
