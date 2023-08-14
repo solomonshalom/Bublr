@@ -167,7 +167,6 @@ export default function Dashboard() {
                 ))}
             </ul>
           )}
-          <p><em>&#39;Confused on what to write? Check out this detailed <a href="https://theabyss.ink/solomonlijo/the-abyss">Guide!</a>&#39;</em></p>
         </>
       ) : (
         <Spinner />
