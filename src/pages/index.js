@@ -30,17 +30,18 @@ export default function Home() {
           margin-top: 0rem;
           margin-bottom: 2.5rem;
 
-          @media () {
+          @media (max-width: 500px) {
             margin-bottom: 10rem;
           }
 
-          width: 2.5rem;
-          height: 2.5rem;
-
-          background-image: url('/images/logo-light.png');
+          width: 50px; /* Adjust the desired width in pixels */
+          height: 50px; /* Adjust the desired height in pixels */
+        
           background-position: center;
           background-repeat: no-repeat;
-
+        
+          background-image: url('/images/logo-light.png');
+        
           html[data-theme='dark'] & {
             background-image: url('/images/logo.png');
           }

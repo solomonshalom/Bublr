@@ -54,7 +54,7 @@ export default function Dashboard() {
 
         {/*Adds a new Link to the FAQ Page*/}
 
-        <Link href="https://www.theabyss.ink/solomonlijo/thefirstpost">
+        <Link href="https://www.theabyss.ink/solomonlijo/theabyss">
           <a>FAQ</a>
         </Link>
 
