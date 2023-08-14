@@ -85,10 +85,12 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-            {/*A button and text field that will seperate the "Write A Post" button and "Guide Me" button [Moved from menu]*/}
+          <div style="text-align: centre; position: relative; left: 9.9rem; bottom: 1.8rem">
+            <p>-</p>
+          </div>
 
-          <p style="text-align: centre; position: relative; left: 9.9rem; bottom: 1.8rem">-</p>
           <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
+
           <Button 
           style="
           position: relative; 
@@ -102,6 +104,7 @@ export default function Dashboard() {
           >
             Guide Me
           </Button>
+          
           </a>
 
           {posts.length === 0 ? (
