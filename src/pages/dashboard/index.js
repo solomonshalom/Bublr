@@ -85,11 +85,18 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-          <div style={{ textAlign: 'center', position: 'relative', left: '9.9rem', bottom: '1.8rem' }}>
+          <div style={{ textAlign: 'center', position: 'relative', left: '-2.3rem', bottom: '1.8rem' }}>
           <p>//</p>
           </div>
 
-          <a href="https://theabyss.ink.com/solomonlijo/guideofabyss">
+          <a 
+          href="https://theabyss.ink.com/solomonlijo/guideofabyss"
+          style={{
+            textDecoration: 'none', 
+            // Remove underline
+            // Add other custom styles here
+          }}
+          >
            <Button 
              style={{
                       position: 'relative',
