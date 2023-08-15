@@ -42,7 +42,7 @@ export default function Home() {
           background-position: center;
           background-repeat: no-repeat;
         
-          background-image: url('/images/logo-light.png');
+          background-image: url('/images/logo.png');
         
           html[data-theme='dark'] & {
             background-image: url('/images/logo.png');
