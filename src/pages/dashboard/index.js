@@ -122,7 +122,7 @@ export default function Dashboard() {
           ) : (
             <ul
               css={css`
-                margin-top: 0rem;
+                margin-top: 3.5rem;
                 list-style: none;
               `}
             >
@@ -149,7 +149,7 @@ export default function Dashboard() {
 
                       @media (max-width: 720px) {
                         display: block;
-                        margin: 0rem 0;
+                        margin: 2rem 0;
 
                         a {
                           width: 100%;
