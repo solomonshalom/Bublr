@@ -114,7 +114,7 @@ export default function Dashboard() {
           {posts.length === 0 ? (
             <p
               css={css`
-                margin-top: 2.5rem;
+                margin-top: .1rem;
               `}
             >
               Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
