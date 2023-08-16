@@ -85,7 +85,7 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-          <div style={{ display: 'flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
+          <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
           <p>//</p>
           </div>
 
