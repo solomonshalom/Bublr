@@ -26,32 +26,24 @@ export default function Home() {
   return (
     <div>
       <div
-        css={css`
-          margin-top: 0rem;
-          margin-bottom: .2rem;
-          position: relative;
-          right: 1rem;
+css={css`
+                margin-top: 0rem;
+                margin-bottom: 0.2rem;
+                position: relative;
+                right: 1rem;
 
-          @media (max-width: 500px) {
-            margin-bottom: 1rem;
-          }
+                @media (max-width: 500px) {
+                    margin-bottom: 1rem;
+                }
 
-          width: 120px;
-          height: 120px;
-        
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: contain;
-        
-          background-image: url('/images/logo.png')
-        
-          html[data-theme='dark'] & {
-          background-image: url('/images/logo.png');
+              width: 120px;
+              height: 120px;
 
-          background-size: contain;
-          
-          }
-        `}
+              background-image: url('/images/logo.png');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+`}
       ></div>
       <h1
         css={css`
