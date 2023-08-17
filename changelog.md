@@ -17,4 +17,11 @@ This is still considered beta due to the now-and-then code changes happening whi
 # Alabaster - Beta (14 Aug'23)
 FINALLY, we're officially in Beta! W/ a production DB and a Guide tab added - this will be a game-changer! There are still going to be a lot of commits being pushed but nothing that will potentially break (Can't promise!). The styling has also been made better and optimized for both Mobile and Desktop. 
 
-P.S - Every Glory and Honor is to my Lord and Saviour, Jesus Christ! Couldn't have done it w/o him, for he gave me the wisdom that I needed! :D
+P.S - Every Glory and Honor is to our Lord and Saviour, Jesus Christ! Couldn't have done it w/o him, for he gave me the wisdom that I needed! :D
+
+# Brown - Production (17th Aug'23)
+WOHOO! We did it, the production version of The Abyss is up and ready to be used! W/ everything set-up and after initial tests, The Abyss is ready to run and explore the beautiful world of the Internet.
+
+A major bug that does still exists, is the NodeJS version error (As documented in the first version [Build]). Though, we're launching the production version of The Abyss due to the fact that the error not really affecting any users and that we have tons of time to find the ultimate fix. 
+
+P.S - God Is Good, All The Time!
