@@ -36,20 +36,20 @@ export default function Home() {
             margin-bottom: 1rem;
           }
 
-          width: 120px; /* Adjust the desired width in pixels */
-          height: 120px; /* Adjust the desired height in pixels */
+          width: 120px;
+          height: 120px;
         
           background-position: center;
           background-repeat: no-repeat;
+          background-size: contain;
         
-          background-image: url('/images/logo.png') {
-            background-size: contain;
-          }
+          background-image: url('/images/logo.png')
         
           html[data-theme='dark'] & {
-            background-image: url('/images/logo.png');
+          background-image: url('/images/logo.png');
 
-            background-size: contain;
+          background-size: contain;
+          
           }
         `}
       ></div>
