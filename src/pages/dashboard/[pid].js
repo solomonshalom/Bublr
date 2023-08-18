@@ -11,7 +11,6 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useDocumentData } from 'react-firebase-hooks/firestore'
 import {
   ArrowLeftIcon,
-  CheckIcon,
   Cross2Icon,
   DotsVerticalIcon,
   FontBoldIcon,
@@ -440,7 +439,7 @@ function Editor({ post }) {
                       setSlugErr(false)
                     }}
                   >
-                    <CheckIcon />
+                    ✔
                   </IconButton>
                 </div>
               </form>
