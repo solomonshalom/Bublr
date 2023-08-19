@@ -245,7 +245,16 @@ export default function ProfileSettingsModal(props) {
           Change your profile details and make sure to hit save when you&apos;re
           done.
         </Dialog.Description>
-
+        <Dialog.Description
+          css={css`
+            margin: 1rem 0 0.5rem 0;
+            max-width: 20rem;
+            color: var(--grey-3);
+            font-size: 0.9rem;
+          `}
+        >
+        If logged in anonymous, make sure not to sign out as you will lose your access to the account
+        </Dialog.Description>
         <ProfileEditor uid={props.uid} />
 
         <Dialog.Close
