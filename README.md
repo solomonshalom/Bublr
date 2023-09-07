@@ -16,6 +16,12 @@
 
 - **Private and Secure**: Your submissions are your own. We do not store personal information nor do we sell them, it's you and you only who owns your data.
 
+## Packages // Weapons
+
+The Abyss also has a new-sub-repo (If that make sense, hopefully), known as the Packages or if your feeling for something different, they are also called [Weapons](https://theabyss.ink/solomonlijo/guideofabyss). These are typically plugins that are independent of The Abyss but do enhance it's experiance, currently I've published the first weapon of choice, [Zen](https://zen.theabyss.ink) - an ultra(beautiful) platform to articulate your thoughts before plublishing it and while you could do this inside of The Abyss, Zen is designed to be more minimal w/ no distraction whatsover. OH, also - it's [open-source](https://github.com/solomonshalom/zen)
+
+We will soon launch a space for developers to create their packages and publish them! 
+
 ## Getting Started
 
 1. Visit [The Abyss](https://theabyss.ink) in your web browser.
