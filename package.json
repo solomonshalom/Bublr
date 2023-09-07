@@ -8,7 +8,7 @@
     "start": "npm run start"
   },
   "engines" : { 
-    "node" : "16.20.1"
+    "node" : "16.20.2"
   },
   
   "dependencies": {
