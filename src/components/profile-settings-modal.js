@@ -1,3 +1,4 @@
+'use client'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { useState, useEffect } from 'react'
@@ -42,153 +43,151 @@ function Editor({ user }) {
     setClientUser(user)
   }, [user])
 
-  return (
-    <>
-      <div
-        css={css`
-          margin: 1.5rem 0 2.5rem 0;
+  return <>
+    <div
+      css={css`
+        margin: 1.5rem 0 2.5rem 0;
 
-          font-size: 0.9rem;
+        font-size: 0.9rem;
 
-          input,
-          textarea {
-            width: 20em;
+        input,
+        textarea {
+          width: 20em;
+        }
+
+        textarea {
+          min-height: 12em;
+          resize: none;
+        }
+
+        div {
+          margin-bottom: 1.5rem;
+        }
+      `}
+    >
+      <div>
+        <StyledLabel htmlFor="profile-display-name">Display Name</StyledLabel>
+        <Input
+          id="profile-display-name"
+          type="text"
+          value={clientUser.displayName}
+          onChange={e =>
+            setClientUser(prevUser => ({
+              ...prevUser,
+              displayName: e.target.value,
+            }))
           }
-
-          textarea {
-            min-height: 12em;
-            resize: none;
-          }
-
-          div {
-            margin-bottom: 1.5rem;
-          }
-        `}
-      >
-        <div>
-          <StyledLabel htmlFor="profile-display-name">Display Name</StyledLabel>
-          <Input
-            id="profile-display-name"
-            type="text"
-            value={clientUser.displayName}
-            onChange={e =>
-              setClientUser(prevUser => ({
-                ...prevUser,
-                displayName: e.target.value,
-              }))
-            }
-          />
-        </div>
-        <div>
-          <StyledLabel htmlFor="profile-username">Name (*Please do not capitalize it)</StyledLabel>
-          <Input
-            id="profile-username"
-            type="text"
-            value={clientUser.name}
-            onChange={e => {
-              setUsernameErr(false)
-              setClientUser(prevUser => ({
-                ...prevUser,
-                name: e.target.value,
-              }))
-            }}
-          />
-          {usernameErr !== null && (
-            <p
-              css={css`
-                font-size: 0.9rem;
-                color: var(--grey-3);
-                width: 20rem;
-                margin-top: 1rem;
-              `}
-            >
-              {usernameErr}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <StyledLabel htmlFor="profile-about">About</StyledLabel>
-          <Textarea
-            id="profile-about"
-            value={clientUser.about}
-            onChange={e =>
-              setClientUser(prevUser => ({
-                ...prevUser,
-                about: e.target.value,
-              }))
-            }
-          />
-        </div>
+        />
+      </div>
+      <div>
+        <StyledLabel htmlFor="profile-username">Name (*Please do not capitalize it)</StyledLabel>
+        <Input
+          id="profile-username"
+          type="text"
+          value={clientUser.name}
+          onChange={e => {
+            setUsernameErr(false)
+            setClientUser(prevUser => ({
+              ...prevUser,
+              name: e.target.value,
+            }))
+          }}
+        />
+        {usernameErr !== null && (
+          <p
+            css={css`
+              font-size: 0.9rem;
+              color: var(--grey-3);
+              width: 20rem;
+              margin-top: 1rem;
+            `}
+          >
+            {usernameErr}
+          </p>
+        )}
       </div>
 
-      <p
-        css={css`
-          font-size: 0.9rem;
-          max-width: 20rem;
-          margin-bottom: 1.5rem;
-          margin-top: -1rem;
-          word-wrap: break-word;
-
-          a {
-            text-decoration: none;
-            color: inherit;
-            font-style: italic;
-            border-bottom: 1px dotted var(--grey-3);
+      <div>
+        <StyledLabel htmlFor="profile-about">About</StyledLabel>
+        <Textarea
+          id="profile-about"
+          value={clientUser.about}
+          onChange={e =>
+            setClientUser(prevUser => ({
+              ...prevUser,
+              about: e.target.value,
+            }))
           }
-        `}
-      >
-        See your profile live at:{' '}
-        <a target="_blank" rel="noreferrer" href={`/${user.name}`}>
-          theabyss.ink/{user.name}
-        </a>
-          <br/>
-          <br/>
-          {/*It's our Lord and Saviour, Jesus Christ who helped us make it! It's not out of our own wisdom but it was provided by God!*/}
-        <p>Made w/ ❤️ near a 🌴</p>
-      </p>
-      <Button
-        css={css`
-          margin-left: auto;
-          font-size: 0.9rem;
-        `}
-        outline
-        disabled={
-          user.name === clientUser.name &&
-          user.displayName === clientUser.displayName &&
-          user.about === clientUser.about &&
-          !usernameErr
+        />
+      </div>
+    </div>
+
+    <p
+      css={css`
+        font-size: 0.9rem;
+        max-width: 20rem;
+        margin-bottom: 1.5rem;
+        margin-top: -1rem;
+        word-wrap: break-word;
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          font-style: italic;
+          border-bottom: 1px dotted var(--grey-3);
         }
-        onClick={async () => {
-          if (clientUser.name !== user.name) {
-            let nameClashing = await userWithNameExists(clientUser.name)
-            if (nameClashing) {
-              setUsernameErr('That username is in use already.')
-              return
-            } else if (clientUser.name === '') {
-              setUsernameErr('Username cannot be empty.')
-              return
-            } else if (!clientUser.name.match(/^[a-z0-9-]+$/i)) {
-              setUsernameErr(
-                'Username can only consist of letters (a-z,A-Z), numbers (0-9) and dashes (-).',
-              )
-              return
-            } else if (clientUser.name === 'dashboard 🕹️') {
-              setUsernameErr('That username is reserved.')
-              return
-            }
+      `}
+    >
+      See your profile live at:{' '}
+      <a target="_blank" rel="noreferrer" href={`/${user.name}`}>
+        theabyss.ink/{user.name}
+      </a>
+        <br/>
+        <br/>
+        {/*It's our Lord and Saviour, Jesus Christ who helped us make it! It's not out of our own wisdom but it was provided by God!*/}
+      <p>Made w/ ❤️ near a 🌴</p>
+    </p>
+    <Button
+      css={css`
+        margin-left: auto;
+        font-size: 0.9rem;
+      `}
+      outline
+      disabled={
+        user.name === clientUser.name &&
+        user.displayName === clientUser.displayName &&
+        user.about === clientUser.about &&
+        !usernameErr
+      }
+      onClick={async () => {
+        if (clientUser.name !== user.name) {
+          let nameClashing = await userWithNameExists(clientUser.name)
+          if (nameClashing) {
+            setUsernameErr('That username is in use already.')
+            return
+          } else if (clientUser.name === '') {
+            setUsernameErr('Username cannot be empty.')
+            return
+          } else if (!clientUser.name.match(/^[a-z0-9-]+$/i)) {
+            setUsernameErr(
+              'Username can only consist of letters (a-z,A-Z), numbers (0-9) and dashes (-).',
+            )
+            return
+          } else if (clientUser.name === 'dashboard 🕹️') {
+            setUsernameErr('That username is reserved.')
+            return
           }
+        }
 
-          let toSave = { ...clientUser }
-          delete toSave.id
-          await firestore.collection('users').doc(user.id).set(toSave)
-          setUsernameErr(null)
-        }}
-      >
-        Save changes
-      </Button>
-    </>
-  )
+        let toSave = { ...clientUser }
+        delete toSave.id
+        await firestore.collection('users').doc(user.id).set(toSave)
+        setUsernameErr(null)
+      }}
+    >
+      Save changes
+    </Button>
+  </>;
 }
 
 function ProfileEditor({ uid }) {

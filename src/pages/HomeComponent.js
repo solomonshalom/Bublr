@@ -1,18 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import Head from 'next/head'
-import { css } from '@emotion/react'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { css } from '@emotion/react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
-import firebase, { auth } from '../lib/firebase'
-import { setUser, userWithIDExists } from '../lib/db'
+import firebase, { auth } from '../lib/firebase';
+import { setUser, userWithIDExists } from '../lib/db';
 
-import meta from '../components/meta'
-import Spinner from '../components/spinner'
-import Container from '../components/container'
-import Button, { LinkButton } from '../components/button'
+import meta from '../components/meta';
+import Spinner from '../components/spinner';
+import Container from '../components/container';
+import Button, { LinkButton } from '../components/button';
 
-export default function Home() {
-  const [user, loading, error] = useAuthState(auth)
+export default function HomeComponent() {
+  const [user, loading, error] = useAuthState(auth);
 
   if (error) {
     return (
@@ -20,30 +19,30 @@ export default function Home() {
         <p>Oop, we&apos;ve had an error:</p>
         <pre>{JSON.stringify(error)}</pre>
       </>
-    )
+    );
   }
 
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 0.2rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 0.2rem;
+          position: relative;
+          right: 1rem;
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
 
-              width: 120px;
-              height: 120px;
+          width: 120px;
+          height: 120px;
 
-              background-image: url('/images/logo.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
+          background-image: url('/images/logo.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        `}
       ></div>
       <h1
         css={css`
@@ -108,10 +107,10 @@ css={css`
         >
           <Button
             onClick={() => {
-              const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
-              auth.signInWithPopup(googleAuthProvider).then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid)
-                
+              const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+              auth.signInWithPopup(googleAuthProvider).then(async (cred) => {
+                let userExists = await userWithIDExists(cred.user.uid);
+
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -120,18 +119,18 @@ css={css`
                     posts: [],
                     photo: cred.user.photoURL,
                     readingList: [],
-                  })
+                  });
                 }
-              })
+              });
             }}
           >
             User ⛹️
           </Button>
           <Button
             onClick={() => {
-              auth.signInAnonymously().then(async cred => {
+              auth.signInAnonymously().then(async (cred) => {
                 let userExists = await userWithIDExists(cred.user.uid);
-                
+
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -149,28 +148,25 @@ css={css`
         </div>
       )}
     </div>
-  )
+  );
 }
 
-Home.getLayout = function HomeLayout(page) {
+HomeComponent.getLayout = function HomeComponentLayout(page) {
   return (
     <Container maxWidth="420px">
-      <Head>
-        {meta({
-          title: 'The Abyss',
-          description:
-            'The Abyss',
-          url: '/',
-          image: '/images/socials.jpg',
-        })}
-        {/* Umami Tag */}
-        <script
-          async
-          src="https://analytics.umami.is/script.js"
-          data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
-        ></script>
-      </Head>
+      <Metadata
+        title="The Abyss"
+        description="The Abyss"
+        url="/"
+        image="/images/socials.jpg"
+      />
+      {/* Umami Tag */}
+      <script
+        async
+        src="https://analytics.umami.is/script.js"
+        data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
+      ></script>
       {page}
     </Container>
-  )
-}
+  );
+};

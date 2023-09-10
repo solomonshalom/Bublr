@@ -1,30 +1,27 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
-import Head from 'next/head'
 import { css } from '@emotion/react'
 import { htmlToText } from 'html-to-text'
 
-import { truncate } from '../../lib/utils'
-import { getUserByName } from '../../lib/db'
+import { truncate } from '../../src/lib/utils'
+import { getUserByName } from '../../src/lib/db'
 
-import meta from '../../components/meta'
-import Container from '../../components/container'
+import meta from '../../src/components/meta'
+import Container from '../../src/components/container'
 
 export default function Profile({ user }) {
   return (
     <Container maxWidth="640px">
-      <Head>
-        {meta({
-          title: `${user.displayName} (@${user.name}) / The Abyss`,
-          description: user.about,
-          url: `/${user.name}`,
-          image: user.photo,
-        })}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Metadata
+        title={`${user.displayName} (@${user.name}) / The Abyss`}
+        description={user.about}
+        url={`/${user.name}`}
+        image={user.photo}
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"
+      />
 
       <img
         src={user.photo}
@@ -102,43 +99,39 @@ export default function Profile({ user }) {
             </p>
 
             <Link href={`/${user.name}/${post.slug}`}>
-              <a>
-                <h3
-                  css={css`
-                    font-size: 1rem;
-                    font-weight: 400;
-                    margin-bottom: 0.6rem;
-                  `}
-                >
-                  {post.title ? htmlToText(post.title) : 'Untitled'}
-                </h3>
-
-                <p
-                  css={css`
-                    max-width: 25rem;
-                    color: var(--grey-4);
-                    font-family: 'Newsreader', serif;
-                    line-height: 1.5em;
-                  `}
-                >
-                  {post.excerpt
-                    ? htmlToText(post.excerpt)
-                    : truncate(htmlToText(post.content), 25)}
-                </p>
-              </a>
+              <h3
+                css={css`
+                  font-size: 1rem;
+                  font-weight: 400;
+                  margin-bottom: 0.6rem;
+                `}
+              >
+                {post.title ? htmlToText(post.title) : 'Untitled'}
+              </h3>
+              <p
+                css={css`
+                  max-width: 25rem;
+                  color: var(--grey-4);
+                  font-family: 'Newsreader', serif;
+                  line-height: 1.5em;
+                `}
+              >
+                {post.excerpt
+                  ? htmlToText(post.excerpt)
+                  : truncate(htmlToText(post.content), 25)}
+              </p>
             </Link>
           </li>
         ))}
       </ul>
     </Container>
-  )
+  );
 }
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   return {
-    paths: [],
-    fallback: 'blocking',
-  }
+    dynamicParams: true,
+  };
 }
 
 export async function getStaticProps({ params }) {
@@ -162,4 +155,22 @@ export async function getStaticProps({ params }) {
     console.log(err)
     return { notFound: true }
   }
+}
+
+export async function fetchProfileData(username) {
+  const res = await fetch(`/api/profile/${username}`, { cache: 'force-cache' })
+  const data = await res.json()
+  return data
+}
+
+export async function fetchPostData(username, slug) {
+  const res = await fetch(`/api/post/${username}/${slug}`, { cache: 'no-store' })
+  const data = await res.json()
+  return data
+}
+
+export async function fetchUserData(username) {
+  const res = await fetch(`/api/user/${username}`, { cache: 'force-cache' })
+  const data = await res.json()
+  return data
 }
