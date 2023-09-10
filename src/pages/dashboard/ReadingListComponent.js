@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
-import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
@@ -51,61 +50,62 @@ function List({ uid }) {
       >
         {list.map(post => (
           <li key={post.id}>
-            <Link href={`/${post.author.name}/${post.slug}`}>
-              <a style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h3
-                  css={css`
-                    font-size: 1rem;
-                    font-weight: 400;
-                    margin-bottom: 0.6rem;
-                  `}
-                >
-                  {post.title ? htmlToText(post.title) : 'Untitled'}
-                </h3>
+            <Link
+              href={`/${post.author.name}/${post.slug}`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
 
-                <div
+              <h3
+                css={css`
+                  font-size: 1rem;
+                  font-weight: 400;
+                  margin-bottom: 0.6rem;
+                `}
+              >
+                {post.title ? htmlToText(post.title) : 'Untitled'}
+              </h3>
+              <div
+                css={css`
+                  display: flex;
+                  align-items: center;
+                  color: var(--grey-3);
+                  font-size: 0.9rem;
+                `}
+              >
+                <img
+                  src={post.author.photo}
+                  alt="Profile picture"
                   css={css`
-                    display: flex;
-                    align-items: center;
-                    color: var(--grey-3);
-                    font-size: 0.9rem;
+                    width: 1.5rem;
+                    border-radius: 1rem;
+                    margin-right: 0.75rem;
                   `}
-                >
-                  <img
-                    src={post.author.photo}
-                    alt="Profile picture"
-                    css={css`
-                      width: 1.5rem;
-                      border-radius: 1rem;
-                      margin-right: 0.75rem;
-                    `}
-                  />
-                  <p>{post.author.displayName}</p>
-                </div>
+                />
+                <p>{post.author.displayName}</p>
+              </div>
+              <p
+                css={css`
+                  color: var(--grey-4);
+                  font-family: 'Newsreader', serif;
+                  line-height: 1.5em;
+                  margin-top: 0.5rem;
+                `}
+              >
+                {post.excerpt
+                  ? htmlToText(post.excerpt)
+                  : truncate(htmlToText(post.content), 25)}
+              </p>
 
-                <p
-                  css={css`
-                    color: var(--grey-4);
-                    font-family: 'Newsreader', serif;
-                    line-height: 1.5em;
-                    margin-top: 0.5rem;
-                  `}
-                >
-                  {post.excerpt
-                    ? htmlToText(post.excerpt)
-                    : truncate(htmlToText(post.content), 25)}
-                </p>
-              </a>
             </Link>
           </li>
         ))}
       </ul>
-    )
+    );
 
   return <p>You have no posts saved to read later 😔</p>
 }
 
-export default function ReadingList() {
+export default function ReadingListComponent() {
   const router = useRouter()
   const [user, userLoading, userError] = useAuthState(auth)
 
@@ -121,7 +121,7 @@ export default function ReadingList() {
     <>
       <Header>
         <Link href="/dashboard">
-          <a>Dashboard</a>
+          Dashboard
         </Link>
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
         <button onClick={() => auth.signOut()}>Sign Out</button>
@@ -138,10 +138,10 @@ export default function ReadingList() {
         <Spinner />
       )}
     </>
-  )
+  );
 }
 
-ReadingList.getLayout = function ReadingListLayout(page) {
+ReadingListComponent.getLayout = function ReadingListComponentLayout(page) {
   return (
     <Container
       maxWidth="640px"
@@ -149,13 +149,15 @@ ReadingList.getLayout = function ReadingListLayout(page) {
         margin-top: 5rem;
       `}
     >
-      <Head>
-        <title>Reading List / The Abyss</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Metadata
+        title="Reading List / The Abyss"
+        link={[
+          {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap'
+          }
+        ]}
+      />
       {page}
     </Container>
   )
