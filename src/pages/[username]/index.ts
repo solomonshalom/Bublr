@@ -10,7 +10,29 @@ import { getUserByName } from '../../lib/db'
 import meta from '../../components/meta'
 import Container from '../../components/container'
 
-export default function Profile({ user }) {
+interface Post {
+  id: string;
+  lastEdited: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  published: boolean;
+}
+
+interface User {
+  displayName: string;
+  name: string;
+  about: string;
+  photo: string;
+  posts: Post[];
+}
+
+interface ProfileProps {
+  user: User;
+}
+
+export default function Profile({ user }: ProfileProps) {
   return (
     <Container maxWidth="640px">
       <Head>
@@ -62,7 +84,7 @@ export default function Profile({ user }) {
           margin-top: 3rem;
         `}
       >
-        {user.posts.map(post => (
+        {user.posts.map((post: Post) => (
           <li
             key={post.id}
             css={css`
@@ -141,19 +163,19 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { username: string } }) {
   const { username } = params
 
   try {
     const user = await getUserByName(username)
-    user.posts = user.posts.map(p => ({
+    user.posts = user.posts.map((p: Post) => ({
       ...p,
       lastEdited: p.lastEdited.toDate().getTime(),
     }))
-    user.posts.sort((a, b) => {
+    user.posts.sort((a: Post, b: Post) => {
       return b.lastEdited - a.lastEdited
     })
-    user.posts = user.posts.filter(p => p.published)
+    user.posts = user.posts.filter((p: Post) => p.published)
     return {
       props: { user },
       revalidate: 1,

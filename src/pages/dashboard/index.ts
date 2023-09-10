@@ -17,10 +17,10 @@ import Spinner from '../../components/spinner'
 import Container from '../../components/container'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
 
-function formatDate(date) {
-  const year = date.getFullYear()
-  let month = '' + (date.getMonth() + 1)
-  let day = '' + date.getDate()
+function formatDate(date: Date): string {
+  const year: number = date.getFullYear()
+  let month: string = '' + (date.getMonth() + 1)
+  let day: string = '' + date.getDate()
 
   if (month.length < 2) month = '0' + month
   if (day.length < 2) day = '0' + day

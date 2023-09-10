@@ -13,7 +13,7 @@ import Input, { Textarea } from './input'
 import ModalOverlay from './modal-overlay'
 import Button, { IconButton } from './button'
 
-const StyledLabel = props => (
+const StyledLabel: React.FC = (props) => (
   <label
     css={css`
       display: block;
@@ -27,8 +27,17 @@ const StyledLabel = props => (
   </label>
 )
 
-function Editor({ user }) {
-  const [clientUser, setClientUser] = useState({
+interface ClientUser {
+  name: string
+  displayName: string
+  about: string
+  posts: any[]
+  photo: string
+  readingList: any[]
+}
+
+const Editor: React.FC<{ user: ClientUser }> = ({ user }) => {
+  const [clientUser, setClientUser] = useState<ClientUser>({
     name: '',
     displayName: '',
     about: '',
@@ -36,7 +45,7 @@ function Editor({ user }) {
     photo: '',
     readingList: [],
   })
-  const [usernameErr, setUsernameErr] = useState(null)
+  const [usernameErr, setUsernameErr] = useState<string | null>(null)
 
   useEffect(() => {
     setClientUser(user)
@@ -71,8 +80,8 @@ function Editor({ user }) {
             id="profile-display-name"
             type="text"
             value={clientUser.displayName}
-            onChange={e =>
-              setClientUser(prevUser => ({
+            onChange={(e) =>
+              setClientUser((prevUser) => ({
                 ...prevUser,
                 displayName: e.target.value,
               }))
@@ -85,9 +94,9 @@ function Editor({ user }) {
             id="profile-username"
             type="text"
             value={clientUser.name}
-            onChange={e => {
+            onChange={(e) => {
               setUsernameErr(false)
-              setClientUser(prevUser => ({
+              setClientUser((prevUser) => ({
                 ...prevUser,
                 name: e.target.value,
               }))
@@ -112,8 +121,8 @@ function Editor({ user }) {
           <Textarea
             id="profile-about"
             value={clientUser.about}
-            onChange={e =>
-              setClientUser(prevUser => ({
+            onChange={(e) =>
+              setClientUser((prevUser) => ({
                 ...prevUser,
                 about: e.target.value,
               }))
@@ -191,8 +200,8 @@ function Editor({ user }) {
   )
 }
 
-function ProfileEditor({ uid }) {
-  const [user, userLoading, userError] = useDocumentData(
+const ProfileEditor: React.FC<{ uid: string }> = ({ uid }) => {
+  const [user, userLoading, userError] = useDocumentData<ClientUser>(
     firestore.doc(`users/${uid}`),
     {
       idField: 'id',
@@ -213,7 +222,7 @@ function ProfileEditor({ uid }) {
   return <Spinner />
 }
 
-export default function ProfileSettingsModal(props) {
+const ProfileSettingsModal: React.FC<{ uid: string; Trigger: React.FC }> = (props) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
@@ -271,3 +280,5 @@ export default function ProfileSettingsModal(props) {
     </Dialog.Root>
   )
 }
+
+export default ProfileSettingsModal

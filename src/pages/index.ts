@@ -26,24 +26,24 @@ export default function Home() {
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 0.2rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 0.2rem;
+          position: relative;
+          right: 1rem;
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
 
-              width: 120px;
-              height: 120px;
+          width: 120px;
+          height: 120px;
 
-              background-image: url('/images/logo.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
+          background-image: url('/images/logo.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        `}
       ></div>
       <h1
         css={css`
@@ -109,9 +109,9 @@ css={css`
           <Button
             onClick={() => {
               const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
-              auth.signInWithPopup(googleAuthProvider).then(async cred => {
+              auth.signInWithPopup(googleAuthProvider).then(async (cred) => {
                 let userExists = await userWithIDExists(cred.user.uid)
-                
+
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -129,9 +129,9 @@ css={css`
           </Button>
           <Button
             onClick={() => {
-              auth.signInAnonymously().then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid);
-                
+              auth.signInAnonymously().then(async (cred) => {
+                let userExists = await userWithIDExists(cred.user.uid)
+
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -139,9 +139,9 @@ css={css`
                     about: 'Say something about yourself 😃 or 🔫',
                     posts: [],
                     readingList: [],
-                  });
+                  })
                 }
-              });
+              })
             }}
           >
             Anonymous 🤿
@@ -152,14 +152,13 @@ css={css`
   )
 }
 
-Home.getLayout = function HomeLayout(page) {
+Home.getLayout = function HomeLayout(page: JSX.Element) {
   return (
     <Container maxWidth="420px">
       <Head>
         {meta({
           title: 'The Abyss',
-          description:
-            'The Abyss',
+          description: 'The Abyss',
           url: '/',
           image: '/images/socials.jpg',
         })}

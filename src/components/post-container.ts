@@ -1,7 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
+import { css, SerializedStyles } from '@emotion/react'
 
-const PostContainer = props => (
+interface PostContainerProps {
+  children: React.ReactNode;
+}
+
+const PostContainer: React.FC<PostContainerProps> = ({ children }) => (
   <div
     css={css`
       margin-top: 2rem;
@@ -102,10 +106,9 @@ const PostContainer = props => (
         }
       }
     `}
-    {...props}
   >
-    {props.children}
+    {children}
   </div>
 )
 
-export default PostContainer
+export default PostContainer;

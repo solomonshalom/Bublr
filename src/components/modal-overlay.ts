@@ -12,7 +12,7 @@ const fadeIn = keyframes`
     }
 `
 
-const ModalOverlay = props => (
+const ModalOverlay: React.FC = (props) => (
   <Overlay
     css={css`
       background: rgba(0, 0, 0, 0.2);

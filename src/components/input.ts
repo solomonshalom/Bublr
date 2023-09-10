@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
+import { css, CSSObject } from '@emotion/react'
 
-const inputStyles = css`
+const inputStyles: CSSObject = css`
   display: block;
   width: 17em;
   padding: 0.75em 1.5em;
@@ -16,7 +16,7 @@ const inputStyles = css`
   }
 `
 
-const Input = props => (
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = props => (
   <input
     {...props}
     css={css`
@@ -25,7 +25,7 @@ const Input = props => (
   />
 )
 
-export const Textarea = props => (
+export const Textarea: React.FC<React.TextareaHTMLAttributes<HTMLTextAreaElement>> = props => (
   <textarea
     {...props}
     css={css`

@@ -15,8 +15,8 @@ import Container from '../../components/container'
 import { IconButton } from '../../components/button'
 import PostContainer from '../../components/post-container'
 
-function AddToReadingListButton({ uid, pid }) {
-  const [user, setUser] = useState({ readingList: [] })
+function AddToReadingListButton({ uid, pid }: { uid: string, pid: string }) {
+  const [user, setUser] = useState<{ readingList: string[] }>({ readingList: [] })
   const [inList, setInList] = useState(false)
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function AddToReadingListButton({ uid, pid }) {
         setUser({
           ...user,
           readingList: inList
-            ? user.readingList.filter(id => id != pid)
+            ? user.readingList.filter(id => id !== pid)
             : [...user.readingList, pid],
         })
       }}
@@ -92,7 +92,7 @@ function AddToReadingListButton({ uid, pid }) {
   )
 }
 
-export default function Post({ post }) {
+export default function Post({ post }: { post: any }) {
   const [user, _loading, _error] = useAuthState(auth)
 
   return (
@@ -186,7 +186,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { username: string, slug: string } }) {
   const { username, slug } = params
 
   try {

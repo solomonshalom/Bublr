@@ -1,11 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import { css } from '@emotion/react'
-/*
-&:hover {
-    background: var(--grey-4);
-  }
-*/
+
 const buttonStyles = css`
   display: block;
   border: none;
@@ -31,19 +27,7 @@ const buttonStyles = css`
     color: var(--grey-2);
   }
 `
-/*
-  &:hover {
-    background: var(--grey-1);
-    border: 1px solid var(--grey-3);
-  }
-*/
 
-/*
-    &:hover {
-      background: var(--grey-1);
-      border: 1px solid var(--grey-3);
-    }
-*/
 const outlineButtonStyles = css`
   ${buttonStyles}
 
@@ -67,9 +51,9 @@ const outlineButtonStyles = css`
   }
 `
 
-export default function Button(props) {
+export default function Button(props: { outline?: boolean; children: React.ReactNode }) {
   if (props.outline) {
-    let { outline, ...rest } = props
+    const { outline, ...rest } = props
 
     return (
       <button css={outlineButtonStyles} {...rest}>
@@ -84,9 +68,9 @@ export default function Button(props) {
   )
 }
 
-export function LinkButton(props) {
+export function LinkButton(props: { outline?: boolean; children: React.ReactNode }) {
   if (props.outline) {
-    let { outline, ...rest } = props
+    const { outline, ...rest } = props
 
     return (
       <Link {...rest}>
@@ -144,7 +128,7 @@ const iconButtonStyles = css`
   }
 `
 
-export function IconButton(props) {
+export function IconButton(props: { children: React.ReactNode }) {
   return (
     <button
       css={css`
@@ -157,7 +141,7 @@ export function IconButton(props) {
   )
 }
 
-export function LinkIconButton(props) {
+export function LinkIconButton(props: { children: React.ReactNode }) {
   return (
     <Link {...props}>
       <a

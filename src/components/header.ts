@@ -1,7 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
+import { css, SerializedStyles } from '@emotion/react'
 
-const Header = props => (
+interface HeaderProps {
+  children: React.ReactNode;
+}
+
+const Header: React.FC<HeaderProps> = (props: HeaderProps) => (
   <header
     css={css`
       display: flex;

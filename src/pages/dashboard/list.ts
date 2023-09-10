@@ -16,13 +16,26 @@ import { truncate } from '../../lib/utils'
 import { firestore, auth } from '../../lib/firebase'
 import { getPostByID, getUserByID } from '../../lib/db'
 
-function List({ uid }) {
-  const [list, setList] = useState([])
+interface Post {
+  id: string;
+  title: string;
+  slug: string;
+  author: {
+    name: string;
+    displayName: string;
+    photo: string;
+  };
+  excerpt: string;
+  content: string;
+}
+
+function List({ uid }: { uid: string }) {
+  const [list, setList] = useState<Post[]>([])
 
   useEffect(() => {
     ;(async () => {
       const user = await getUserByID(uid)
-      const postPromises = user.readingList.map(async pid => {
+      const postPromises = user.readingList.map(async (pid: string) => {
         const post = await getPostByID(pid)
         const author = await firestore
           .collection('users')
@@ -49,7 +62,7 @@ function List({ uid }) {
           }
         `}
       >
-        {list.map(post => (
+        {list.map((post: Post) => (
           <li key={post.id}>
             <Link href={`/${post.author.name}/${post.slug}`}>
               <a style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -141,7 +154,7 @@ export default function ReadingList() {
   )
 }
 
-ReadingList.getLayout = function ReadingListLayout(page) {
+ReadingList.getLayout = function ReadingListLayout(page: JSX.Element) {
   return (
     <Container
       maxWidth="640px"
