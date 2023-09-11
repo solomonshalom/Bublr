@@ -7,8 +7,13 @@
     "build": "next build",
     "start": "npm run start"
   },
+  
   "engines" : { 
     "node" : "16.20.2"
+  },
+  
+  "config": {
+    "legacy-peer-deps": true
   },
   
   "dependencies": {
