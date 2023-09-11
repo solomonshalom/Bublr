@@ -46,7 +46,7 @@ The Abyss is intentionally kept simple and focused on individual expression. As 
 
 ## Support
 
-For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com).
+For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com). To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
 
 ## Credits & History
 
