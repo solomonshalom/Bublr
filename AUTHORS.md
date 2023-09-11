@@ -20,6 +20,7 @@ To contributors: please add your name to the list when you submit a patch to the
 
 * **[Jennifer Shin](https://github.com/jennifershinshin)**
    * Fixed a deep-vulnerbility 🔐
+   * The very first contributor!
    * Documented the fix and it's initial-solution
 * **[Solomon Shalom Lijo](https://github.com/solomonshalom)**
    * Added Umami Analytics
