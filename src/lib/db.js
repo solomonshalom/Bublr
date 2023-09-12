@@ -1,4 +1,4 @@
-import firebase, { firestore } from './firebase'
+import { firestore } from './firebase';
 
 export async function userWithIDExists(id) {
   const doc = await firestore.collection('users').doc(id).get()
