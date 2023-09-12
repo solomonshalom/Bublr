@@ -22,12 +22,12 @@
     "@radix-ui/react-icons": "^1.0.3",
     "@radix-ui/react-id": "^0.0.6",
     "@react-firebase/auth": "^0.2.10",
-    "@tiptap/extension-image": "^2.0.0-beta.15",
-    "@tiptap/extension-link": "^2.0.0-beta.19",
-    "@tiptap/extension-placeholder": "^2.0.0-beta.26",
-    "@tiptap/react": "^2.0.0-beta.53",
-    "@tiptap/starter-kit": "^2.0.0-beta.83",
-    "@tiptap/pm":"^2.0.4",
+    "@tiptap/extension-image": "^2.0.0",
+    "@tiptap/extension-link": "^2.0.0",
+    "@tiptap/extension-placeholder": "^2.0.0",
+    "@tiptap/react": "^2.0.0",
+    "@tiptap/starter-kit": "^2.0.0",
+    "@tiptap/pm": "^2.0.0",
     "firebase": "^8.7.1",
     "html-to-text": "^8.0.0",
     "modern-normalize": "^1.1.0",
@@ -37,7 +37,8 @@
     "react-dom": "17.0.2",
     "react-firebase-hooks": "^3.0.4",
     "sanitize-html": "^2.4.0",
-    "tinykeys": "^1.2.0"
+    "tinykeys": "^1.2.0",
+    "typescript": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
