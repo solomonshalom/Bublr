@@ -18,6 +18,7 @@ import {
   Link2Icon,
   LinkBreak2Icon,
   StrikethroughIcon,
+  Pencil1Icon
 } from '@radix-ui/react-icons'
 import { useEditor, EditorContent, BubbleMenu } from '@tiptap/react'
 
@@ -27,6 +28,9 @@ import Image from '@tiptap/extension-image'
 import Document from '@tiptap/extension-document'
 import Paragraph from '@tiptap/extension-paragraph'
 import Placeholder from '@tiptap/extension-placeholder'
+
+// Adding support for highlight in tiptap
+import Highlight from '@tiptap/extension-highlight'
 
 import * as Dialog from '@radix-ui/react-dialog'
 
@@ -154,6 +158,8 @@ function SelectionMenu({ editor }) {
           >
             <FontItalicIcon />
           </button>
+          <button onClick={addHighlight}>Highlight</button>
+           <Pencil1Icon />
           <button
             onClick={() => editor.chain().focus().toggleStrike().run()}
             className={editor.isActive('strike') ? 'is-active' : ''}
@@ -269,11 +275,17 @@ function Editor({ post }) {
       Link,
       Image,
       Placeholder,
+      Highlight, // Add the Highlight extension
     ],
     onUpdate: ({ editor: newEditor }) => {
       setClientPost(prevPost => ({ ...prevPost, content: newEditor.getHTML() }))
     },
-  })
+  });
+
+  function addHighlight() {
+    // Create a function to add a highlight to the selected text
+    contentEditor.chain().focus().toggleHighlight().run();
+  }
 
   function addImage() {
     const url = window.prompt('URL')
@@ -570,7 +582,7 @@ function Editor({ post }) {
           margin-bottom: 5rem;
         `}
       >
-        {contentEditor && <SelectionMenu editor={contentEditor} />}
+        {contentEditor && <SelectionMenu editor={contentEditor} addHighlight={addHighlight} />}
         <EditorContent editor={contentEditor} />
       </PostContainer>
     </>
