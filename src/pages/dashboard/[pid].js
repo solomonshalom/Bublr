@@ -44,7 +44,7 @@ import ModalOverlay from '../../components/modal-overlay'
 import PostContainer from '../../components/post-container'
 import Button, { IconButton, LinkIconButton } from '../../components/button'
 
-function SelectionMenu({ editor }) {
+function SelectionMenu({ editor, addHighlight }) {
   const [editingLink, setEditingLink] = useState(false)
   const [url, setUrl] = useState('')
 
