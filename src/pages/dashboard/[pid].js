@@ -44,7 +44,7 @@ import ModalOverlay from '../../components/modal-overlay'
 import PostContainer from '../../components/post-container'
 import Button, { IconButton, LinkIconButton } from '../../components/button'
 
-function SelectionMenu({ editor, addHighlight }) {
+function SelectionMenu({ editor }) {
   const [editingLink, setEditingLink] = useState(false)
   const [url, setUrl] = useState('')
 
@@ -158,7 +158,7 @@ function SelectionMenu({ editor, addHighlight }) {
           >
             <FontItalicIcon />
           </button>
-          <button onClick={addHighlight}>Highlight</button>
+          <button onClick={() => editor.chain().focus().toggleHighlight().run()}>Highlight</button>
            <Pencil1Icon />
           <button
             onClick={() => editor.chain().focus().toggleStrike().run()}
@@ -281,11 +281,6 @@ function Editor({ post }) {
       setClientPost(prevPost => ({ ...prevPost, content: newEditor.getHTML() }))
     },
   });
-
-  function addHighlight() {
-    // Create a function to add a highlight to the selected text
-    contentEditor.chain().focus().toggleHighlight().run();
-  }
 
   function addImage() {
     const url = window.prompt('URL')
@@ -582,7 +577,7 @@ function Editor({ post }) {
           margin-bottom: 5rem;
         `}
       >
-        {contentEditor && <SelectionMenu editor={contentEditor} addHighlight={addHighlight} />}
+        {contentEditor && <SelectionMenu editor={contentEditor} />}
         <EditorContent editor={contentEditor} />
       </PostContainer>
     </>
