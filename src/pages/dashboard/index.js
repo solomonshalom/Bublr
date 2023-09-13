@@ -89,12 +89,6 @@ export default function Dashboard() {
           <p>//</p>
           </div>
 
-          <a 
-          href="https://theabyss.ink/solomonlijo/guideofabyss"
-          style={{
-            textDecoration: 'none', 
-          }}
-          >
            <Button 
              style={{
                       position: 'relative',
@@ -106,10 +100,12 @@ export default function Dashboard() {
                       font-size: 0.9rem;
                         margin-right: auto;
                 `}
+            onClick={async () => {
+              router.push(`https://theabyss.ink/solomonlijo/guideofabyss`)
+            }}
             >
             Guide Me
           </Button>
-            </a>
 
           {posts.length === 0 ? (
             <p
