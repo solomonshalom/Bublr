@@ -28,6 +28,7 @@
     "@tiptap/react": "^2.0.0",
     "@tiptap/starter-kit": "^2.0.0",
     "@tiptap/pm": "^2.0.0",
+    "@tiptap/extension-highlight":"^2.1.8",
     "firebase": "^8.7.1",
     "html-to-text": "^8.0.0",
     "modern-normalize": "^1.1.0",
