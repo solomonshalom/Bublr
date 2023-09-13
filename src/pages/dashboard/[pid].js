@@ -159,9 +159,10 @@ function SelectionMenu({ editor }) {
             <FontItalicIcon />
           </button>
           <button 
-          onClick={() => editor.chain().focus().toggleHighlight({ color: '#b197fc' }).run()}
-          className={editor.isActive('highlight', { color: '#b197fc' }) ? 'is-active' : ''}
+            onClick={() => editor.chain().focus().toggleHighlight({ color: '#b197fc' }).run()}
+            className={editor.isActive('highlight', { color: '#b197fc' }) ? 'is-active' : ''}
           >
+
            <Pencil1Icon />
            </button>
           <button
@@ -279,7 +280,7 @@ function Editor({ post }) {
       Link,
       Image,
       Placeholder,
-      Highlight, // Add the Highlight extension
+      Highlight.configure({ multicolor: true }), // Add the Highlight extension
     ],
     onUpdate: ({ editor: newEditor }) => {
       setClientPost(prevPost => ({ ...prevPost, content: newEditor.getHTML() }))
