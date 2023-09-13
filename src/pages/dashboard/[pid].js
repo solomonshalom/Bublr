@@ -158,8 +158,12 @@ function SelectionMenu({ editor }) {
           >
             <FontItalicIcon />
           </button>
-          <button onClick={() => editor.chain().focus().toggleHighlight().run()}>Highlight</button>
+          <button 
+          onClick={() => editor.chain().focus().toggleHighlight().run()}
+          className={editor.isActive('highlight', { color: '#b197fc' }) ? 'is-active' : ''}
+          >
            <Pencil1Icon />
+           </button>
           <button
             onClick={() => editor.chain().focus().toggleStrike().run()}
             className={editor.isActive('strike') ? 'is-active' : ''}
