@@ -6,6 +6,10 @@ The Abyss is developed and maintained by a community of people, from diverse bac
   <img src="https://contributors-img.web.app/image?repo=solomonshalom/the-abyss" width = 500/>
 </p>
 
+<div align="center">
+<sub>Made with <a href="https://contrib.rocks">contrib.rocks</a>.</sub>
+</div>
+
 Maintainers (sorted alphabetically)
 ---------------------------------------
 Maintainers are actively supporting the project and have made substantial contributions to the repository.<br>
