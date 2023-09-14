@@ -20,7 +20,7 @@
 
 The Abyss also has a new-sub-repo (If that make sense, hopefully), known as the Packages or if your feeling for something different, they are also called [Weapons](https://theabyss.ink/solomonlijo/guideofabyss). These are typically plugins that are independent of The Abyss but do enhance it's experiance, currently I've published the first weapon of choice, [Zen](https://zen.theabyss.ink) - an ultra(beautiful) platform to articulate your thoughts before plublishing it and while you could do this inside of The Abyss, Zen is designed to be more minimal w/ no distraction whatsover. OH, also - it's [open-source](https://github.com/solomonshalom/zen) <3
 
-We will soon launch a space for developers to create their weapons and publish them! 
+We will soon launch a space for developers to create their weapons and publish them!
 
 ## Getting Started
 
@@ -31,7 +31,10 @@ We will soon launch a space for developers to create their weapons and publish t
 
 ## Contributing
 
-The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [hello@theabyss.com](mailto:hello@theabyss.ink.
+The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [hello@theabyss.com](mailto:hello@theabyss.ink).
+
+*ALSO, If contributing or mainting, please do it through the `highlights` branch, that's our preview // developing branch for our codebase.*
+
 
 To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
 
