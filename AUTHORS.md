@@ -2,6 +2,10 @@ Contributors to The Abyss
 ============================
 The Abyss is developed and maintained by a community of people, from diverse backgrounds with one goal - to build an ultra-minimal social media platform to unite the world in love, not war.
 
+<p align="center">
+  <img src="https://contributors-img.web.app/image?repo=solomonshalom/the-abyss" width = 500/>
+</p>
+
 Maintainers (sorted alphabetically)
 ---------------------------------------
 Maintainers are actively supporting the project and have made substantial contributions to the repository.<br>

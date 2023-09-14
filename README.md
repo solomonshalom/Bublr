@@ -31,7 +31,9 @@ We will soon launch a space for developers to create their weapons and publish t
 
 ## Contributing
 
-The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [contact@theabyss.com](mailto:contact@theabyss.com).
+The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [hello@theabyss.com](mailto:hello@theabyss.ink.
+
+To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
 
 ### How to develop through localhost:
 
@@ -46,7 +48,7 @@ The Abyss is intentionally kept simple and focused on individual expression. As 
 
 ## Support
 
-For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com). To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
+For any inquiries, troubleshooting, or feedback, please contact us at [support@theabyss.com](mailto:support@theabyss.com).
 
 ## Credits & History
 
