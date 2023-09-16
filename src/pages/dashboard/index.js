@@ -61,7 +61,7 @@ export default function Dashboard() {
   }, [searchInput])
 
   const filterPosts = () => {
-    let tempPosts = posts.filter(p => p.title.includes(searchInput))
+    let tempPosts = posts.filter(p => p.title.toLowerCase().includes(searchInput.toLowerCase()))
     setFilteredPosts(tempPosts);
   }
 
