@@ -151,7 +151,7 @@ export default function Dashboard() {
                   margin-top: 2rem;
                 `}
               >
-                No posts matched your search query...
+                Yep, nothing macthes your search results, I wonder why 🤔
               </p>
               ) : (
                 <ul
