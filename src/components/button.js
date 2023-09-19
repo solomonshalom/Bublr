@@ -89,30 +89,30 @@ export function LinkButton(props) {
     let { outline, ...rest } = props
 
     return (
-      <Link {...rest}>
-        <a
-          css={css`
-            ${outlineButtonStyles}
-            display: inline-block;
-          `}
-        >
-          {props.children}
-        </a>
-      </Link>
-    )
+      (<Link
+        {...rest}
+        css={css`
+          ${outlineButtonStyles}
+          display: inline-block;
+        `}>
+
+        {props.children}
+
+      </Link>)
+    );
   }
   return (
-    <Link {...props}>
-      <a
-        css={css`
-          ${buttonStyles}
-          display: inline-block;
-        `}
-      >
-        {props.children}
-      </a>
-    </Link>
-  )
+    (<Link
+      {...props}
+      css={css`
+        ${buttonStyles}
+        display: inline-block;
+      `}>
+
+      {props.children}
+
+    </Link>)
+  );
 }
 
 const iconButtonStyles = css`
@@ -159,16 +159,15 @@ export function IconButton(props) {
 
 export function LinkIconButton(props) {
   return (
-    <Link {...props}>
-      <a
-        css={css`
-          ${iconButtonStyles}
-          color: inherit;
-        `}
-        {...props}
-      >
-        {props.children}
-      </a>
-    </Link>
-  )
+    (<Link
+      {...props}
+      css={css`
+        ${iconButtonStyles}
+        color: inherit;
+      `}>
+
+      {props.children}
+
+    </Link>)
+  );
 }

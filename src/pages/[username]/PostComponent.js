@@ -1,3 +1,4 @@
+'use client'
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import Head from 'next/head'
@@ -8,12 +9,12 @@ import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import firebase, { firestore, auth } from '../../lib/firebase'
-import { getPostByUsernameAndSlug, getUserByID } from '../../lib/db'
+import { getPostComponentByUsernameAndSlug, getUserByID } from '../../lib/db'
 
 import meta from '../../components/meta'
 import Container from '../../components/container'
 import { IconButton } from '../../components/button'
-import PostContainer from '../../components/post-container'
+import PostComponentContainer from '../../components/post-container'
 
 function AddToReadingListButton({ uid, pid }) {
   const [user, setUser] = useState({ readingList: [] })
@@ -92,27 +93,23 @@ function AddToReadingListButton({ uid, pid }) {
   )
 }
 
-export default function Post({ post }) {
+export default function PostComponent({ post }) {
   const [user, _loading, _error] = useAuthState(auth)
 
   return (
     <Container maxWidth="640px">
-      <Head>
-        {meta({
-          title: post.title,
-          description: post.excerpt,
-          url: `/${post.author.name}/${post.slug}`,
-          type: 'article',
-        })}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Helmet>
+  <title>{post.title}</title>
+  <meta name="description" content={post.excerpt} />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+    rel="stylesheet"
+  />
+</Helmet>
 
       <h1
         css={css`
@@ -142,22 +139,22 @@ export default function Post({ post }) {
           `}
         />
         <p>
-          <Link href={`/${post.author.name}`}>
-            <a
-              style={{
-                color: 'inherit',
-                textDecoration: 'none',
-                borderBottom: `1px dotted var(--grey-2)`,
-              }}
-            >
-              {post.author.displayName}
-            </a>
+          <Link
+            href={`/${post.author.name}`}
+            style={{
+              color: 'inherit',
+              textDecoration: 'none',
+              borderBottom: `1px dotted var(--grey-2)`,
+            }}>
+
+            {post.author.displayName}
+
           </Link>{' '}
           / {new Date(post.lastEdited).toDateString()}
         </p>
       </div>
 
-      <PostContainer
+      <PostComponentContainer
         dangerouslySetInnerHTML={{
           __html: sanitize(post.content, {
             allowedTags: sanitize.defaults.allowedTags.concat(['img']),
@@ -176,13 +173,13 @@ export default function Post({ post }) {
         ''
       )}
     </Container>
-  )
+  );
 }
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   return {
+    dynamicParams: 'blocking',
     paths: [],
-    fallback: 'blocking',
   }
 }
 
@@ -190,7 +187,7 @@ export async function getStaticProps({ params }) {
   const { username, slug } = params
 
   try {
-    const post = await getPostByUsernameAndSlug(username, slug)
+    const post = await getPostComponentByUsernameAndSlug(username, slug)
     if (!post.published) {
       return { notFound: true }
     }

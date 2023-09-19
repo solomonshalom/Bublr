@@ -1,3 +1,4 @@
+'use client'
 // Those sweet writer links for them to share it to the world <3
 
 /** @jsxImportSource @emotion/react */
@@ -295,301 +296,299 @@ function Editor({ post }) {
     }
   }
 
-  return (
-    <>
-      <Head>
-        <title>
-          {clientPost.title
-            ? `Editing post: ${clientPost.title} / The Abyss`
-            : 'Editing...'}
-        </title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+  return <>
+    <Head>
+      <title>
+        {clientPost.title
+          ? `Editing post: ${clientPost.title} / The Abyss`
+          : 'Editing...'}
+      </title>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap"
+        rel="stylesheet"
+      />
+    </Head>
 
-      <header
-        css={css`
-          display: flex;
-          align-items: center;
+    <header
+      css={css`
+        display: flex;
+        align-items: center;
 
-          button:first-of-type {
-            margin-left: auto;
-          }
+        button:first-of-type {
+          margin-left: auto;
+        }
 
-          button:last-child {
-            margin-left: 1rem;
-          }
-        `}
-      >
-        <LinkIconButton href="/dashboard">
-          <ArrowLeftIcon />
-        </LinkIconButton>
-        <Button
-          css={css`
-            margin-left: auto;
-            margin-right: 1rem;
-            font-size: 0.9rem;
-          `}
-          outline
-          disabled={
-            post.title === clientPost.title &&
-            post.content === clientPost.content &&
-            post.excerpt === clientPost.excerpt
-          }
-          onClick={saveChanges}
-        >
-          Save changes
-        </Button>
-
-        <Dialog.Root>
-          <Dialog.Trigger as={IconButton}>
-            <DotsVerticalIcon />
-          </Dialog.Trigger>
-
-          <ModalOverlay />
-
-          <Dialog.Content
-            css={css`
-              background: var(--grey-1);
-              border-radius: 0.5rem;
-              padding: 1.5rem;
-              position: fixed;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            `}
-          >
-            <Dialog.Title>Post Settings</Dialog.Title>
-            <Dialog.Description
-              css={css`
-                margin: 1rem 0 0.5rem 0;
-                max-width: 20rem;
-                color: var(--grey-3);
-                font-size: 0.9rem;
-              `}
-            >
-              Make changes to your post&apos;s metadata.
-            </Dialog.Description>
-            <div
-              css={css`
-                margin: 1.5rem 0;
-              `}
-            >
-              <form>
-                <label
-                  htmlFor="post-slug"
-                  css={css`
-                    display: block;
-                    margin-bottom: 0.5rem;
-                  `}
-                >
-                  Slug
-                </label>
-                <div
-                  css={css`
-                    display: flex;
-                    align-items: center;
-                  `}
-                >
-                  <div>
-                    <Input
-                      type="text"
-                      id="post-slug"
-                      value={clientPost.slug}
-                      onChange={e => {
-                        setSlugErr(false)
-                        setClientPost(prevPost => ({
-                          ...prevPost,
-                          slug: e.target.value,
-                        }))
-                      }}
-                    />
-                    {slugErr && (
-                      <p
-                        css={css`
-                          margin-top: 1rem;
-                          font-size: 0.9rem;
-                        `}
-                      >
-                        Invalid slug. That slug is already in use or contains
-                        special characters.
-                      </p>
-                    )}
-                  </div>
-                  <IconButton
-                    type="submit"
-                    disabled={clientPost.slug === post.slug || !clientPost.slug}
-                    onClick={async e => {
-                      e.preventDefault()
-
-                      let slugClashing = await postWithUserIDAndSlugExists(
-                        post.author,
-                        clientPost.slug,
-                      )
-
-                      if (
-                        slugClashing ||
-                        !clientPost.slug.match(/^[a-z0-9-]+$/i)
-                      ) {
-                        setSlugErr(true)
-                        return
-                      }
-
-                      let postCopy = { ...post }
-                      delete postCopy.id
-                      postCopy.slug = clientPost.slug
-                      await firestore
-                        .collection('posts')
-                        .doc(post.id)
-                        .update(postCopy)
-                      setSlugErr(false)
-                    }}
-                  >
-                    ✔
-                  </IconButton>
-                </div>
-              </form>
-            </div>
-
-            <div
-              css={css`
-                display: flex;
-
-                button {
-                  margin-left: 0;
-                  margin-right: 1rem;
-                }
-
-                button:last-child {
-                  margin-right: auto;
-                }
-
-                button {
-                  font-size: 0.9rem;
-                }
-              `}
-            >
-              <Button
-                onClick={async () => {
-                  await firestore
-                    .collection('posts')
-                    .doc(post.id)
-                    .update({ published: !post.published })
-                }}
-              >
-                {post.published ? 'Make Draft' : 'Publish'}
-              </Button>
-              <Button
-                outline
-                onClick={async () => {
-                  await removePostForUser(post.author, post.id)
-                  router.push('/dashboard')
-                }}
-              >
-                Delete
-              </Button>
-            </div>
-
-            {post.published && userdata ? (
-              <p
-                css={css`
-                  margin: 1.5rem 0 0 0;
-                  font-size: 0.9rem;
-                  max-width: 15rem;
-                  word-wrap: break-word;
-
-                  a {
-                    text-decoration: none;
-                    color: inherit;
-                    font-style: italic;
-                    border-bottom: 1px dotted var(--grey-3);
-                  }
-                `}
-              >
-                See your post live at:{' '}
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={`/${userdata.name}/${post.slug}`}
-                >
-                  theabyss.ink/{userdata.name}/{post.slug}
-                </a>
-              </p>
-            ) : (
-              ''
-            )}
-
-            <Dialog.Close
-              as={IconButton}
-              css={css`
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-              `}
-            >
-              <Cross2Icon />
-            </Dialog.Close>
-          </Dialog.Content>
-        </Dialog.Root>
-      </header>
-
+        button:last-child {
+          margin-left: 1rem;
+        }
+      `}
+    >
+      <LinkIconButton href="/dashboard">
+        <ArrowLeftIcon />
+      </LinkIconButton>
       <Button
-        outline
         css={css`
+          margin-left: auto;
+          margin-right: 1rem;
           font-size: 0.9rem;
-          margin-top: 5rem;
-          margin-bottom: 2.5rem;
         `}
-        onClick={() => {
-          addImage()
-        }}
+        outline
+        disabled={
+          post.title === clientPost.title &&
+          post.content === clientPost.content &&
+          post.excerpt === clientPost.excerpt
+        }
+        onClick={saveChanges}
       >
-        + Image
+        Save changes
       </Button>
 
-      <div
-        css={css`
-          font-size: 1.5rem;
-          font-weight: 500;
-        `}
-      >
-        <EditorContent editor={titleEditor} />
-      </div>
+      <Dialog.Root>
+        <Dialog.Trigger as={IconButton}>
+          <DotsVerticalIcon />
+        </Dialog.Trigger>
 
-      <div
-        css={css`
-          margin: 1.5rem 0;
-          font-size: 1.15rem;
-          font-weight: 500;
-          color: var(--grey-4);
-        `}
-      >
-        <EditorContent editor={excerptEditor} />
-      </div>
+        <ModalOverlay />
 
-      <PostContainer
-        css={css`
-          .ProseMirror-focused {
-            outline: none;
-          }
+        <Dialog.Content
+          css={css`
+            background: var(--grey-1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          `}
+        >
+          <Dialog.Title>Post Settings</Dialog.Title>
+          <Dialog.Description
+            css={css`
+              margin: 1rem 0 0.5rem 0;
+              max-width: 20rem;
+              color: var(--grey-3);
+              font-size: 0.9rem;
+            `}
+          >
+            Make changes to your post&apos;s metadata.
+          </Dialog.Description>
+          <div
+            css={css`
+              margin: 1.5rem 0;
+            `}
+          >
+            <form>
+              <label
+                htmlFor="post-slug"
+                css={css`
+                  display: block;
+                  margin-bottom: 0.5rem;
+                `}
+              >
+                Slug
+              </label>
+              <div
+                css={css`
+                  display: flex;
+                  align-items: center;
+                `}
+              >
+                <div>
+                  <Input
+                    type="text"
+                    id="post-slug"
+                    value={clientPost.slug}
+                    onChange={e => {
+                      setSlugErr(false)
+                      setClientPost(prevPost => ({
+                        ...prevPost,
+                        slug: e.target.value,
+                      }))
+                    }}
+                  />
+                  {slugErr && (
+                    <p
+                      css={css`
+                        margin-top: 1rem;
+                        font-size: 0.9rem;
+                      `}
+                    >
+                      Invalid slug. That slug is already in use or contains
+                      special characters.
+                    </p>
+                  )}
+                </div>
+                <IconButton
+                  type="submit"
+                  disabled={clientPost.slug === post.slug || !clientPost.slug}
+                  onClick={async e => {
+                    e.preventDefault()
 
-          margin-bottom: 5rem;
-        `}
-      >
-        {contentEditor && <SelectionMenu editor={contentEditor} />}
-        <EditorContent editor={contentEditor} />
-      </PostContainer>
-    </>
-  )
+                    let slugClashing = await postWithUserIDAndSlugExists(
+                      post.author,
+                      clientPost.slug,
+                    )
+
+                    if (
+                      slugClashing ||
+                      !clientPost.slug.match(/^[a-z0-9-]+$/i)
+                    ) {
+                      setSlugErr(true)
+                      return
+                    }
+
+                    let postCopy = { ...post }
+                    delete postCopy.id
+                    postCopy.slug = clientPost.slug
+                    await firestore
+                      .collection('posts')
+                      .doc(post.id)
+                      .update(postCopy)
+                    setSlugErr(false)
+                  }}
+                >
+                  ✔
+                </IconButton>
+              </div>
+            </form>
+          </div>
+
+          <div
+            css={css`
+              display: flex;
+
+              button {
+                margin-left: 0;
+                margin-right: 1rem;
+              }
+
+              button:last-child {
+                margin-right: auto;
+              }
+
+              button {
+                font-size: 0.9rem;
+              }
+            `}
+          >
+            <Button
+              onClick={async () => {
+                await firestore
+                  .collection('posts')
+                  .doc(post.id)
+                  .update({ published: !post.published })
+              }}
+            >
+              {post.published ? 'Make Draft' : 'Publish'}
+            </Button>
+            <Button
+              outline
+              onClick={async () => {
+                await removePostForUser(post.author, post.id)
+                router.push('/dashboard')
+              }}
+            >
+              Delete
+            </Button>
+          </div>
+
+          {post.published && userdata ? (
+            <p
+              css={css`
+                margin: 1.5rem 0 0 0;
+                font-size: 0.9rem;
+                max-width: 15rem;
+                word-wrap: break-word;
+
+                a {
+                  text-decoration: none;
+                  color: inherit;
+                  font-style: italic;
+                  border-bottom: 1px dotted var(--grey-3);
+                }
+              `}
+            >
+              See your post live at:{' '}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={`/${userdata.name}/${post.slug}`}
+              >
+                theabyss.ink/{userdata.name}/{post.slug}
+              </a>
+            </p>
+          ) : (
+            ''
+          )}
+
+          <Dialog.Close
+            as={IconButton}
+            css={css`
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+            `}
+          >
+            <Cross2Icon />
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Root>
+    </header>
+
+    <Button
+      outline
+      css={css`
+        font-size: 0.9rem;
+        margin-top: 5rem;
+        margin-bottom: 2.5rem;
+      `}
+      onClick={() => {
+        addImage()
+      }}
+    >
+      + Image
+    </Button>
+
+    <div
+      css={css`
+        font-size: 1.5rem;
+        font-weight: 500;
+      `}
+    >
+      <EditorContent editor={titleEditor} />
+    </div>
+
+    <div
+      css={css`
+        margin: 1.5rem 0;
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: var(--grey-4);
+      `}
+    >
+      <EditorContent editor={excerptEditor} />
+    </div>
+
+    <PostContainer
+      css={css`
+        .ProseMirror-focused {
+          outline: none;
+        }
+
+        margin-bottom: 5rem;
+      `}
+    >
+      {contentEditor && <SelectionMenu editor={contentEditor} />}
+      <EditorContent editor={contentEditor} />
+    </PostContainer>
+  </>;
 }
 
-export default function PostEditor() {
+export default function PostEditorComponent() {
   const router = useRouter()
   const [user, userLoading, userError] = useAuthState(auth)
   const [post, postLoading, postError] = useDocumentData(
@@ -624,7 +623,7 @@ export default function PostEditor() {
   return <Spinner />
 }
 
-PostEditor.getLayout = function PostEditorLayout(page) {
+PostEditorComponent.getLayout = function PostEditorComponentLayout(page) {
   return (
     <Container
       maxWidth="640px"

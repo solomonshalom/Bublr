@@ -1,3 +1,4 @@
+'use client'
 /** @jsxImportSource @emotion/react */
 import Head from 'next/head'
 import { css } from '@emotion/react'
@@ -11,7 +12,7 @@ import Spinner from '../components/spinner'
 import Container from '../components/container'
 import Button, { LinkButton } from '../components/button'
 
-export default function Home() {
+export default function HomeComponent() {
   const [user, loading, error] = useAuthState(auth)
 
   if (error) {
@@ -152,24 +153,23 @@ css={css`
   )
 }
 
-Home.getLayout = function HomeLayout(page) {
+HomeComponent.getLayout = function HomeComponentLayout(page) {
   return (
     <Container maxWidth="420px">
-      <Head>
-        {meta({
-          title: 'The Abyss',
-          description:
-            'The Abyss',
-          url: '/',
-          image: '/images/socials.jpg',
-        })}
-        {/* Umami Tag */}
-        <script
-          async
-          src="https://analytics.umami.is/script.js"
-          data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
-        ></script>
-      </Head>
+      <Helmet>
+  <title>The Abyss</title>
+  <meta name="description" content="The Abyss" />
+  <meta property="og:title" content="The Abyss" />
+  <meta property="og:description" content="The Abyss" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/images/socials.jpg" />
+  {/* Umami Tag */}
+  <script
+    async
+    src="https://analytics.umami.is/script.js"
+    data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
+  ></script>
+</Helmet>
       {page}
     </Container>
   )

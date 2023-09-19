@@ -1,15 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import Head from 'next/head'
+import { Helmet } from 'react-helmet'
 import { css } from '@emotion/react'
 
-import Container from '../components/container'
+import Container from '../src/components/container'
 
 export default function NotFound() {
   return (
     <Container maxWidth="640px">
-      <Head>
-        <title>Not Found</title>
-      </Head>
+      <Helmet>
+  <title>Not Found</title>
+</Helmet>
       <h1>404</h1>
       <p
         css={css`
