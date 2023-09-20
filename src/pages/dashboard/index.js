@@ -16,7 +16,9 @@ import Header from '../../components/header'
 import Spinner from '../../components/spinner'
 import Container from '../../components/container'
 import Input from '../../components/input'
+import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
+import { BiSearch } from "react-icons/bi";
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -38,11 +40,6 @@ export default function Dashboard() {
     { idField: 'id' },
   )
   const [filteredPosts, setFilteredPosts] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-
-  useEffect(() => {
-    setFilteredPosts(posts)
-  }, posts)
 
   useEffect(() => {
     console.log(user, userLoading, userError)
@@ -52,17 +49,19 @@ export default function Dashboard() {
     }
   }, [router, user, userLoading, userError])
 
+  // Set initial filteredPosts
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      if (posts) filterPosts();
-    }, 500)
+    setFilteredPosts(posts)
+  }, posts)
 
-    return () => clearTimeout(delayDebounceFn)
-  }, [searchInput])
+  // Get the filtered posts from Search component
+  const getFilteredPosts = (fp) => {
+    setFilteredPosts(fp)
+  }
 
-  const filterPosts = () => {
-    let tempPosts = posts.filter(p => p.title.toLowerCase().includes(searchInput.toLowerCase()))
-    setFilteredPosts(tempPosts);
+  // Get the searchInput from Search component
+  const getSearchInput = (searchInput) => {
+    return searchInput
   }
 
   return (
@@ -91,11 +90,32 @@ export default function Dashboard() {
         </>
       ) : user && filteredPosts && posts ? (
         <>
-          <Button
+        <div css={css`display: flex; flex-wrap: wrap; gap: 1em`}>
+
+           <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+            <Button 
+              // style={{
+              //           position: 'relative',
+              //           bottom: '3.6rem',
+              //           left: '12rem'
+              //         }}
+              outline
+              css={css`
+                        font-size: 0.9rem;
+                          margin: auto;
+                  `}
+              >
+              Guide Me
+            </Button>
+          </Link>
+
+          <p style={{"margin-top": "0.8em"}}>//</p>
+
+        <Button
             outline
             css={css`
               font-size: 0.9rem;
-              margin-right: auto;
+              margin: auto;
             `}
             onClick={async () => {
               const newPostsId = await createPostForUser(user.uid)
@@ -105,28 +125,19 @@ export default function Dashboard() {
             Write A Post
           </Button>
 
-          <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
+          {/* <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
           <p>//</p>
-          </div>
+          </div> */}
 
-           <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-            <Button 
-              style={{
-                        position: 'relative',
-                        bottom: '3.6rem',
-                        left: '12rem'
-                      }}
-              outline
-              css={css`
-                        font-size: 0.9rem;
-                          margin-right: auto;
-                  `}
-              >
-              Guide Me
-            </Button>
-          </Link>
+          <Search
+            posts={posts}
+            isGlobalSearch={false}
+            getFilteredPosts={getFilteredPosts}
+            getSearchInput={getSearchInput}
+          ></Search>
 
-          { posts?.length === 0 && !filteredPosts ? (
+        </div>
+          { posts?.length === 0 ? (
             <p
               css={css`
                 margin-top: .1rem;
@@ -136,16 +147,7 @@ export default function Dashboard() {
             </p>
           ) : (
             <div>
-              <Input
-                id="search-posts"
-                type="text"
-                value={searchInput}
-                placeholder="Search your posts..."
-                onChange={e => {
-                  setSearchInput(e.target.value);
-                }}
-              />
-              { filteredPosts?.length === 0 && searchInput.length > 0 ? (
+              { filteredPosts?.length === 0 && getSearchInput.length > 0 ? (
               <p
                 css={css`
                   margin-top: 2rem;
