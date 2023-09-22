@@ -31,10 +31,9 @@ We will soon launch a space for developers to create their weapons and publish t
 
 ## Contributing
 
-The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free to reach out to us at [hello@theabyss.com](mailto:hello@theabyss.ink).
+The Abyss is intentionally kept simple and focused on individual expression. As such, traditional open-source contributions are always appreciated. However, if you have ideas for improving the platform's usability, security, or accessibility, even if not through code, feel free check out [CONTRIBUTING.md](CONTRIBUTING.md) or email us at [hello@theabyss.com](mailto:hello@theabyss.ink).
 
 *ALSO, If contributing or mainting, please do it through the `highlights` branch, that's our preview // developing branch for our codebase.*
-
 
 To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
 
