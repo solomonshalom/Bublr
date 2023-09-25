@@ -15,10 +15,10 @@ import Button from '../../components/button'
 import Header from '../../components/header'
 import Spinner from '../../components/spinner'
 import Container from '../../components/container'
-import Input from '../../components/input'
 import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
-import { BiSearch } from "react-icons/bi";
+import { IoCreateOutline } from "react-icons/io5";
+import { AiOutlineQuestion } from "react-icons/ai";
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -90,64 +90,73 @@ export default function Dashboard() {
         </>
       ) : user && filteredPosts && posts ? (
         <>
-        <div css={css`display: flex; flex-wrap: wrap; gap: 1em`}>
-
-           <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-            <Button 
-              // style={{
-              //           position: 'relative',
-              //           bottom: '3.6rem',
-              //           left: '12rem'
-              //         }}
-              outline
-              css={css`
-                        font-size: 0.9rem;
-                          margin: auto;
-                  `}
+          { posts.length > 0 ?
+          <div>
+            <div css={css`
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1em;
+              width: 100%;
+            `}>
+              <Button
+                outline
+                css={css`
+                  font-size: 1.3rem;
+                  padding: 0;
+                  width: 2.2em;
+                  height: 2.2em;
+                `}
+                onClick={async () => {
+                  const newPostsId = await createPostForUser(user.uid)
+                  router.push(`/dashboard/${newPostsId}`)
+                }}
               >
-              Guide Me
-            </Button>
-          </Link>
+                <IoCreateOutline
+                  css={css`
+                    margin: 0.1em 0 0 0.2em
+                  `}
+                />
+              </Button>
 
-          <p style={{"margin-top": "0.8em"}}>//</p>
-
-        <Button
-            outline
-            css={css`
-              font-size: 0.9rem;
-              margin: auto;
-            `}
-            onClick={async () => {
-              const newPostsId = await createPostForUser(user.uid)
-              router.push(`/dashboard/${newPostsId}`)
-            }}
-          >
-            Write A Post
-          </Button>
-
-          {/* <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
-          <p>//</p>
-          </div> */}
-
-          <Search
-            posts={posts}
-            isGlobalSearch={false}
-            getFilteredPosts={getFilteredPosts}
-            getSearchInput={getSearchInput}
-          ></Search>
-
-        </div>
-          { posts?.length === 0 ? (
-            <p
-              css={css`
-                margin-top: .1rem;
-              `}
-            >
-              Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
-            </p>
-          ) : (
-            <div>
-              { filteredPosts?.length === 0 && getSearchInput.length > 0 ? (
+              <Search
+                posts={posts}
+                isGlobalSearch={false}
+                getFilteredPosts={getFilteredPosts}
+                getSearchInput={getSearchInput}
+                css={css`
+                  width: 3em
+                `}
+              ></Search>
+              
+              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+                <Button 
+                  // style={{
+                  //           position: 'relative',
+                  //           bottom: '3.6rem',
+                  //           left: '12rem'
+                  //         }}
+                  outline
+                  css={css`
+                    font-size: 1.3rem;
+                    padding: 0;
+                    border-radius: 100%;
+                    position: fixed;
+                    bottom: 2em;
+                    right: 2em;
+                    width: 2.2em;
+                    height: 2.2em;
+                    text-align: center;
+                  `}
+                  >
+                  <AiOutlineQuestion 
+                    css={css`
+                      margin: 0.25em 0 0 0.05em
+                    `}
+                  />
+               </Button>
+             </Link>
+            </div>
+            { filteredPosts?.length === 0 && getSearchInput.length > 0 ? (
               <p
                 css={css`
                   margin-top: 2rem;
@@ -230,8 +239,53 @@ export default function Dashboard() {
                     ))}
                 </ul>
               )}
+          </div>
+          :
+            <div>
+              <Button
+                outline
+                css={css`
+                  font-size: 0.9rem;
+                  margin-right: auto;
+                `}
+                onClick={async () => {
+                  const newPostsId = await createPostForUser(user.uid)
+                  router.push(`/dashboard/${newPostsId}`)
+                }}
+              >
+                Write A Post
+              </Button>
+
+              <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
+              <p>//</p>
+              </div>
+
+              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+                <Button 
+                  style={{
+                            position: 'relative',
+                            bottom: '3.6rem',
+                            left: '12rem'
+                          }}
+                  outline
+                  css={css`
+                            font-size: 0.9rem;
+                            margin-right: auto;
+                      `}
+                  >
+                  Guide Me
+                </Button>
+              </Link>
+    
+              <p
+                css={css`
+                  margin-top: .1rem;
+                `}
+              >
+                Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
+              </p>
             </div>
-          )}
+          }
         </>
       ) : (
         <Spinner />

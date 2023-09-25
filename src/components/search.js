@@ -7,7 +7,7 @@ import { css } from '@emotion/react'
 
 const inputStyles = css`
   display: block;
-  width: 17em;
+  width: 100%;
   padding: 0.75em 1em 0.75em 2.5em;
   background: none;
   border: 1px solid var(--grey-2);
@@ -45,7 +45,9 @@ export default function Search(props) {
   }
 
   return (
-    <div>
+    <div css={css`
+      width: 80%;
+    `}>
       <BiSearch css={css`
         position: absolute;
         margin: 0.9em
