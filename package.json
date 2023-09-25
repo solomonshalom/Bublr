@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "dev": "next dev",
+    "dev": "yarn dev",
     "build": "next build",
     "start": "npm run start"
   },
@@ -28,13 +28,13 @@
     "@tiptap/starter-kit": "^2.0.0",
     "firebase": "^8.7.1",
     "html-to-text": "^8.0.0",
+    "iconoir-react": "^6.11.0",
     "modern-normalize": "^1.1.0",
     "next": "12.1.0",
     "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-firebase-hooks": "^3.0.4",
-    "react-icons": "^4.11.0",
     "sanitize-html": "^2.4.0",
     "tinykeys": "^1.2.0",
     "typescript": "^4.2.0"
