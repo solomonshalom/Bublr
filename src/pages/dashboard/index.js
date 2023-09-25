@@ -162,7 +162,7 @@ export default function Dashboard() {
                   margin-top: 2rem;
                 `}
               >
-                Yep, nothing macthes your search results, I wonder why 🤔
+                Yep, nothing matches your search results, I wonder why 🤔
               </p>
               ) : (
                 <ul
