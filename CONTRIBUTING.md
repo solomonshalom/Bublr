@@ -1,35 +1,6 @@
-# Contributing
+# Contributing Code of Conduct
 
-When contributing to The Abyss, please first discuss the change you wish to make via [issue](https://github.com/solomonshalom/The-Abyss/issues),
-[email](mailto:hello@theabyss.ink), or any other method with the owners of this repository before making a change. 
-
-Please note we have a code of conduct, please follow it in all your interactions with the project.
-
-## Build Steps
-
-1. Clone the Repository
-If you haven't already, clone the project repository to your local machine using Git:
-```bash
-git clone https://github.com/solomonshalom/the-abyss & cd the-abyss
-```
-
-2. If you feel a little sigma, go ahead and read the `package.json` and develop it but if you aren't (or you just want to be productive), these are the steps -
-
-- Install the Dependencies with the command `yarn install`
-- Build it with the command `yarn build`
-- Start it // Develop it through the command `yarn start` or `yarn dev`
-
-_Please also remember that there will not be a problem if your planning on using NPM or a different package manager of your choice (We recommend NPM as an alternative as we haven't tested it alongside other PMs). ALSO, Don't forget to add the ENV!_
-
-## Pull Request Process
-
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-
-2. ALSO, please do not forget to have the title of your PR as `Hello! Mom` (There is no particular reason but it will match the chain of commits :D) and mention your changes in the descriptions with the approriate labels.
-
-2. Update the `AUTHORS.md` with your name & username (Check it out to see how to do it <3). Please also include details of any new changes // fixes (Non-technical as well) that you have achieved in the Pull Request.
-
-3. You may merge the Pull Request in once you have the sign-off of two other developers, or if you  do not have permission to do that, you may request the second reviewer to merge it for you.
+We believe that every and any interaction on The Abyss should be an example on how to behave // contribute and not otherwise. Although we know that your not going to read any of what we have upholded below (To those who have, we love you!) but if you can, please do read it - I asure you that it's by no means going to be of bore interest.
 
 ### Our Pledge
 

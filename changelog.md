@@ -25,3 +25,10 @@ WOHOO! We did it, the production version of The Abyss is up and ready to be used
 A major bug that does still exists, is the NodeJS version error (As documented in the first version [Build]). Though, we're launching the production version of The Abyss due to the fact that the error not really affecting any users and that we have tons of time to find the ultimate fix. 
 
 P.S - God Is Good, All The Time!
+
+# kimono - Production (28th September'23)
+It's been pretty long since the first production launch but ever since then there hasn't exactly been a notable version that could be shown but that has changed, officially and for good. Kimono or v5 fixes a lot of bugs and has a local // global (in-progress) search w/ a unique PFP for every anonymous user :D
+
+We would also love to thank @jennifershinshin who actively worked on the search implementation and bug-fixes, we know that this wouldn't have been possible without her contributions =D
+
+More than everyone, every Glory & Honor's to our Lord & Saviour, Jesus Christ! couldn't have done it w/o God and I and my team are pretty confident about it <3
