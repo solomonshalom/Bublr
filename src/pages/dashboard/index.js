@@ -233,41 +233,6 @@ export default function Dashboard() {
           </div>
           :
             <div>
-              <Button
-                outline
-                css={css`
-                  font-size: 0.9rem;
-                  margin-right: auto;
-                `}
-                onClick={async () => {
-                  const newPostsId = await createPostForUser(user.uid)
-                  router.push(`/dashboard/${newPostsId}`)
-                }}
-              >
-                Write A Post
-              </Button>
-
-              <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '9.8rem', bottom: '1.8rem' }}>
-              <p>//</p>
-              </div>
-
-              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-                <Button 
-                  style={{
-                            position: 'relative',
-                            bottom: '3.6rem',
-                            left: '12rem'
-                          }}
-                  outline
-                  css={css`
-                            font-size: 0.9rem;
-                            margin-right: auto;
-                      `}
-                  >
-                  Guide Me
-                </Button>
-              </Link>
-    
               <p
                 css={css`
                   margin-top: .1rem;
@@ -275,6 +240,55 @@ export default function Dashboard() {
               >
                 Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
               </p>
+              <div css={css`display: flex;`}>
+                <p
+                  css={css`
+                    margin-top: 2.5em;
+                  `}
+                >
+                  Write a post to get started! -------&gt;
+                </p>
+                <Button
+                outline
+                css={css`
+                  font-size: 0.9rem;
+                  height: 3.2em;
+                  margin: 1.9em 0 0 0.8em;
+                `}
+                onClick={async () => {
+                  const newPostsId = await createPostForUser(user.uid)
+                  router.push(`/dashboard/${newPostsId}`)
+                }}
+              >
+                📝 Write A Post
+              </Button>
+              </div>
+              <div css={css`display: flex;`}>
+                <p
+                  css={css`
+                    margin-top: 2em;
+                  `}
+                >
+                  Or get some ideas here! ----------&gt;
+                </p>
+                <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+                  <Button 
+                    // style={{
+                    //           position: 'relative',
+                    //           bottom: '3.6rem',
+                    //           left: '12rem'
+                    //         }}
+                    outline
+                    css={css`
+                      font-size: 0.9rem;
+                      height: 3.2em;
+                      margin: 1.3em 0 0 0.8em;
+                    `}
+                    >
+                    🙋 Guide Me
+                  </Button>
+                </Link>
+              </div>
             </div>
           }
         </>
