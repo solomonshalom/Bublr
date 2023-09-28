@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'your-ui-library'; // Replace 'your-ui-library' with your actual UI library
-import { auth } from 'firebase'; // Import your authentication library
-import { userWithIDExists, setUser } from 'your-database-functions'; // Replace with your actual database functions
+/** @jsxImportSource @emotion/react */
+import Button, { LinkButton } from '../components/button'
+import firebase, { auth } from '../lib/firebase'
+import { setUser, userWithIDExists } from '../lib/db'
 
 const AnonymousLoginButton = () => {
   const generateRandomSeed = () => {
