@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
 import firebase, { auth } from '../lib/firebase'
 import { setUser, userWithIDExists } from '../lib/db'
@@ -127,25 +128,8 @@ css={css`
           >
             User ⛹️
           </Button>
-          <Button
-            onClick={() => {
-              auth.signInAnonymously().then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid);
-                
-                if (!userExists) {
-                  await setUser(cred.user.uid, {
-                    name: cred.user.uid,
-                    displayName: 'Anonymous',
-                    about: 'Say something about yourself 😃 or 🔫',
-                    posts: [],
-                    readingList: [],
-                  });
-                }
-              });
-            }}
-          >
-            Anonymous 🤿
-          </Button>
+          {/*Implementing an Avater functionality + Makes code much better! Praise, God (Couldn't have done it w/o him <3):D*/}
+          <AnonymousLoginButton />
         </div>
       )}
     </div>
