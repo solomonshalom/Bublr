@@ -233,27 +233,11 @@ export default function Dashboard() {
           </div>
           :
             <div>
-              <p
-                css={css`
-                  margin-top: .1rem;
-                `}
-              >
-                Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
-              </p>
-              <div css={css`display: flex;`}>
-                <p
-                  css={css`
-                    margin-top: 2.5em;
-                  `}
-                >
-                  Write a post to get started! -------&gt;
-                </p>
-                <Button
+              <Button
                 outline
                 css={css`
                   font-size: 0.9rem;
-                  height: 3.2em;
-                  margin: 1.9em 0 0 0.8em;
+                  margin-right: auto;
                 `}
                 onClick={async () => {
                   const newPostsId = await createPostForUser(user.uid)
@@ -262,33 +246,34 @@ export default function Dashboard() {
               >
                 📝 Write A Post
               </Button>
+
+              <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '10.5em', bottom: '1.8rem' }}>
+              <p>//</p>
               </div>
-              <div css={css`display: flex;`}>
-                <p
+
+              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+                <Button 
+                  style={{
+                            position: 'relative',
+                            bottom: '3.6rem',
+                            left: '12rem'
+                          }}
+                  outline
                   css={css`
-                    margin-top: 2em;
-                  `}
-                >
-                  Or get some ideas here! ----------&gt;
-                </p>
-                <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-                  <Button 
-                    // style={{
-                    //           position: 'relative',
-                    //           bottom: '3.6rem',
-                    //           left: '12rem'
-                    //         }}
-                    outline
-                    css={css`
-                      font-size: 0.9rem;
-                      height: 3.2em;
-                      margin: 1.3em 0 0 0.8em;
-                    `}
-                    >
-                    🙋 Guide Me
-                  </Button>
-                </Link>
-              </div>
+                            font-size: 0.9rem;
+                              margin-right: auto;
+                      `}
+                  >
+                  🙋 Guide Me
+                </Button>
+              </Link>
+              <p
+                css={css`
+                  margin-top: .1rem;
+                `}
+              >
+                Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
+              </p>
             </div>
           }
         </>
