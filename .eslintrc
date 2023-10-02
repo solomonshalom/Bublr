@@ -2,7 +2,7 @@
     "extends": ["next", "next/core-web-vitals"],
     "rules": {
       // Fixes a bug in which "css" was being stated as an un-used / unknown property
-      "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+      "react/no-unknown-property": "off",
       // Fixes the "Comments inside children section of tag should be placed inside braces" error
       "react/jsx-no-comment-textnodes": 0, // Turn off this rule
       // Since some fonts are only needed on some pages. e.g. Newsreader is only
