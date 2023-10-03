@@ -52,7 +52,7 @@ css={css`
               background-repeat: no-repeat;
               background-size: contain;
             `}
-      ></div>
+          ></div>
       <h1
         css={css`
           font-size: 1.5rem;
