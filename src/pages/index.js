@@ -12,6 +12,12 @@ import Spinner from '../components/spinner'
 import Container from '../components/container'
 import Button, { LinkButton } from '../components/button'
 
+// Function to generate a random number between 1 and 3
+function getRandomLogoNumber() {
+  return Math.floor(Math.random() * 3) + 1; // Generates a random number between 1 and 3
+}
+
+
 export default function Home() {
   const [user, loading, error] = useAuthState(auth)
 
@@ -40,11 +46,12 @@ css={css`
               width: 120px;
               height: 120px;
 
-              background-image: url('/images/logo.png');
+              /* Construct the URL for the random logo image */
+              background-image: url('/images/logo-' + randomLogoNumber + '.png');
               background-position: center;
               background-repeat: no-repeat;
               background-size: contain;
-`}
+            `}
       ></div>
       <h1
         css={css`
