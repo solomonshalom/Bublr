@@ -12,14 +12,22 @@ import Spinner from '../components/spinner'
 import Container from '../components/container'
 import Button, { LinkButton } from '../components/button'
 
-// Function to generate a random number between 1 and 3
-function getRandomLogoNumber() {
-  return Math.floor(Math.random() * 3) + 1; // Generates a random number between 1 and 3
-}
-
-
 export default function Home() {
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading, error] = useAuthState(auth);
+  const [randomLogo, setRandomLogo] = useState('');
+
+  useEffect(() => {
+    // Function to generate a random number between 1 and 3
+    function getRandomLogoNumber() {
+      return Math.floor(Math.random() * 3) + 1; // Generates a random number between 1 and 3
+    }
+
+    // Generate a random logo number
+    const randomLogoNumber = getRandomLogoNumber();
+
+    // Set the random logo URL
+    setRandomLogo(`/images/logo-${randomLogoNumber}.png`);
+  }, []);
 
   if (error) {
     return (
@@ -27,31 +35,31 @@ export default function Home() {
         <p>Oop, we&apos;ve had an error:</p>
         <pre>{JSON.stringify(error)}</pre>
       </>
-    )
+    );
   }
 
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 0.2rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 0.2rem;
+          position: relative;
+          right: 1rem;
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
 
-              width: 120px;
-              height: 120px;
+          width: 120px;
+          height: 120px;
 
-              /* Construct the URL for the random logo image */
-              background-image: url('/images/logo-' + randomLogoNumber + '.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-            `}
+          /* Use the randomLogo state variable as the background image */
+          background-image: url('${randomLogo}');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        `}
           ></div>
       <h1
         css={css`
