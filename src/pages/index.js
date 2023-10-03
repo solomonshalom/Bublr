@@ -12,13 +12,8 @@ import Spinner from '../components/spinner'
 import Container from '../components/container'
 import Button, { LinkButton } from '../components/button'
 
-// Function to generate a random number between 1 and 3
-function getRandomLogoNumber() {
-  return Math.floor(Math.random() * 3) + 1; // Generates a random number between 1 and 3
-}
-
 export default function Home() {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth)
 
   if (error) {
     return (
@@ -26,31 +21,30 @@ export default function Home() {
         <p>Oop, we&apos;ve had an error:</p>
         <pre>{JSON.stringify(error)}</pre>
       </>
-    );
+    )
   }
 
   return (
     <div>
       <div
-        css={css`
-          margin-top: 0rem;
-          margin-bottom: 0.2rem;
-          position: relative;
-          right: 1rem;
+css={css`
+                margin-top: 0rem;
+                margin-bottom: 0.2rem;
+                position: relative;
+                right: 1rem;
 
-          @media (max-width: 500px) {
-            margin-bottom: 1rem;
-          }
+                @media (max-width: 500px) {
+                    margin-bottom: 1rem;
+                }
 
-          width: 120px;
-          height: 120px;
+              width: 120px;
+              height: 120px;
 
-          /* Use the logo image with dynamic import */
-          background-image: url(${require(`/public/images/logo-${getRandomLogoNumber()}.png`)});
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: contain;
-        `}
+              background-image: url('/images/logo-2.png');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: contain;
+`}
       ></div>
       <h1
         css={css`
