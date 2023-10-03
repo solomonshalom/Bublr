@@ -88,65 +88,65 @@ export default function Dashboard() {
         </>
       ) : user && filteredPosts && posts ? (
         <>
+        <div css={css`
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1em;
+          width: 100%;
+        `}>
+          <Button
+            outline
+            css={css`
+              font-size: 1.3rem;
+              padding: 0;
+              width: 2.15em;
+              height: 2.15em;
+            `}
+            onClick={async () => {
+              const newPostsId = await createPostForUser(user.uid)
+              router.push(`/dashboard/${newPostsId}`)
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="21px" height="21px" fill="none" stroke-width="1.5" viewBox="0 0 24 24" color="#ffffff" css={css`
+                margin: 0.2em 0 0 0.1em
+              `}><path stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="m14.363 5.652 1.48-1.48a2 2 0 0 1 2.829 0l1.414 1.414a2 2 0 0 1 0 2.828l-1.48 1.48m-4.243-4.242-9.616 9.615a2 2 0 0 0-.578 1.238l-.242 2.74a1 1 0 0 0 1.084 1.085l2.74-.242a2 2 0 0 0 1.24-.578l9.615-9.616m-4.243-4.242 4.243 4.242"></path>
+            </svg>
+          </Button>
+
+          <Search
+            posts={posts}
+            isGlobalSearch={false}
+            getFilteredPosts={getFilteredPosts}
+            getSearchInput={getSearchInput}
+            css={css`
+              width: 3em
+            `}
+          ></Search>
+          
+          <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+            <Button
+              outline
+              css={css`
+                font-size: 1.3rem;
+                padding: 0;
+                border-radius: 100%;
+                position: fixed;
+                bottom: 2em;
+                right: 2em;
+                width: 2.2em;
+                height: 2.2em;
+                text-align: center;
+              `}
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="none" stroke-width="1.5" viewBox="0 0 24 24" color="#ffffff"css={css`
+                  margin: 0.25em 0 0 0.05em
+                `}><path stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.9 8.08c0-4.773 7.5-4.773 7.5 0 0 3.409-3.409 2.727-3.409 6.818M12 19.01l.01-.011"></path>
+              </svg>
+            </Button>
+          </Link>
+        </div>
           { posts.length > 0 ?
           <div>
-            <div css={css`
-              display: flex;
-              flex-wrap: wrap;
-              gap: 1em;
-              width: 100%;
-            `}>
-              <Button
-                outline
-                css={css`
-                  font-size: 1.3rem;
-                  padding: 0;
-                  width: 2.15em;
-                  height: 2.15em;
-                `}
-                onClick={async () => {
-                  const newPostsId = await createPostForUser(user.uid)
-                  router.push(`/dashboard/${newPostsId}`)
-                }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="21px" height="21px" fill="none" stroke-width="1.5" viewBox="0 0 24 24" color="#ffffff" css={css`
-                    margin: 0.2em 0 0 0.1em
-                  `}><path stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="m14.363 5.652 1.48-1.48a2 2 0 0 1 2.829 0l1.414 1.414a2 2 0 0 1 0 2.828l-1.48 1.48m-4.243-4.242-9.616 9.615a2 2 0 0 0-.578 1.238l-.242 2.74a1 1 0 0 0 1.084 1.085l2.74-.242a2 2 0 0 0 1.24-.578l9.615-9.616m-4.243-4.242 4.243 4.242"></path>
-                </svg>
-              </Button>
-
-              <Search
-                posts={posts}
-                isGlobalSearch={false}
-                getFilteredPosts={getFilteredPosts}
-                getSearchInput={getSearchInput}
-                css={css`
-                  width: 3em
-                `}
-              ></Search>
-              
-              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-                <Button
-                  outline
-                  css={css`
-                    font-size: 1.3rem;
-                    padding: 0;
-                    border-radius: 100%;
-                    position: fixed;
-                    bottom: 2em;
-                    right: 2em;
-                    width: 2.2em;
-                    height: 2.2em;
-                    text-align: center;
-                  `}
-                  >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="none" stroke-width="1.5" viewBox="0 0 24 24" color="#ffffff"css={css`
-                      margin: 0.25em 0 0 0.05em
-                    `}><path stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.9 8.08c0-4.773 7.5-4.773 7.5 0 0 3.409-3.409 2.727-3.409 6.818M12 19.01l.01-.011"></path>
-                  </svg>
-               </Button>
-             </Link>
-            </div>
             { filteredPosts?.length === 0 && getSearchInput.length > 0 ? (
               <p
                 css={css`
@@ -233,43 +233,9 @@ export default function Dashboard() {
           </div>
           :
             <div>
-              <Button
-                outline
-                css={css`
-                  font-size: 0.9rem;
-                  margin-right: auto;
-                `}
-                onClick={async () => {
-                  const newPostsId = await createPostForUser(user.uid)
-                  router.push(`/dashboard/${newPostsId}`)
-                }}
-              >
-                📝 Write A Post
-              </Button>
-
-              <div style={{ display: 'inline-flex', textAlign: 'center', position: 'relative', left: '10.5em', bottom: '1.8rem' }}>
-              <p>//</p>
-              </div>
-
-              <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
-                <Button 
-                  style={{
-                            position: 'relative',
-                            bottom: '3.6rem',
-                            left: '12rem'
-                          }}
-                  outline
-                  css={css`
-                            font-size: 0.9rem;
-                              margin-right: auto;
-                      `}
-                  >
-                  🙋 Guide Me
-                </Button>
-              </Link>
               <p
                 css={css`
-                  margin-top: .1rem;
+                  margin-top: 2rem;
                 `}
               >
                 Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
