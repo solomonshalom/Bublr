@@ -24,28 +24,38 @@ export default function Home() {
     )
   }
 
+const logos = ['logo-1.png', 'logo-2.png'];
+
+useEffect(() => {
+    // Get a random logo from the array
+    const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+
+    // Set the background-image property of the logo div
+    const logoDiv = document.getElementById('logo');
+    if (logoDiv) {
+      logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
+    }
+  }, []);
+
   return (
     <div>
-      <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                position: relative;
-                right: 1rem;
-
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
-
+        <div
+            id="logo"
+            css={css`
+              margin-top: 0rem;
+              margin-bottom: 1rem;
+              position: relative;
+              right: 1rem;
+          
+              @media (max-width: 500px) {
+                  margin-bottom: 1rem;
+              }
+          
               width: 120px;
               height: 120px;
-
-              background-image: url('/images/logo-2.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
-      ></div>
+            `}
+        >
+          </div>
       <h1
         css={css`
           font-size: 1.5rem;
