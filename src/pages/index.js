@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useEffect } from 'react';
 import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
 import firebase, { auth } from '../lib/firebase'
