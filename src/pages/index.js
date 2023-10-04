@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect } from 'react';
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -25,16 +24,21 @@ export default function Home() {
     )
   }
 
-const logos = ['logo-1.png', 'logo-2.png', 'logo-3.png']; // Add more as needed
+  const logos = ['logo-1.png', 'logo-2.png'];
 
-useEffect(() => {
-  const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+  // Function to set the logo randomly
+  const setRandomLogo = () => {
+    const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+    const logoDiv = document.getElementById('logo');
+    if (logoDiv) {
+      logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
+    }
+  };
 
-  const logoDiv = document.getElementById('logo');
-  if (logoDiv) {
-    logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
-  }
-}, [logos]);
+  // Call the function to set the initial logo
+  useEffect(() => {
+    setRandomLogo();
+  }, []); 
 
   return (
     <div>
