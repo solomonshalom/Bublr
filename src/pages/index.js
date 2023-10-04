@@ -1,9 +1,7 @@
-/** @jsxImportSource @emotion/react */
-// eslint-disable-next-line react-hooks/exhaustive-deps
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect } from 'react'; // Import useEffect from 'react'
+import { useEffect } from 'react';
 import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
 import firebase, { auth } from '../lib/firebase';
@@ -37,10 +35,10 @@ export default function Home() {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     setRandomLogo();
-  }, []); 
+  }, [logos]);
+  
 
   return (
     <div>
@@ -148,7 +146,7 @@ export default function Home() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 Home.getLayout = function HomeLayout(page) {
@@ -157,8 +155,7 @@ Home.getLayout = function HomeLayout(page) {
       <Head>
         {meta({
           title: 'The Abyss',
-          description:
-            'The Abyss',
+          description: 'The Abyss',
           url: '/',
           image: '/images/socials.jpg',
         })}
@@ -171,5 +168,5 @@ Home.getLayout = function HomeLayout(page) {
       </Head>
       {page}
     </Container>
-  )
+  );
 }
