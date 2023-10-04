@@ -1,19 +1,21 @@
 /** @jsxImportSource @emotion/react */
-import Head from 'next/head'
-import { css } from '@emotion/react'
-import { useAuthState } from 'react-firebase-hooks/auth'
+// eslint-disable-next-line react-hooks/exhaustive-deps
+import Head from 'next/head';
+import { css } from '@emotion/react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect } from 'react'; // Import useEffect from 'react'
 import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
-import firebase, { auth } from '../lib/firebase'
-import { setUser, userWithIDExists } from '../lib/db'
+import firebase, { auth } from '../lib/firebase';
+import { setUser, userWithIDExists } from '../lib/db';
 
-import meta from '../components/meta'
-import Spinner from '../components/spinner'
-import Container from '../components/container'
-import Button, { LinkButton } from '../components/button'
+import meta from '../components/meta';
+import Spinner from '../components/spinner';
+import Container from '../components/container';
+import Button, { LinkButton } from '../components/button';
 
 export default function Home() {
-  const [user, loading, error] = useAuthState(auth)
+  const [user, loading, error] = useAuthState(auth);
 
   if (error) {
     return (
@@ -21,7 +23,7 @@ export default function Home() {
         <p>Oop, we&apos;ve had an error:</p>
         <pre>{JSON.stringify(error)}</pre>
       </>
-    )
+    );
   }
 
   const logos = ['logo-1.png', 'logo-2.png'];
@@ -35,8 +37,10 @@ export default function Home() {
     }
   };
 
-  // Call the function to set the initial logo when the component is first rendered
-  setRandomLogo();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    setRandomLogo();
+  }, []); 
 
   return (
     <div>
