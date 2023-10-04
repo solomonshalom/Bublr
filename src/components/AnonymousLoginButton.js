@@ -4,7 +4,7 @@ import firebase, { auth } from '../lib/firebase';
 import { setUser, userWithIDExists } from '../lib/db';
 
 const AnonymousLoginButton = () => {
-  const avatarStyles = ['big-smile', 'lorelei'];
+  const avatarStyles = ['lorelei-neutral', 'lorelei', 'notionists', 'notionists-neutral'];
 
   const generateRandomSeed = () => {
     return Math.floor(Math.random() * 1000000).toString();
