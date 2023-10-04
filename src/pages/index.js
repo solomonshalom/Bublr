@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
+import { useEffect } from 'react';
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useEffect } from 'react';
 import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
 import firebase, { auth } from '../lib/firebase'
@@ -25,18 +25,19 @@ export default function Home() {
     )
   }
 
-const logos = ['logo-1.png', 'logo-2.png'];
+// Define an array of logo filenames
+const logos = ['logo-1.png', 'logo-2.png', 'logo-3.png']; // Add more as needed
 
 useEffect(() => {
-    // Get a random logo from the array
-    const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+  // Get a random logo from the array
+  const randomLogo = logos[Math.floor(Math.random() * logos.length)];
 
-    // Set the background-image property of the logo div
-    const logoDiv = document.getElementById('logo');
-    if (logoDiv) {
-      logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
-    }
-  }, []);
+  // Set the background-image property of the logo div
+  const logoDiv = document.getElementById('logo');
+  if (logoDiv) {
+    logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
+  }
+}, [logos]); // Include logos in the dependency array
 
   return (
     <div>
