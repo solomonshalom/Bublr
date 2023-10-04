@@ -13,7 +13,7 @@ The Abyss is developed and maintained by a community of people, from diverse bac
 Maintainers (sorted alphabetically)
 ---------------------------------------
 Maintainers are actively supporting the project and have made substantial contributions to the repository.<br>
-They have admin access to the repo and provide support reviewing issues and pull requests.
+They may have admin access to the repo and provide support reviewing issues and pull requests.
 
 * **[Solomon Shalom Lijo](https://github.com/solomonshalom)**
    * Wrote the initial codebase
@@ -32,8 +32,9 @@ To contributors: please add your name to the list when you submit a patch to the
    * The very first contributor!
    * Documented the fix and it's initial-solution
    * Fixed other minor yet deep flaw (Was supper annoying 😌)
+   * Added a search bar locally + globally (Work in progress 🛠️)
 * **[Solomon Shalom Lijo](https://github.com/solomonshalom)**
    * Added Umami Analytics
    * Fixed few vulnerbilities
    * Documented the code w/ few more references 📄
- 
+   * Added random avaters for anonymous users
