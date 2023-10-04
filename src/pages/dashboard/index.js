@@ -43,14 +43,13 @@ export default function Dashboard() {
     console.log(user, userLoading, userError)
     if (!user && !userLoading && !userError) {
       router.push('/')
-      return
     }
-  }, [router, user, userLoading, userError])
+  }, [user, userLoading, userError, router]) // Include 'router' in the dependency array
 
   // Set initial filteredPosts
   useEffect(() => {
     setFilteredPosts(posts)
-  }, posts)
+  }, [posts]) // Include 'posts' in the dependency array
 
   // Get the filtered posts from Search component
   const getFilteredPosts = (fp) => {
