@@ -35,10 +35,8 @@ export default function Home() {
     }
   };
 
-  // Call the function to set the initial logo
-  useEffect(() => {
-    setRandomLogo();
-  }, []); 
+  // Call the function to set the initial logo when the component is first rendered
+  setRandomLogo();
 
   return (
     <div>
