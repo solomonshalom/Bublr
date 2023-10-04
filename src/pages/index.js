@@ -1,7 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import Head from 'next/head';
 import { css } from '@emotion/react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react'; // Import useEffect and useCallback
 import AnonymousLoginButton from '../components/AnonymousLoginButton';
 
 import firebase, { auth } from '../lib/firebase';
@@ -27,38 +28,36 @@ export default function Home() {
   const logos = ['logo-1.png', 'logo-2.png'];
 
   // Function to set the logo randomly
-  const setRandomLogo = () => {
+  const setRandomLogo = useCallback(() => {
     const randomLogo = logos[Math.floor(Math.random() * logos.length)];
     const logoDiv = document.getElementById('logo');
     if (logoDiv) {
       logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
     }
-  };
+  }, [logos]); // Include logos in the dependency array
 
   useEffect(() => {
-    setRandomLogo();
-  }, [logos]);
-  
+    setRandomLogo(); // Call the function to set the initial logo when the component is first rendered
+  }, [setRandomLogo]); // Include setRandomLogo in the dependency array
 
   return (
     <div>
-        <div
-            id="logo"
-            css={css`
-              margin-top: 0rem;
-              margin-bottom: 1rem;
-              position: relative;
-              right: 1rem;
-          
-              @media (max-width: 500px) {
-                  margin-bottom: 1rem;
-              }
-          
-              width: 120px;
-              height: 120px;
-            `}
-        >
-          </div>
+      <div
+        id="logo"
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 1rem;
+          position: relative;
+          right: 1rem;
+
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
+
+          width: 120px;
+          height: 120px;
+        `}
+      ></div>
       <h1
         css={css`
           font-size: 1.5rem;
@@ -122,10 +121,10 @@ export default function Home() {
         >
           <Button
             onClick={() => {
-              const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
-              auth.signInWithPopup(googleAuthProvider).then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid)
-                
+              const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+              auth.signInWithPopup(googleAuthProvider).then(async (cred) => {
+                let userExists = await userWithIDExists(cred.user.uid);
+
                 if (!userExists) {
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
@@ -134,14 +133,14 @@ export default function Home() {
                     posts: [],
                     photo: cred.user.photoURL,
                     readingList: [],
-                  })
+                  });
                 }
-              })
+              });
             }}
           >
             User ⛹️
           </Button>
-          {/*Implementing an Avater functionality + Makes code much better! Praise, God (Couldn't have done it w/o him <3):D*/}
+          {/* Implementing an Avatar functionality + Makes code much better! */}
           <AnonymousLoginButton />
         </div>
       )}
@@ -169,4 +168,4 @@ Home.getLayout = function HomeLayout(page) {
       {page}
     </Container>
   );
-}
+};
