@@ -113,3 +113,16 @@ export async function createPostForUser(userId) {
 
   return doc.id
 }
+
+export async function filterExplorePosts(searchInput) {
+  const query = await firestore
+    .collection('posts')
+    .where('published', '==', true)
+    .get();
+
+  query.forEach(doc => {
+    console.log('momo foreach', doc.excerpt)
+  })
+
+  return query
+}

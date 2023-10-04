@@ -21,15 +21,28 @@ const inputStyles = css`
 export default function Search(props) {
   const [searchInput, setSearchInput] = useState('');
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      if (props.posts) {
-        filterPosts();
+  const handleKeyDown = (event) => {
+    if (props.isGlobalSearch) {
+      if (event.key === 'Enter') {
+        console.log('do validate')
         props.getSearchInput(searchInput);
       }
-    }, 500)
+    }
+  }
 
-    return () => clearTimeout(delayDebounceFn)
+  useEffect(() => {
+    if (props.isGlobalSearch) {
+      
+    } else {
+      const delayDebounceFn = setTimeout(() => {
+        if (props.posts) {
+          filterPosts();
+          props.getSearchInput(searchInput);
+        }
+      }, 500)
+  
+      return () => clearTimeout(delayDebounceFn)
+    }
   }, [searchInput])
 
   const filterPosts = () => {
@@ -39,13 +52,18 @@ export default function Search(props) {
       let tempPosts = props.posts.filter(p => p.title.toLowerCase().includes(searchInput.toLowerCase()))
       props.getFilteredPosts(tempPosts);
     }
-    
   }
 
+  const exploreSearchBarStyles = 
+    props.isGlobalSearch ?
+      css`width: 100%`    // Explore page search bar styles
+      :
+      css`width: 80%`     // Dashboard page search bar styles
+
   return (
-    <div css={css`
-      width: 80%;
-    `}>
+    <div
+    css={exploreSearchBarStyles}
+    >
       <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="none" stroke-width="1.5" viewBox="0 0 24 24" color="#ffffff"css={css`
           position: absolute;
           margin: 0.8em
@@ -55,6 +73,7 @@ export default function Search(props) {
         id="search-posts"
         type="text"
         placeholder="Search your posts..."
+        onKeyDown={handleKeyDown}
         css={css`${inputStyles}`}
         onChange={e => {
           setSearchInput(e.target.value);

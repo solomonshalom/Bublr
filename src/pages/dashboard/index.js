@@ -50,6 +50,7 @@ export default function Dashboard() {
   // Set initial filteredPosts
   useEffect(() => {
     setFilteredPosts(posts)
+    console.log('momo posts', posts)
   }, posts)
 
   // Get the filtered posts from Search component
@@ -65,15 +66,14 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-
+        <Link href="/dashboard">
+          <a><span css={css`color: #B8B8B8`}>Dashboard</span></a>
+        </Link>
         <Link href="/dashboard/list">
           <a>Reading List</a>
         </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/theabyssofficial">
-          <a>Contact</a>
+        <Link href="/explore">
+          <a>Explore</a>
         </Link>
 
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
@@ -118,9 +118,6 @@ export default function Dashboard() {
             isGlobalSearch={false}
             getFilteredPosts={getFilteredPosts}
             getSearchInput={getSearchInput}
-            css={css`
-              width: 3em
-            `}
           ></Search>
           
           <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
