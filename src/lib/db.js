@@ -115,14 +115,14 @@ export async function createPostForUser(userId) {
 }
 
 export async function filterExplorePosts(searchInput) {
-  const query = await firestore
-    .collection('posts')
-    .where('published', '==', true)
-    .get();
-
-  query.forEach(doc => {
-    console.log('momo foreach', doc.excerpt)
-  })
-
-  return query
+  let posts = []
+  const snapshot = await firebase.firestore().collection('posts')
+    .where("published", "==", true)
+    .where("title", ">=", searchInput)
+    .get()
+  snapshot.docs.map(doc =>{
+    console.log('momo', doc.id, " => ", doc.data());
+    posts.push(doc.data())
+  });
+  return posts;
 }

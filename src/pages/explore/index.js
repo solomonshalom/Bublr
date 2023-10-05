@@ -32,11 +32,6 @@ export default function Explore() {
   )
   const [explorePosts, setExplorePosts] = useState([]);
 
-  const getMyDocs = async (searchInput) => {
-    let filteredPosts = await filterExplorePosts(searchInput);
-    console.log('momo getMyDocs', filteredPosts)
-}
-
   useEffect(() => {
     console.log(user, userLoading, userError)
     if (!user && !userLoading && !userError) {
@@ -63,11 +58,11 @@ export default function Explore() {
     })()
   }, initPosts)
 
-  // Get the searchInput from Search component and do the global search
-  const getSearchInput = (searchInput) => {
-    let docs = getMyDocs(searchInput);
-    console.log('MOMO DOCS', docs);
-    return searchInput
+  // Get the searchInput from Search component and do the global search on db
+  const getFilteredExplorePosts = async (searchInput) => {
+    let filteredExplorePosts = await filterExplorePosts(searchInput);
+    console.log('momo filteredExplorePosts', filteredExplorePosts)
+    return filteredExplorePosts;
   }
 
   return (
@@ -97,7 +92,7 @@ export default function Explore() {
           <Search
             posts={explorePosts}
             isGlobalSearch={true}
-            getSearchInput={getSearchInput}
+            getSearchInput={getFilteredExplorePosts}
             css={css`
               margin-left: 0em
             `}

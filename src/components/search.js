@@ -20,6 +20,7 @@ const inputStyles = css`
 
 export default function Search(props) {
   const [searchInput, setSearchInput] = useState('');
+  const searchBarPlaceholder = props.isGlobalSearch ? 'Search published posts...' : 'Search your posts...'
 
   const handleKeyDown = (event) => {
     if (props.isGlobalSearch) {
@@ -72,7 +73,7 @@ export default function Search(props) {
       <input
         id="search-posts"
         type="text"
-        placeholder="Search your posts..."
+        placeholder={searchBarPlaceholder}
         onKeyDown={handleKeyDown}
         css={css`${inputStyles}`}
         onChange={e => {
