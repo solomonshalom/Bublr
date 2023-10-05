@@ -18,28 +18,27 @@ const inputStyles = css`
   }
 `
 
-export default function Search(props) {
+export default function Search({ posts, isGlobalSearch, getSearchInput, getFilteredPosts }) {
   const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (props.posts) {
+      if (posts) {
         filterPosts();
-        props.getSearchInput(searchInput);
+        getSearchInput(searchInput);
       }
     }, 500)
 
     return () => clearTimeout(delayDebounceFn)
-  }, [searchInput])
+  }, [searchInput, posts, getSearchInput])
 
   const filterPosts = () => {
-    if (props.isGlobalSearch) {
+    if (isGlobalSearch) {
       console.log('Do global search')
     } else {
-      let tempPosts = props.posts.filter(p => p.title.toLowerCase().includes(searchInput.toLowerCase()))
-      props.getFilteredPosts(tempPosts);
+      let tempPosts = posts.filter(p => p.title.toLowerCase().includes(searchInput.toLowerCase()))
+      getFilteredPosts(tempPosts);
     }
-    
   }
 
   return (

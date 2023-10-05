@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'
+
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
-import { useState, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 
 import Header from '../../components/header'
@@ -115,7 +116,7 @@ export default function ReadingList() {
       router.push('/')
       return
     }
-  }, [user, userLoading, userError])
+  }, [user, userLoading, userError, router]) // Include 'router' in the dependency array
 
   return (
     <>

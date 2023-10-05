@@ -25,20 +25,19 @@ export default function Home() {
     );
   }
 
-  const logos = ['logo-1.png', 'logo-2.png'];
-
-  // Function to set the logo randomly
+  // Moved the 'logos' array inside a useCallback
   const setRandomLogo = useCallback(() => {
+    const logos = ['logo-1.png', 'logo-2.png']; // Initialize logos here
     const randomLogo = logos[Math.floor(Math.random() * logos.length)];
     const logoDiv = document.getElementById('logo');
     if (logoDiv) {
       logoDiv.style.backgroundImage = `url('/images/${randomLogo}')`;
     }
-  }, [logos]); // Include logos in the dependency array
+  }, []); // No dependencies for useCallback
 
   useEffect(() => {
     setRandomLogo(); // Call the function to set the initial logo when the component is first rendered
-  }, [setRandomLogo]); // Include setRandomLogo in the dependency array
+  }, [setRandomLogo]);
 
   return (
     <div>
