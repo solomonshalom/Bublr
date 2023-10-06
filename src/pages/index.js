@@ -29,7 +29,7 @@ export default function Home() {
       <div
 css={css`
                 margin-top: 0rem;
-                margin-bottom: 0.2rem;
+                margin-bottom: 1rem;
                 position: relative;
                 right: 1rem;
 

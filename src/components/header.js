@@ -5,7 +5,9 @@ const Header = props => (
   <header
     css={css`
       display: flex;
-      margin-bottom: 5rem;
+      margin-bottom: 3.5rem;
+      margin-right: 4rem;
+      display: -webkit-box;
 
       a:first-of-type {
         margin-left: auto;
