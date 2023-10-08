@@ -14,7 +14,6 @@ function ToggleTheme() {
         checked={theme === 'dark'}
         onChange={toggleTheme}
       />
-      <span>Toggle Theme</span>
     </div>
   );
 }
