@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import { Global, css } from '@emotion/react'
 import { IdProvider } from '@radix-ui/react-id'
+import ToggleTheme from '../components/ThemeToggle'
 
 const App = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout || (page => page)
@@ -91,6 +92,7 @@ const App = ({ Component, pageProps }) => {
       />
       <IdProvider>
         <ThemeProvider defaultTheme="system">
+          <ToggleTheme />
           {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </IdProvider>
