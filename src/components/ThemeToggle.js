@@ -1,6 +1,5 @@
 import { useTheme } from 'next-themes';
-import Toggle from 'react-toggle';
-import 'react-toggle/style.css'; // Import the default styles for react-toggle
+import { Toggle } from '@skiff-org/skiff-ui';
 
 function ToggleTheme() {
   const { theme, setTheme } = useTheme();
@@ -21,4 +20,3 @@ function ToggleTheme() {
 }
 
 export default ToggleTheme;
-// Yay
