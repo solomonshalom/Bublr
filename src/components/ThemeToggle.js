@@ -8,7 +8,7 @@ function ToggleTheme() {
   };
 
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} className='toggleButton'>
       Toggle Theme
     </button>
   );
