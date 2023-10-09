@@ -38,7 +38,7 @@ When contributing to The Abyss, please first discuss the change you wish to make
 1. Clone the Repository
 If you haven't already, clone the project repository to your local machine using Git:
 ```bash
-git clone https://github.com/solomonshalom/the-abyss & cd the-abyss
+git clone https://github.com/solomonshalom/the-abyss & cd The-Abyss
 ```
 
 2. If you feel a little sigma, go ahead and read the `package.json` and develop it but if you aren't (or you just want to be productive), these are the steps -
@@ -47,7 +47,7 @@ git clone https://github.com/solomonshalom/the-abyss & cd the-abyss
 - Build it with the command `yarn build`
 - Start it // Develop it through the command `yarn start` or `yarn dev`
 
-_Please also remember that there will not be a problem if your planning on using NPM or a different package manager of your choice (We recommend NPM as an alternative as we haven't tested it alongside other PMs). ALSO, Don't forget to add the ENV!_
+_Please also remember that there will not be a problem if your planning on using NPM or a different package manager of your choice (We recommend NPM as an alternative as we haven't tested it alongside other PMs) or you can use next CLI. ALSO, Don't forget to add the ENV!_
 
 ## Pull Request Process
 
