@@ -38,7 +38,7 @@ When contributing to The Abyss, please first discuss the change you wish to make
 1. Clone the Repository
 If you haven't already, clone the project repository to your local machine using Git:
 ```bash
-git clone https://github.com/solomonshalom/the-abyss & cd the-abyss
+git clone https://github.com/solomonshalom/the-abyss & cd The-Abyss
 ```
 
 2. If you feel a little sigma, go ahead and read the `package.json` and develop it but if you aren't (or you just want to be productive), these are the steps -
