@@ -47,7 +47,7 @@ git clone https://github.com/solomonshalom/the-abyss & cd The-Abyss
 - Build it with the command `yarn build`
 - Start it // Develop it through the command `yarn start` or `yarn dev`
 
-_Please also remember that there will not be a problem if your planning on using NPM or a different package manager of your choice (We recommend NPM as an alternative as we haven't tested it alongside other PMs). ALSO, Don't forget to add the ENV!_
+_Please also remember that there will not be a problem if your planning on using NPM or a different package manager of your choice (We recommend NPM as an alternative as we haven't tested it alongside other PMs) or you can use next CLI. ALSO, Don't forget to add the ENV!_
 
 ## Pull Request Process
 
