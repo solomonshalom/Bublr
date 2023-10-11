@@ -66,6 +66,10 @@ export default function Dashboard() {
     <>
       <Header>
 
+        <Link href="/dashboard">
+          <a><span css={css`color: #B8B8B8`}>Dashboard</span></a>
+        </Link>
+
         <Link href="/dashboard/list">
           <a>Reading List</a>
         </Link>
