@@ -33,6 +33,7 @@ To contributors: please add your name to the list when you submit a patch to the
    * Documented the fix and it's initial-solution
    * Fixed other minor yet deep flaw (Was supper annoying 😌)
    * Added a search bar locally + globally (Work in progress 🛠️)
+   * Updated header tabs to be consistent throughout all pages
 * **[Solomon Shalom Lijo](https://github.com/solomonshalom)**
    * Added Umami Analytics
    * Fixed few vulnerbilities
