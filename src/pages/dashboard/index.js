@@ -74,12 +74,6 @@ export default function Dashboard() {
           <a>Reading List</a>
         </Link>
 
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/theabyssofficial">
-          <a>Contact</a>
-        </Link>
-
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
 
         <button onClick={() => auth.signOut()}>Sign Out</button>
