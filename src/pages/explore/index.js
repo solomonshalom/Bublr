@@ -60,6 +60,7 @@ export default function Explore() {
   // Get the searchInput from Search component and do the global search on db
   const getFilteredExplorePosts = async (searchInput) => {
     let filteredExplorePosts = await filterExplorePosts(searchInput);
+    setExplorePosts(filteredExplorePosts)
     return filteredExplorePosts;
   }
 
