@@ -54,14 +54,12 @@ export default function Explore() {
         })
         const posts = postPromises ? await Promise.all(postPromises) : null
         setExplorePosts(posts)
-        console.log('momoo yay',explorePosts);
     })()
   }, initPosts)
 
   // Get the searchInput from Search component and do the global search on db
   const getFilteredExplorePosts = async (searchInput) => {
     let filteredExplorePosts = await filterExplorePosts(searchInput);
-    console.log('momo filteredExplorePosts', filteredExplorePosts)
     return filteredExplorePosts;
   }
 
@@ -73,9 +71,6 @@ export default function Explore() {
         </Link>
         <Link href="/dashboard/list">
           <a>Reading List</a>
-        </Link>
-        <Link href="/explore">
-          <a><span css={css`color: #B8B8B8`}>Explore</span></a>
         </Link>
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
         <button onClick={() => auth.signOut()}>Sign Out</button>

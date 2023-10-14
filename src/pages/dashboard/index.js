@@ -50,7 +50,6 @@ export default function Dashboard() {
   // Set initial filteredPosts
   useEffect(() => {
     setFilteredPosts(posts)
-    console.log('momo posts', posts)
   }, posts)
 
   // Get the filtered posts from Search component
@@ -66,9 +65,6 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-        <Link href="/dashboard">
-          <a><span css={css`color: #B8B8B8`}>Dashboard</span></a>
-        </Link>
         <Link href="/dashboard/list">
           <a>Reading List</a>
         </Link>

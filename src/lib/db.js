@@ -119,9 +119,10 @@ export async function filterExplorePosts(searchInput) {
   const snapshot = await firebase.firestore().collection('posts')
     .where("published", "==", true)
     .where("title", ">=", searchInput)
+    .where('title', "<", searchInput + 'z')
     .get()
   snapshot.docs.map(doc =>{
-    console.log('momo', doc.id, " => ", doc.data());
+    console.log('search results', doc.id, " => ", doc.data());
     posts.push(doc.data())
   });
   return posts;
