@@ -28,6 +28,7 @@ export default function Explore() {
   const [initPosts, initPostsLoading, initPostsError] = useCollectionData(
     firestore.collection('posts')
     .where('published', '==', true)
+    .where('title', '!=', '')
     .orderBy('title')
     .limit(15),{ idField: 'id' },
   )
