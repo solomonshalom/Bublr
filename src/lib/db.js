@@ -121,9 +121,11 @@ export async function filterExplorePosts(searchInput) {
     .where("title", ">=", searchInput)
     .where('title', "<", searchInput + 'z')
     .get()
-  snapshot.docs.map(doc =>{
-    console.log('search results', doc.id, " => ", doc.data());
-    posts.push(doc.data())
-  });
+  snapshot.docs.map(doc => {
+    posts.push({
+      id: doc.id,
+      ...doc.data()
+    });
+  })
   return posts;
 }

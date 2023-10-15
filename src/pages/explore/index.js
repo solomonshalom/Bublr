@@ -28,6 +28,7 @@ export default function Explore() {
   const [initPosts, initPostsLoading, initPostsError] = useCollectionData(
     firestore.collection('posts')
     .where('published', '==', true)
+    .orderBy('title')
     .limit(15),{ idField: 'id' },
   )
   const [explorePosts, setExplorePosts] = useState([]);
@@ -43,23 +44,30 @@ export default function Explore() {
   // Set initial filteredPosts
   useEffect(() => {
     (async () => {
-        const postPromises = initPosts?.map(async p => {
-          const post = await getPostByID(p.id)
-          const author = await firestore
-            .collection('users')
-            .doc(post.author)
-            .get()
-          post.author = author.data()
-          return post
-        })
-        const posts = postPromises ? await Promise.all(postPromises) : null
-        setExplorePosts(posts)
+        let posts = await setPostAuthorProfilePics(initPosts);
+        setExplorePosts(posts);
     })()
   }, initPosts)
+
+  // Set the profile pics for each author
+  const setPostAuthorProfilePics = async(filteredExplorePosts) => {
+    const postPromises = filteredExplorePosts?.map(async p => {
+      const post = await getPostByID(p.id)
+      const author = await firestore
+        .collection('users')
+        .doc(post.author)
+        .get()
+      post.author = author.data()
+      return post;
+    })
+    const posts = postPromises ? await Promise.all(postPromises) : null
+    return posts
+  }
 
   // Get the searchInput from Search component and do the global search on db
   const getFilteredExplorePosts = async (searchInput) => {
     let filteredExplorePosts = await filterExplorePosts(searchInput);
+    filteredExplorePosts = await setPostAuthorProfilePics(filteredExplorePosts);
     setExplorePosts(filteredExplorePosts)
     return filteredExplorePosts;
   }
