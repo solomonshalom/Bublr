@@ -9,7 +9,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import { createPostForUser } from '../../lib/db'
-import { firestore, auth } from '../../lib/firebase'
+import { firestore, auth } from '../../lib.firebase'
 
 import Button from '../../components/button'
 import Header from '../../components/header'
@@ -40,7 +40,6 @@ export default function Dashboard() {
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
-    console.log(user, userLoading, userError)
     if (!user && !userLoading && !userError) {
       router.push('/')
       return
@@ -70,8 +69,6 @@ export default function Dashboard() {
           <a>Reading List</a>
         </Link>
 
-       {/*Adds a new Link to the Contact Page*/}
-
         <Link href="https://linktr.ee/theabyssofficial">
           <a>Contact</a>
         </Link>
@@ -83,7 +80,7 @@ export default function Dashboard() {
 
       {userError || postsError ? (
         <>
-          <p>Oop, we&apos;ve had an error:</p>
+          <p>Oop, we've had an error:</p>
           <pre>{JSON.stringify(error)}</pre>
         </>
       ) : user && filteredPosts && posts ? (
@@ -121,7 +118,7 @@ export default function Dashboard() {
               `}
             >
               <path
-                stroke="var(--svg-color)"
+                stroke="var(--svg-color)" /* Use the variable for stroke color */
                 stroke-width="1.3"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -169,7 +166,7 @@ export default function Dashboard() {
                 `}
               >
                 <path
-                  stroke="var(--svg-color)"
+                  stroke="var(--svg-color)" /* Use the variable for stroke color */
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -290,6 +287,8 @@ Dashboard.getLayout = function DashboardLayout(page) {
       maxWidth="640px"
       css={css`
         margin-top: 5rem;
+        /* Adjust background color for the entire layout based on user color scheme */
+        background: var(--svg-background);
       `}
     >
       <Head>
