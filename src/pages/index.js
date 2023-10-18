@@ -27,24 +27,32 @@ export default function Home() {
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          --svg-color: white; /* Default color for dark mode */
+          --svg-background: black; /* Default background color for dark mode */
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          /* Light mode styles */
+          @media (prefers-color-scheme: light) {
+            --svg-color: black;
+            --svg-background: white;
+          }
 
-              width: 120px;
-              height: 120px;
-
-              background-image: url('/images/logo-2.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
+          margin-top: 0rem;
+          margin-bottom: 1rem;
+          position: relative;
+          right: 1rem;
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
+          width: 120px;
+          height: 120px;
+          background-color: var(--svg-background);
+          background-image: url('/images/logo-2.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          fill: var(--svg-color);
+        `}
       ></div>
       <h1
         css={css`
