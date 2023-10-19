@@ -113,3 +113,20 @@ export async function createPostForUser(userId) {
 
   return doc.id
 }
+
+export async function filterExplorePosts(searchInput) {
+  let posts = []
+  const snapshot = await firebase.firestore().collection('posts')
+    .where("published", "==", true)
+    .where('title', '!=', '')
+    .where("title", ">=", searchInput)
+    .where('title', "<", searchInput + 'z')
+    .get()
+  snapshot.docs.map(doc => {
+    posts.push({
+      id: doc.id,
+      ...doc.data()
+    });
+  })
+  return posts;
+}

@@ -65,15 +65,11 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-
         <Link href="/dashboard/list">
           <a>Reading List</a>
         </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/theabyssofficial">
-          <a>Contact</a>
+        <Link href="/explore">
+          <a>Explore</a>
         </Link>
 
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
@@ -118,9 +114,6 @@ export default function Dashboard() {
             isGlobalSearch={false}
             getFilteredPosts={getFilteredPosts}
             getSearchInput={getSearchInput}
-            css={css`
-              width: 3em
-            `}
           ></Search>
           
           <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
