@@ -39,5 +39,5 @@ To contributors: please add your name to the list when you submit a patch to the
    * Documented the code w/ few more references 📄
    * Added random avaters for anonymous users
 * **[Adimaniac31](https://github.com/Adimaniac31)**
-   * Created a toggle button which switches between dark and light mode(🫵🗿)
+   * Created a toggle button which switches between dark and light mode (In-progress)
    * Changed few things in Readme.md   
