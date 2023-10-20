@@ -74,8 +74,8 @@ css={css`
         `}
       >
         <li>Express Yourself without Limitations</li>
-        <li>A Sanctuary for Unconscious Expression</li>
-        <li>A Fusion of Expression and Art</li>
+        <li>A Digital Garden for your Thoughts</li>
+        <li>Meet Other like-minded People</li>
       </ul>
       {loading ? (
         <Button>
