@@ -23,7 +23,7 @@ Bublr also has a tad bit of tools that you can use to build and help you write b
 - [Zen](https://zen.bublr.life)
   If Bublr isn't minimalistic enough, use Zen instead!
 
-_If you want to build a weapon for Bublr, don't hesitate to get in touch with us at [hello@bublr.life](mailto:hello@bublr.life)! We're excited_
+_If you want to build a weapon for Bublr, don't hesitate to get in touch with us at [bonjour@bublr.life](mailto:bonjour@bublr.life)! We're excited_
 
 ---
 # Get started

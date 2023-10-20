@@ -8,4 +8,4 @@ security issue, this can be found [here](https://github.com/solomonshalom/Bublr/
 ## Reporting a Vulnerability
 
 If you found a vulnerability, be it low or high, please open a issue w/ the label `security` or if you found a vulnerability but also know how to fix it, please open a `PR` w/ the `security-fix` label.
-If you have found a vulnerability that is far-greater than that is expected, please report it directly to me [at] [solomon@bublr.life](solomon@bublr.life)
+If you have found a vulnerability that is far-greater than that is expected, please report it directly to me [at] [security@bublr.life](security@bublr.life)
