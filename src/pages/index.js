@@ -75,7 +75,7 @@ css={css`
       >
         <li>Express Yourself without Limitations</li>
         <li>A Digital Garden for your Thoughts</li>
-        <li>Meet Other like-minded People</li>
+        <li>Meet other like-minded People</li>
       </ul>
       {loading ? (
         <Button>
