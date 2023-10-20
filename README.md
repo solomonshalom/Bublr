@@ -1,4 +1,4 @@
-![image](https://github.com/solomonshalom/Bublr/assets/71135230/1430bda3-840a-43f5-b657-c4458eb969ba)
+![image](https://github.com/solomonshalom/the-abyss/assets/71135230/1430bda3-840a-43f5-b657-c4458eb969ba)
 
 # Bublr
 
