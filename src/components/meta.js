@@ -6,7 +6,7 @@ export default function meta({ title, description, url, image, type }) {
   // We prefix relative urls with the VERCEL_URL that vercel sets for us on deployments
   const baseUrl =
     process.env.NODE_ENV === 'production'
-      ? 'https://theabyss.ink'
+      ? 'https://bublr.life'
       : 'https://' + process.env.VERCEL_URL
 
   if (url) {

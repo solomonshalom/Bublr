@@ -1,9 +1,9 @@
-Contributors to The Abyss
+Contributors to Bublr
 ============================
-The Abyss is developed and maintained by a community of people, from diverse backgrounds with one goal - to build an ultra-minimal social media platform to unite the world in love, not war.
+Bublr is developed and maintained by a community of people, from diverse backgrounds with one goal - to build an ultra-minimal social media platform to unite the world in love, not war.
 
 <p align="center">
-  <img src="https://contributors-img.web.app/image?repo=solomonshalom/the-abyss" width = 500/>
+  <img src="https://contributors-img.web.app/image?repo=solomonshalom/Bublr" width = 500/>
 </p>
 
 <div align="center">
@@ -23,7 +23,7 @@ They may have admin access to the repo and provide support reviewing issues and 
 
 Contributors  (sorted alphabetically)
 -------------------------------------
-[Full List of Contributors](https://github.com/solomonshalom/the-abyss/graphs/contributors)
+[Full List of Contributors](https://github.com/solomonshalom/Bublr/graphs/contributors)
 
 To contributors: please add your name to the list when you submit a patch to the project.
 

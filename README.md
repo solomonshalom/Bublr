@@ -1,29 +1,29 @@
-![image](https://github.com/solomonshalom/The-Abyss/assets/71135230/1430bda3-840a-43f5-b657-c4458eb969ba)
+![image](https://github.com/solomonshalom/Bublr/assets/71135230/1430bda3-840a-43f5-b657-c4458eb969ba)
 
-# The Abyss
+# Bublr
 
-**The Abyss** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into The Abyss and let your thoughts flow freely.
+**Bublr** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into Bublr and let your thoughts flow freely, like bubbles exploding into a space!
 
 ## Features
 
-- **Simplicity at its Core**: The Abyss embraces minimalism. The focus is solely on your thoughts and words, without any distractions.
+- **Simplicity at its Core**: Bublr embraces minimalism. The focus is solely on your thoughts and words, without any distractions.
 
 - **Anonymity**: Feel free to express yourself without revealing your identity. You can share your thoughts without any personal information attached.
 
-- **Unfiltered Expression**: There are no constraints on the content you can share. Whether it's a fleeting idea, a profound realization, or an abstract concept, you can release it into The Abyss.
+- **Unfiltered Expression**: There are no constraints on the content you can share. Whether it's a fleeting idea, a profound realization, or an abstract concept, you can release it into Bublr, as a bubble!
 
-- **No Social Interaction**: The Abyss is not a social media platform. There are no likes, comments, or shares. It's a solitary space for your thoughts.
+- **No Social Interaction**: Bublr is social media platform that's changing the norm. It's your very own digital garden!
 
 - **Private and Secure**: Your submissions are your own. We do not store personal information nor do we sell them, it's you and you only who owns your data.
 
 ## Packages // Weapons
 
-The Abyss also has a tad bit of tools that you can use to build and help you write better -
+Bublr also has a tad bit of tools that you can use to build and help you write better -
 
-- [Zen](https://zen.theabyss.ink)
-  If The Abyss isn't minimalistic enough, use Zen instead!
+- [Zen](https://zen.bublr.life)
+  If Bublr isn't minimalistic enough, use Zen instead!
 
-_If you want to build a weapon for The Abyss, don't hesitate to get in touch with us at [hello@theabyss.ink](mailto:hello@theabyss.ink)! We're excited_
+_If you want to build a weapon for Bublr, don't hesitate to get in touch with us at [hello@bublr.life](mailto:hello@bublr.life)! We're excited_
 
 ---
 # Get started
@@ -38,7 +38,7 @@ _If you want to build a weapon for The Abyss, don't hesitate to get in touch wit
 1. Clone the Repository
 If you haven't already, clone the project repository to your local machine using Git:
 ```bash
-git clone https://github.com/solomonshalom/the-abyss & cd The-Abyss
+git clone https://github.com/solomonshalom/Bublr & cd Bublr
 ```
 
 2. If you feel a little sigma, go ahead and read the `package.json` and develop it but if you aren't (or you just want to be productive), these are the steps -
@@ -64,12 +64,12 @@ To know more about each Contributor // Mainter, check [AUTHORS.md](/AUTHORS.md)
 
 ## Credits & History
 
-Originally based on [Espresso](https://github.com/solomonshalom/the-abyss), read more about it here: [The Future Of Espresso](https://github.com/solomonshalom/espresso/discussions/3)
+Originally based on [Espresso](https://github.com/solomonshalom/Bublr), read more about it here: [The Future Of Espresso](https://github.com/solomonshalom/espresso/discussions/3)
 
 ## Disclaimer
 
-The Abyss is a platform for personal expression. While we respect freedom of speech, we do not endorse or condone any harmful, offensive, or inappropriate content shared within The Abyss. Users are solely responsible for their submissions. However, if any posts are against the values of The Abyss or its partners, we will remove them without any further notice to keep you and the community safe!
+Bublr is a platform for personal expression. While we respect freedom of speech, we do not endorse or condone any harmful, offensive, or inappropriate content shared within Bublr. Users are solely responsible for their submissions. However, if any posts are against the values of Bublr or its partners, we will remove them without any further notice to keep you and the community safe!
 
 ---
 
-Dive into The Abyss and let your thoughts take shape without boundaries or limitations. Express yourself in its purest form.
+Dive into Bublr and let your thoughts take shape without boundaries or limitations. Express yourself in its purest form.

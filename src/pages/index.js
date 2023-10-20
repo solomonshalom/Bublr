@@ -53,7 +53,7 @@ css={css`
           margin-bottom: 1.5rem;
         `}
       >
-        The Abyss
+        Bublr
       </h1>
       <ul
         css={css`
@@ -141,9 +141,9 @@ Home.getLayout = function HomeLayout(page) {
     <Container maxWidth="420px">
       <Head>
         {meta({
-          title: 'The Abyss',
+          title: 'Bublr',
           description:
-            'The Abyss',
+            'An ultra-minimal platform to let your thoughts out~',
           url: '/',
           image: '/images/socials.jpg',
         })}

@@ -72,7 +72,7 @@ export default function Dashboard() {
 
        {/*Adds a new Link to the Contact Page*/}
 
-        <Link href="https://linktr.ee/theabyssofficial">
+        <Link href="https://linktr.ee/bublr">
           <a>Contact</a>
         </Link>
 
@@ -123,7 +123,7 @@ export default function Dashboard() {
             `}
           ></Search>
           
-          <Link href="https://theabyss.ink/solomonlijo/guideofabyss">
+          <Link href="https://bublr.life/solomonlijo/guideofbublr">
             <Button
               outline
               css={css`
@@ -238,7 +238,7 @@ export default function Dashboard() {
                   margin-top: 2rem;
                 `}
               >
-                Welcome to the Abyss! 🔥 A Beautiful Place to Free your Mind ✨
+                Welcome to Bublr! 🔥 A Beautiful Place to Free your Mind ✨
               </p>
             </div>
           }
@@ -259,7 +259,7 @@ Dashboard.getLayout = function DashboardLayout(page) {
       `}
     >
       <Head>
-        <title>Dashboard / The Abyss</title>
+        <title>Dashboard / Bublr</title>
       </Head>
       {page}
     </Container>

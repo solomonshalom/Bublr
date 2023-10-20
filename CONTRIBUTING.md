@@ -1,6 +1,6 @@
 # Contributing Code of Conduct
 
-We believe that every and any interaction on The Abyss should be an example on how to behave // contribute and not otherwise. Although we know that your not going to read any of what we have upholded below (To those who have, we love you!) but if you can, please do read it - I asure you that it's by no means going to be of bore interest.
+We believe that every and any interaction on Bublr should be an example on how to behave // contribute and not otherwise. Although we know that your not going to read any of what we have upholded below (To those who have, we love you!) but if you can, please do read it - I asure you that it's by no means going to be of bore interest.
 
 ### Our Pledge
 
@@ -57,7 +57,7 @@ further defined and clarified by project maintainers.
 ### Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at [hello@theabyss.ink](mailto:hello@theabyss.ink) or issues. All
+reported by contacting the project team at [hello@bublr.life](mailto:hello@bublr.life) or issues. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.
