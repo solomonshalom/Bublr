@@ -30,9 +30,19 @@ const AnonymousLoginButton = () => {
           about: 'Say something about yourself 😃 or 🔫',
           posts: [],
           readingList: [],
-          // Everytime a new anonymous user creates an account, the below API will create a randomized PFP for them.
+          // Every time a new anonymous user creates an account, the below API will create a randomized PFP for them.
           photo: `https://api.dicebear.com/7.x/${randomStyle}/svg?seed=${randomSeed}`,
         });
+      } else {
+        // Check if the user already has a profile picture
+        const userData = await getUserData(cred.user.uid);
+        
+        if (!userData.photo) {
+          // Update the existing user with the generated avatar seed and style
+          await setUser(cred.user.uid, {
+            photo: `https://api.dicebear.com/7.x/${randomStyle}/svg?seed=${randomSeed}`,
+          });
+        }
       }
     });
   };
