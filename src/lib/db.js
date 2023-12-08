@@ -87,7 +87,11 @@ export async function getPostByUsernameAndSlug(username, slug) {
 }
 
 export async function setUser(id, data) {
-  await firestore.collection('users').doc(id).set(data)
+  // Update the user's data, including the photo property
+  await firestore.collection('users').doc(id).update({
+    ...data,
+    photo: data.photo,
+  });
 }
 
 export async function setPost(id, data) {

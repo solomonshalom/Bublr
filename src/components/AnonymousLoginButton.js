@@ -37,11 +37,13 @@ const AnonymousLoginButton = () => {
         // Check if the user already has a profile picture
         const userData = await getUserData(cred.user.uid);
         
-          if (!userData.photo) {
-            console.log('Updating profile picture for existing user...');
-            await setUser(cred.user.uid, {
-          photo: `https://api.dicebear.com/7.x/${randomStyle}/svg?seed=${randomSeed}`,
-        });
+        if (!userData.photo) {
+          console.log('Updating profile picture for existing user...');
+          // Update the existing user with the generated avatar seed and style
+          await setUser(cred.user.uid, {
+            ...userData,
+            photo: `https://api.dicebear.com/7.x/${randomStyle}/svg?seed=${randomSeed}`,
+          });
         }
       }
     });
