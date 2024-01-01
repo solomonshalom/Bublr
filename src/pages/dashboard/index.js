@@ -7,6 +7,8 @@ import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { Button, Dropdown, DropdownItem } from '@skiff-org/skiff-ui';
+import { useRef, useState } from 'react'; 
 
 import { createPostForUser } from '../../lib/db'
 import { firestore, auth } from '../../lib/firebase'
@@ -65,21 +67,43 @@ export default function Dashboard() {
   return (
     <>
       <Header>
+  <Dropdown
+    portal
+    gapFromAnchor={8}
+    buttonRef={buttonRef}
+    setShowDropdown={setShowDropdown}
+    showDropdown={showDropdown}
+  >
+    <DropdownItem
+      label="Reading List"
+      onClick={() => router.push('/dashboard/list')}
+    />
+    <DropdownItem
+      label="Contact"
+      onClick={() => window.location.href = 'https://linktr.ee/bublr'}
+    />
+    <DropdownItem
+      label="Profile"
+      onClick={() => {/* Handle Profile Click */}}
+    />
+    <DropdownItem
+      label="Sign Out"
+      onClick={() => auth.signOut()}
+    />
+  </Dropdown>
 
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
-      </Header>
+  <Button
+    ref={buttonRef}
+    forceTheme={theme}
+    type={Type.SECONDARY}
+    onClick={() => setShowDropdown(!showDropdown)}
+    css={css`
+      margin-left: auto;
+    `}
+  >
+    Menu
+  </Button>
+</Header>
 
       {userError || postsError ? (
         <>
