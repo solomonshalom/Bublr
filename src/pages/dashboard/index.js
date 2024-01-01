@@ -31,7 +31,8 @@ function formatDate(date) {
 }
 
 export default function Dashboard() {
-  const router = useRouter()
+  const router = useRouter();
+  const buttonRef = useRef(null);
 
   const [user, userLoading, userError] = useAuthState(auth)
   const [posts, postsLoading, postsError] = useCollectionData(
@@ -92,7 +93,7 @@ export default function Dashboard() {
       {userError || postsError ? (
         <>
           <p>Oop, we&apos;ve had an error:</p>
-          <pre>{JSON.stringify(error)}</pre>
+          <pre>{JSON.stringify(userError || postsError)}</pre>
         </>
       ) : user && filteredPosts && posts ? (
         <>
