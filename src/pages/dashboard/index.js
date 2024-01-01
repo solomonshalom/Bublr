@@ -1,14 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { Button, Dropdown, DropdownItem } from '@skiff-org/skiff-ui';
-import { useRef, useState } from 'react'; 
 
 import { createPostForUser } from '../../lib/db'
 import { firestore, auth } from '../../lib/firebase'
