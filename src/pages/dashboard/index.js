@@ -37,35 +37,36 @@ export default function Dashboard() {
   const buttonRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [user, userLoading, userError] = useAuthState(auth)
+  const [user, userLoading, userError] = useAuthState(auth);
   const [posts, postsLoading, postsError] = useCollectionData(
     firestore.collection('posts').where('author', '==', user ? user.uid : ''),
     { idField: 'id' },
-  )
+  );
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
-    console.log(user, userLoading, userError)
+    console.log(user, userLoading, userError);
     if (!user && !userLoading && !userError) {
-      router.push('/')
-      return
+      router.push('/');
+      return;
     }
-  }, [router, user, userLoading, userError])
+  }, [router, user, userLoading, userError]);
 
   // Set initial filteredPosts
   useEffect(() => {
-    setFilteredPosts(posts)
-  }, posts)
+    setFilteredPosts(posts);
+  }, [posts]);
 
   // Get the filtered posts from Search component
   const getFilteredPosts = (fp) => {
-    setFilteredPosts(fp)
-  }
+    setFilteredPosts(fp);
+  };
 
   // Get the searchInput from Search component
   const getSearchInput = (searchInput) => {
-    return searchInput
-  }
+    return searchInput;
+  };
+
   return (
     <>
       <Header>
@@ -109,6 +110,7 @@ export default function Dashboard() {
           />
         </Dropdown>
       </Header>
+
       {userError || postsError ? (
         <>
           <p>Oop, we&apos;ve had an error:</p>
