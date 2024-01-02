@@ -1,12 +1,11 @@
-import 'modern-normalize';
-import Head from 'next/head';
-import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import { ThemeProvider as SkiffThemeProvider } from '@skiff-org/skiff-ui';
-import { Global, css } from '@emotion/react';
-import { IdProvider } from '@radix-ui/react-id';
+import 'modern-normalize'
+import Head from 'next/head'
+import { ThemeProvider } from 'next-themes'
+import { Global, css } from '@emotion/react'
+import { IdProvider } from '@radix-ui/react-id'
 
 const App = ({ Component, pageProps }) => {
-  const getLayout = Component.getLayout || (page => page);
+  const getLayout = Component.getLayout || (page => page)
 
   return (
     <>
@@ -90,17 +89,13 @@ const App = ({ Component, pageProps }) => {
           }
         `}
       />
-        <IdProvider>
-        <NextThemeProvider defaultTheme="system">
-          {theme => (
-            <SkiffThemeProvider theme={theme}>
-              {getLayout(<Component {...pageProps} />)}
-            </SkiffThemeProvider>
-          )}
-        </NextThemeProvider>
+      <IdProvider>
+        <ThemeProvider defaultTheme="system">
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
       </IdProvider>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
