@@ -14,6 +14,7 @@ import { Button as SkiffButton, Dropdown, DropdownItem } from '@skiff-org/skiff-
 import { createPostForUser } from '../../lib/db';
 import { firestore, auth } from '../../lib/firebase';
 
+import Button from '../../components/button'
 import Header from '../../components/header';
 import Spinner from '../../components/spinner';
 import Container from '../../components/container';
