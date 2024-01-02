@@ -17,6 +17,7 @@ import Spinner from '../../components/spinner'
 import Container from '../../components/container'
 import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
+import { Dropdown, DropdownItem } from '@skiff-org/skiff-ui';
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -65,20 +66,28 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+        <Dropdown
+          portal
+          gapFromAnchor={8}
+          button={
+            <span
+              css={css`
+                cursor: pointer;
+              `}
+            >
+              Menu
+            </span>
+          }
+        >
+          <DropdownItem onClick={() => router.push('/dashboard/list')}>
+            Reading List
+          </DropdownItem>
+          <DropdownItem href="https://linktr.ee/bublr">Contact</DropdownItem>
+          <DropdownItem onClick={() => auth.signOut()}>Sign Out</DropdownItem>
+          <DropdownItem>
+            <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+          </DropdownItem>
+        </Dropdown>
       </Header>
 
       {userError || postsError ? (
