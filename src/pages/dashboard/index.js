@@ -1,25 +1,25 @@
 /** @jsxImportSource @emotion/react */
-import Link from 'next/link';
-import Head from 'next/head';
-import { useEffect, useState, useRef } from 'react';
-import { css } from '@emotion/react';
-import { useRouter } from 'next/router';
-import { htmlToText } from 'html-to-text';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import Link from 'next/link'
+import Head from 'next/head'
+import { useEffect, useState, useRef } from 'react'
+import { css } from '@emotion/react'
+import { useRouter } from 'next/router'
+import { htmlToText } from 'html-to-text'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 // Import Skiff-UI components
-import { Button as SkiffButton, Dropdown, DropdownItem } from '@skiff-org/skiff-ui';
+import { Button as SkiffButton, Dropdown, DropdownItem } from '@skiff-org/skiff-ui'
 
-import { createPostForUser } from '../../lib/db';
-import { firestore, auth } from '../../lib/firebase';
+import { createPostForUser } from '../../lib/db'
+import { firestore, auth } from '../../lib/firebase'
 
 import Button from '../../components/button'
-import Header from '../../components/header';
-import Spinner from '../../components/spinner';
-import Container from '../../components/container';
-import Search from '../../components/search';
-import ProfileSettingsModal from '../../components/profile-settings-modal';
+import Header from '../../components/header'
+import Spinner from '../../components/spinner'
+import Container from '../../components/container'
+import Search from '../../components/search'
+import ProfileSettingsModal from '../../components/profile-settings-modal'
 
 
 function formatDate(date) {
