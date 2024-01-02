@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
