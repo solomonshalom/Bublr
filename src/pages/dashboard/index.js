@@ -1,22 +1,25 @@
 /** @jsxImportSource @emotion/react */
-import Link from 'next/link'
-import Head from 'next/head'
-import { useEffect, useState, useRef } from 'react'
-import { css } from '@emotion/react'
-import { useRouter } from 'next/router'
-import { htmlToText } from 'html-to-text'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
+import Link from 'next/link';
+import Head from 'next/head';
+import { useEffect, useState, useRef } from 'react';
+import { css } from '@emotion/react';
+import { useRouter } from 'next/router';
+import { htmlToText } from 'html-to-text';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-import { createPostForUser } from '../../lib/db'
-import { firestore, auth } from '../../lib/firebase'
+// Import Skiff-UI components
+import { Button as SkiffButton, Dropdown, DropdownItem } from '@skiff-org/skiff-ui';
 
-import Button from '../../components/button'
-import Header from '../../components/header'
-import Spinner from '../../components/spinner'
-import Container from '../../components/container'
-import Search from '../../components/search'
-import ProfileSettingsModal from '../../components/profile-settings-modal'
+import { createPostForUser } from '../../lib/db';
+import { firestore, auth } from '../../lib/firebase';
+
+import Header from '../../components/header';
+import Spinner from '../../components/spinner';
+import Container from '../../components/container';
+import Search from '../../components/search';
+import ProfileSettingsModal from '../../components/profile-settings-modal';
+
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -30,9 +33,10 @@ function formatDate(date) {
 }
 
 export default function Dashboard() {
-  const router = useRouter()
+  const router = useRouter();
   const buttonRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
+
   const [user, userLoading, userError] = useAuthState(auth)
   const [posts, postsLoading, postsError] = useCollectionData(
     firestore.collection('posts').where('author', '==', user ? user.uid : ''),
@@ -62,8 +66,7 @@ export default function Dashboard() {
   const getSearchInput = (searchInput) => {
     return searchInput
   }
-
-   return (
+  return (
     <>
       <Header>
         {/* Dropdown Button */}
