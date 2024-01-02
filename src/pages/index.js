@@ -1,160 +1,101 @@
-/** @jsxImportSource @emotion/react */
+import 'modern-normalize'
 import Head from 'next/head'
-import { css } from '@emotion/react'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import AnonymousLoginButton from '../components/AnonymousLoginButton';
+import { ThemeProvider } from 'next-themes'
+import { Global, css } from '@emotion/react'
+import { IdProvider } from '@radix-ui/react-id'
 
-import firebase, { auth } from '../lib/firebase'
-import { setUser, userWithIDExists } from '../lib/db'
-
-import meta from '../components/meta'
-import Spinner from '../components/spinner'
-import Container from '../components/container'
-import Button, { LinkButton } from '../components/button'
-
-export default function Home() {
-  const [user, loading, error] = useAuthState(auth)
-
-  if (error) {
-    return (
-      <>
-        <p>Oop, we&apos;ve had an error:</p>
-        <pre>{JSON.stringify(error)}</pre>
-      </>
-    )
-  }
+const App = ({ Component, pageProps }) => {
+  const getLayout = Component.getLayout || (page => page)
 
   return (
-    <div>
-      <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                position: relative;
-                right: 1rem;
-
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
-
-              width: 120px;
-              height: 120px;
-
-              background-image: url('/images/logo-2.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
-      ></div>
-      <h1
-        css={css`
-          font-size: 1.5rem;
-          letter-spacing: -0.02rem;
-          margin-bottom: 1.5rem;
-        `}
-      >
-        Bublr
-      </h1>
-      <ul
-        css={css`
-          list-style: none;
-          color: var(--grey-3);
-          margin-bottom: 2.5rem;
-
-          li {
-            margin: 0.75rem 0;
-          }
-
-          li::before {
-            display: inline-block;
-            content: '';
-            font-size: 0.9rem;
-            margin-right: 0.5rem;
-          }
-        `}
-      >
-        <li>Express Yourself without Limitations</li>
-        <li>A Digital Garden for your Thoughts</li>
-        <li>Meet other like-minded People</li>
-      </ul>
-      {loading ? (
-        <Button>
-          <Spinner />
-        </Button>
-      ) : user ? (
-        <div
-          css={css`
-            display: flex;
-          `}
-        >
-          <LinkButton href="/dashboard">Dashboard 🕹️</LinkButton>
-          <Button
-            css={css`
-              margin-left: 1rem;
-            `}
-            outline
-            onClick={() => auth.signOut()}
-          >
-            Sign Out 🚪🚶
-          </Button>
-        </div>
-      ) : (
-        <div
-          css={css`
-            display: flex;
-            button:first-of-type {
-              margin-right: 1rem;
-            }
-          `}
-        >
-          <Button
-            onClick={() => {
-              const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
-              auth.signInWithPopup(googleAuthProvider).then(async cred => {
-                let userExists = await userWithIDExists(cred.user.uid)
-                
-                if (!userExists) {
-                  await setUser(cred.user.uid, {
-                    name: cred.user.uid,
-                    displayName: cred.user.displayName || 'Anonymous',
-                    about: 'Say something about yourself 😃 or 🔫',
-                    posts: [],
-                    photo: cred.user.photoURL,
-                    readingList: [],
-                  })
-                }
-              })
-            }}
-          >
-            User ⛹️
-          </Button>
-          {/*Implementing an Avater functionality + Makes code much better! Praise, God (Couldn't have done it w/o him <3):D*/}
-          <AnonymousLoginButton />
-        </div>
-      )}
-    </div>
-  )
-}
-
-Home.getLayout = function HomeLayout(page) {
-  return (
-    <Container maxWidth="420px">
+    <>
       <Head>
-        {meta({
-          title: 'Bublr',
-          description:
-            'An ultra-minimal platform to let your thoughts out~',
-          url: '/',
-          image: '/images/socials.jpg',
-        })}
-        {/* Umami Tag */}
-        <script
-          async
-          src="https://eu.umami.is/script.js"
-          data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
-        ></script>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      {page}
-    </Container>
+      <Global
+        styles={css`
+          :root {
+            --grey-1: #fcfcfc;
+            --grey-2: #c7c7c7;
+            --grey-3: #6f6f6f;
+            --grey-4: #2e2e2e;
+            --grey-5: #171717;
+          }
+
+          [data-theme='dark'] {
+            --grey-1: #171717;
+            --grey-2: #2e2e2e;
+            --grey-4: #c7c7c7;
+            --grey-5: #fcfcfc;
+          }
+
+          *,
+          *::before,
+          *::after {
+            margin: 0;
+            padding: 0;
+          }
+
+          html {
+            font-size: 100%;
+            color: var(--grey-4);
+          }
+
+          body {
+            background: var(--grey-1);
+            font-family: 'Inter', sans-serif;
+          }
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            color: var(--grey-5);
+            font-weight: 500;
+          }
+
+          @media (max-width: 420px) {
+            html {
+              font-size: 90%;
+            }
+          }
+
+          // Proesemirror
+          .ProseMirror-focused {
+            outline: none;
+          }
+
+          .ProseMirror .is-editor-empty:first-of-type::before {
+            content: attr(data-placeholder);
+            float: left;
+            color: inherit;
+            opacity: 0.5;
+            pointer-events: none;
+            height: 0;
+          }
+
+          .ProseMirror img {
+            max-width: 100%;
+            height: auto;
+          }
+
+          .ProseMirror img.ProseMirror-selectednode {
+            box-shadow: 0 0 1rem var(--grey-2);
+          }
+        `}
+      />
+      <IdProvider>
+        <ThemeProvider defaultTheme="system">
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </IdProvider>
+    </>
   )
 }
+
+export default App
