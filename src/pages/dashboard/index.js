@@ -31,7 +31,8 @@ function formatDate(date) {
 
 export default function Dashboard() {
   const router = useRouter()
-
+  const buttonRef = useRef(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [user, userLoading, userError] = useAuthState(auth)
   const [posts, postsLoading, postsError] = useCollectionData(
     firestore.collection('posts').where('author', '==', user ? user.uid : ''),
@@ -62,25 +63,49 @@ export default function Dashboard() {
     return searchInput
   }
 
-  return (
+   return (
     <>
       <Header>
+        {/* Dropdown Button */}
+        <SkiffButton
+          ref={buttonRef}
+          type="secondary" // Assuming Skiff-UI has 'secondary' as a theme
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
+          Menu
+        </SkiffButton>
 
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+        {/* Dropdown Content */}
+        <Dropdown
+          portal
+          gapFromAnchor={8}
+          buttonRef={buttonRef}
+          setShowDropdown={setShowDropdown}
+          showDropdown={showDropdown}
+        >
+          <DropdownItem
+            label="Reading List"
+            onClick={() => router.push('/dashboard/list')}
+            value="reading-list"
+          />
+          <DropdownItem
+            label="Contact"
+            onClick={() => window.open('https://linktr.ee/bublr', '_blank')}
+            value="contact"
+          />
+          <DropdownItem
+            label="Profile"
+            onClick={() => {} /* Add functionality for profile click */}
+            value="profile"
+          />
+          <DropdownItem
+            color="destructive"
+            label="Sign Out"
+            onClick={() => auth.signOut()}
+            value="sign-out"
+          />
+        </Dropdown>
       </Header>
-
       {userError || postsError ? (
         <>
           <p>Oop, we&apos;ve had an error:</p>
