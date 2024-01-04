@@ -64,22 +64,38 @@ export default function Dashboard() {
 
   return (
     <>
-      <Header>
+  <Header>
+   <Link href="/dashboard/list">
+      <a>Reading List</a>
+   </Link>
 
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
+   {/* Adds a new Link to the Contact Page */}
+   <Link href="https://linktr.ee/bublr">
+      <a>Contact</a>
+   </Link>
 
-       {/*Adds a new Link to the Contact Page*/}
+   <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
 
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
+   <button onClick={() => auth.signOut()}>Sign Out</button>
 
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
-      </Header>
+   {/* Integrate cmdk here */}
+   <CommandMenu>
+      <Command.List>
+         <Command.Item onSelect={() => console.log('Reading List clicked')}>
+            Reading List
+         </Command.Item>
+         <Command.Item onSelect={() => console.log('Contact clicked')}>
+            Contact
+         </Command.Item>
+         <Command.Item onSelect={() => console.log('Profile clicked')}>
+            Profile
+         </Command.Item>
+         <Command.Item onSelect={() => auth.signOut()}>
+            Sign Out
+         </Command.Item>
+      </Command.List>
+   </CommandMenu>
+</Header>
 
       {userError || postsError ? (
         <>
