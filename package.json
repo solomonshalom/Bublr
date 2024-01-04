@@ -25,6 +25,7 @@
     "@tiptap/starter-kit": "^2.0.0",
     "@skiff-org/skiff-ui":"^1.2.5",
     "firebase": "^8.7.1",
+    "cmdk":"0.2.0",
     "html-to-text": "^8.0.0",
     "iconoir-react": "^6.11.0",
     "modern-normalize": "^1.1.0",
