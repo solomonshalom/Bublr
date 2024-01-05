@@ -147,12 +147,6 @@ Home.getLayout = function HomeLayout(page) {
           url: '/',
           image: '/images/socials.jpg',
         })}
-        {/* Umami Tag */}
-        <script
-          async
-          src="https://eu.umami.is/script.js"
-          data-website-id="2d7b6782-4c2d-4766-9c26-d0f02c7742f9"
-        ></script>
       </Head>
       {page}
     </Container>
