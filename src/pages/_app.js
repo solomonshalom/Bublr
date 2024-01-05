@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import { Global, css } from '@emotion/react'
 import { IdProvider } from '@radix-ui/react-id'
+import { AptabaseProvider } from '@aptabase/react';
 
 const App = ({ Component, pageProps }) => {
   const getLayout = Component.getLayout || (page => page)
@@ -89,11 +90,13 @@ const App = ({ Component, pageProps }) => {
           }
         `}
       />
+      <AptabaseProvider appKey="A-US-9652570363">
       <IdProvider>
         <ThemeProvider defaultTheme="system">
           {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
       </IdProvider>
+      </AptabaseProvider>
     </>
   )
 }
