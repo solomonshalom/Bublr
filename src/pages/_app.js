@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import { Global, css } from '@emotion/react'
 import { IdProvider } from '@radix-ui/react-id'
-import { AptabaseProvider } from '@aptabase/react';
 import { AppProps } from 'next/app';
 
 
@@ -16,6 +15,10 @@ const App = ({ Component, pageProps }) => {
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
           rel="stylesheet"
+        />
+        <link
+          href="https://eu.umami.is/script.js"
+          data-website-id="8868733e-202e-4575-b512-07e01f31d136"
         />
       </Head>
       <Global
@@ -94,9 +97,7 @@ const App = ({ Component, pageProps }) => {
       />
       <IdProvider>
         <ThemeProvider defaultTheme="system">
-        <AptabaseProvider appKey="A-US-8668679690">
           {getLayout(<Component {...pageProps} />)}
-        </AptabaseProvider>
         </ThemeProvider>
       </IdProvider>
     </>
