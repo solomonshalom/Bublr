@@ -11,6 +11,7 @@
     "legacy-peer-deps": true
   },
   "dependencies": {
+    "@aptabase/react":"0.3.3",
     "@emotion/react": "^11.4.0",
     "@radix-ui/react-dialog": "^0.0.19",
     "@radix-ui/react-icons": "^1.0.3",
