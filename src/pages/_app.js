@@ -90,13 +90,14 @@ const App = ({ Component, pageProps }) => {
           }
         `}
       />
-      <AptabaseProvider appKey="A-US-9652570363">
       <IdProvider>
         <ThemeProvider defaultTheme="system">
-          {getLayout(<Component {...pageProps} />)}
+        {/* Wrap the existing layout with AptabaseProvider */}
+          <AptabaseProvider appKey="A-US-9652570363">
+            {getLayout(<Component {...pageProps} />)}
+          </AptabaseProvider>
         </ThemeProvider>
       </IdProvider>
-      </AptabaseProvider>
     </>
   )
 }
