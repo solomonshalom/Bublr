@@ -92,13 +92,13 @@ const App = ({ Component, pageProps }) => {
 
           /* Style for text selection */
           ::selection {
-            background-color: #f098ac;
+            background-color: #301a35;
             color: white; /* Text color when selected */
           }
       
           /* Preventing background color change when text is deselected */
           ::-moz-selection {
-            background-color: #f098ac;
+            background-color: #301a35;
             color: white;
           }
         `}
