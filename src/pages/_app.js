@@ -89,6 +89,18 @@ const App = ({ Component, pageProps }) => {
           .ProseMirror img.ProseMirror-selectednode {
             box-shadow: 0 0 1rem var(--grey-2);
           }
+
+          /* Style for text selection */
+          ::selection {
+            background-color: #f098ac;
+            color: white; /* Text color when selected */
+          }
+      
+          /* Preventing background color change when text is deselected */
+          ::-moz-selection {
+            background-color: #f098ac;
+            color: white;
+          }
         `}
       />
       <IdProvider>
