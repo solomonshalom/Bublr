@@ -59,6 +59,9 @@ export default function Dashboard() {
     return searchInput;
   };
 
+  const Intro = () => {
+    const { toggle } = useKmenu();
+
   return (
     <>
       <Header>
@@ -108,4 +111,5 @@ Dashboard.getLayout = function DashboardLayout(page) {
       {page}
     </Container>
   );
+  };
 };
