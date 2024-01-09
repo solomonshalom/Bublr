@@ -66,7 +66,7 @@ export default function Dashboard() {
 
   const Intro = () => {
     const { toggle } = useKmenu();
-  }
+
 
 
   return (
@@ -286,4 +286,5 @@ Dashboard.getLayout = function DashboardLayout(page) {
       {page}
     </Container>
   )
-}
+ };
+};
