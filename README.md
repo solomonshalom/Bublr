@@ -4,6 +4,7 @@
 
 **Bublr** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into Bublr and let your thoughts flow freely, like bubbles exploding into a space!
 
+
 ## Features
 
 - **Simplicity at its Core**: Bublr embraces minimalism. The focus is solely on your thoughts and words, without any distractions.
