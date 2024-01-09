@@ -17,6 +17,11 @@ import Spinner from '../../components/spinner'
 import Container from '../../components/container'
 import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
+import { FiCommand } from 'react-icons/fi'
+import { useKmenu } from 'kmenu';
+
+const Intro = () => {
+  const { toggle } = useKmenu();
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -65,20 +70,9 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+      <button onClick={toggle}>
+          <FiCommand />
+        </button>
       </Header>
 
       {userError || postsError ? (
@@ -290,4 +284,5 @@ Dashboard.getLayout = function DashboardLayout(page) {
       {page}
     </Container>
   )
+ }
 }
