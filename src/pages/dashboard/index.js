@@ -28,40 +28,49 @@ import {
   useMatches,
 } from "kbar";
 
-function Dashboard() {
-  const router = useRouter();
+function formatDate(date) {
+  const year = date.getFullYear()
+  let month = '' + (date.getMonth() + 1)
+  let day = '' + date.getDate()
 
-  const [user, userLoading, userError] = useAuthState(auth);
+  if (month.length < 2) month = '0' + month
+  if (day.length < 2) day = '0' + day
+
+  return [day, month, year].join('-')
+}
+
+export default function Dashboard() {
+  const router = useRouter()
+
+  const [user, userLoading, userError] = useAuthState(auth)
   const [posts, postsLoading, postsError] = useCollectionData(
     firestore.collection('posts').where('author', '==', user ? user.uid : ''),
     { idField: 'id' },
-  );
+  )
   const [filteredPosts, setFilteredPosts] = useState([]);
 
-  // KBar state
-  const { isOpen, open, close } = useMatches();
-
   useEffect(() => {
+    console.log(user, userLoading, userError)
     if (!user && !userLoading && !userError) {
-      router.push('/');
-      return;
+      router.push('/')
+      return
     }
-  }, [router, user, userLoading, userError]);
+  }, [router, user, userLoading, userError])
 
   // Set initial filteredPosts
   useEffect(() => {
-    setFilteredPosts(posts);
-  }, [posts]);
+    setFilteredPosts(posts)
+  }, posts)
 
   // Get the filtered posts from Search component
   const getFilteredPosts = (fp) => {
-    setFilteredPosts(fp);
-  };
+    setFilteredPosts(fp)
+  }
 
   // Get the searchInput from Search component
   const getSearchInput = (searchInput) => {
-    return searchInput;
-  };
+    return searchInput
+  }
 
   return (
     <>
