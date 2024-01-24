@@ -18,6 +18,16 @@ import Container from '../../components/container'
 import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
 
+import {
+  KBarProvider,
+  KBarPortal,
+  KBarPositioner,
+  KBarAnimator,
+  KBarSearch,
+  KBarResults,
+  useMatches,
+} from "kbar";
+
 function formatDate(date) {
   const year = date.getFullYear()
   let month = '' + (date.getMonth() + 1)
@@ -65,20 +75,25 @@ export default function Dashboard() {
   return (
     <>
       <Header>
+        {/* Kbar menu link */}
+        <KBarPortal>
+          <KBarPositioner>
+            <KBarAnimator>
+              <KBarSearch />
+            </KBarAnimator>
+          </KBarPositioner>
+        </KBarPortal>
 
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+        {/* Replace individual links with a single menu link */}
+        <button
+          onClick={() => {
+            // Open Kbar when the button is clicked
+            // You can customize this logic based on your requirements
+            console.log("Open Kbar");
+          }}
+        >
+          Open Kbar
+        </button>
       </Header>
 
       {userError || postsError ? (
