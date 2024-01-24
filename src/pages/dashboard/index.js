@@ -25,7 +25,7 @@ import {
   KBarAnimator,
   KBarSearch,
   KBarResults,
-  useMatches,
+  useMatches, // Add this import
 } from "kbar";
 
 function formatDate(date) {
@@ -40,14 +40,17 @@ function formatDate(date) {
 }
 
 export default function Dashboard() {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [user, userLoading, userError] = useAuthState(auth)
+  const [user, userLoading, userError] = useAuthState(auth);
   const [posts, postsLoading, postsError] = useCollectionData(
     firestore.collection('posts').where('author', '==', user ? user.uid : ''),
     { idField: 'id' },
-  )
+  );
   const [filteredPosts, setFilteredPosts] = useState([]);
+
+  // Initialize the useMatches hook
+  const { isOpen, open, close } = useMatches();
 
   useEffect(() => {
     console.log(user, userLoading, userError)
@@ -59,17 +62,17 @@ export default function Dashboard() {
 
   // Set initial filteredPosts
   useEffect(() => {
-    setFilteredPosts(posts)
-  }, posts)
+    setFilteredPosts(posts);
+  }, [posts])
 
   // Get the filtered posts from Search component
   const getFilteredPosts = (fp) => {
-    setFilteredPosts(fp)
+    setFilteredPosts(fp);
   }
 
   // Get the searchInput from Search component
   const getSearchInput = (searchInput) => {
-    return searchInput
+    return searchInput;
   }
 
   return (
