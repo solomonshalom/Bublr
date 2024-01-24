@@ -98,11 +98,11 @@ export default function Dashboard() {
       </Header>
 
       {userError || postsError ? (
-        <>
-          <p>Oop, we&apos;ve had an error:</p>
-          <pre>{JSON.stringify(error)}</pre>
-        </>
-      ) : user && filteredPosts && posts ? (
+      <>
+    <p>Oop, we&apos;ve had an error:</p>
+    <pre>{JSON.stringify(userError || postsError)}</pre>
+    </>
+    ) : user && filteredPosts && posts ? (
         <>
         <div css={css`
           display: flex;
