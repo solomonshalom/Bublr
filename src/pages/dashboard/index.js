@@ -19,13 +19,12 @@ import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
 
 import {
-  KBarProvider,
-  KBarPortal,
+  KBar,
   KBarPositioner,
   KBarAnimator,
   KBarSearch,
   KBarResults,
-  useMatches, // Add this import
+  useMatches,
 } from "kbar";
 
 function formatDate(date) {
@@ -76,16 +75,16 @@ export default function Dashboard() {
   }
 
   return (
-    <KBarProvider>
+    <>
       <Header>
         {/* Kbar menu link */}
-        <KBarPortal>
+        <KBar>
           <KBarPositioner>
             <KBarAnimator>
               <KBarSearch />
             </KBarAnimator>
           </KBarPositioner>
-        </KBarPortal>
+        </KBar>
 
         {/* Replace individual links with a single menu link */}
         <button
@@ -289,7 +288,7 @@ export default function Dashboard() {
       ) : (
         <Spinner />
       )}
-    </KBarProvider>
+    </>
   )
 }
 
