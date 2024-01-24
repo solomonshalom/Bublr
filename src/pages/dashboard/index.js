@@ -76,7 +76,7 @@ export default function Dashboard() {
   }
 
   return (
-    <>
+    <KBarProvider>
       <Header>
         {/* Kbar menu link */}
         <KBarPortal>
@@ -289,7 +289,7 @@ export default function Dashboard() {
       ) : (
         <Spinner />
       )}
-    </>
+    </KBarProvider>
   )
 }
 
