@@ -23,6 +23,7 @@
     "@tiptap/pm": "^2.0.0",
     "@tiptap/react": "^2.0.0",
     "@tiptap/starter-kit": "^2.0.0",
+    "@radix-ui/react-dropdown-menu":"^2.0.6",
     "firebase": "^8.7.1",
     "html-to-text": "^8.0.0",
     "iconoir-react": "^6.11.0",
