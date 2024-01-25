@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import Link from 'next/link'
 import Head from 'next/head'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import { useRouter } from 'next/router'
 import { htmlToText } from 'html-to-text'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import { DropdownMenu, DropdownTrigger, DropdownContent } from '@radix-ui/react-dropdown-menu';
 
 import { createPostForUser } from '../../lib/db'
 import { firestore, auth } from '../../lib/firebase'
@@ -65,20 +66,23 @@ export default function Dashboard() {
   return (
     <>
       <Header>
-
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
-
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+        {/* Existing code... */}
+        
+        <DropdownMenu>
+          <DropdownTrigger>
+            <button>More</button>
+          </DropdownTrigger>
+          <DropdownContent>
+            <Link href="/dashboard/list">
+              <a>Reading List</a>
+            </Link>
+            <Link href="https://linktr.ee/bublr">
+              <a>Contact</a>
+            </Link>
+            <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+            <button onClick={() => auth.signOut()}>Sign Out</button>
+          </DropdownContent>
+        </DropdownMenu>
       </Header>
 
       {userError || postsError ? (
