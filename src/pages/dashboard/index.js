@@ -17,6 +17,7 @@ import Spinner from '../../components/spinner'
 import Container from '../../components/container'
 import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 function formatDate(date) {
   const year = date.getFullYear()
@@ -65,19 +66,41 @@ export default function Dashboard() {
   return (
     <>
       <Header>
+        {/* Profile dropdown */}
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>
+            {({ open }) => (
+              <a>
+                {/* Text that users can click on */}
+                <span onClick={() => open()}>Menu</span>
+              </a>
+            )}
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            {/* Dropdown content goes here */}
+            <DropdownMenu.Item>
+              {/* Link to your ProfileSettingsModal */}
+              <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
 
-        <Link href="/dashboard/list">
-          <a>Reading List</a>
-        </Link>
+        {/* Reading List link */}
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>
+            <a>Reading List</a>
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            {/* Dropdown content goes here */}
+            <DropdownMenu.Item>
+              <Link href="/dashboard/list">
+                <a>Reading List</a>
+              </Link>
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Root>
 
-       {/*Adds a new Link to the Contact Page*/}
-
-        <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
-        </Link>
-
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-
+        {/* Sign Out button */}
         <button onClick={() => auth.signOut()}>Sign Out</button>
       </Header>
 
