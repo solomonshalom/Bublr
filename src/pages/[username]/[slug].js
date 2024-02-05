@@ -143,7 +143,7 @@ export default function Post({ post }) {
         />
         <p>
           <Link href={`/${post.author.name}`} passHref>
-            <a
+            <span
               css={css`
                 color: inherit;
                 text-decoration: none;
@@ -151,7 +151,7 @@ export default function Post({ post }) {
               `}
             >
               {post.author.displayName}
-            </a>
+            </span>
           </Link>{' '}
           / {new Date(post.lastEdited).toDateString()}
         </p>
