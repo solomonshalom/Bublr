@@ -3,12 +3,18 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { htmlToText } from 'html-to-text'
+import { useEffect, useState } from 'react'
 
 import { truncate } from '../../lib/utils'
 import { getUserByName } from '../../lib/db'
 
 import meta from '../../components/meta'
 import Container from '../../components/container'
+
+function formatDate(date) {
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+}
 
 export default function Profile({ user }) {
   return (
@@ -98,7 +104,7 @@ export default function Profile({ user }) {
                 }
               `}
             >
-              {new Date(post.lastEdited).toDateString()}
+              {formatDate(new Date(post.lastEdited))}
             </p>
 
             <Link href={`/${user.name}/${post.slug}`}>
