@@ -19,14 +19,8 @@ import Search from '../../components/search'
 import ProfileSettingsModal from '../../components/profile-settings-modal'
 
 function formatDate(date) {
-  const year = date.getFullYear()
-  let month = '' + (date.getMonth() + 1)
-  let day = '' + date.getDate()
-
-  if (month.length < 2) month = '0' + month
-  if (day.length < 2) day = '0' + day
-
-  return [day, month, year].join('-')
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
 export default function Dashboard() {
