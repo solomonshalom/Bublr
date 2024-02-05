@@ -70,9 +70,15 @@ export default function Dashboard() {
           Contact
         </Link>
 
-        <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
+          {/* Profile settings */}
+        <Link href="#" onClick={() => console.log('Profile clicked')}>
+          Profile
+        </Link>
 
-        <button onClick={() => auth.signOut()}>Sign Out</button>
+          {/* Sign out */}
+        <Link href="#" onClick={() => auth.signOut()}>
+        Sign Out
+        </Link>
       </Header>
 
       {userError || postsError ? (

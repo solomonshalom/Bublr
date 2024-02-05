@@ -26,9 +26,12 @@ const Header = props => (
         transition: all 200ms ease;
       }
 
-      a:hover,
-      button:hover {
+      a:hover {
         color: var(--grey-3);
+      }
+
+      button:hover {
+        color: #402745;
       }
 
       button:last-of-type {
