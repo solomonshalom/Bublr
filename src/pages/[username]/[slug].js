@@ -92,6 +92,17 @@ function AddToReadingListButton({ uid, pid }) {
   )
 }
 
+function formatDate(date) {
+  const year = date.getFullYear()
+  let month = '' + (date.getMonth() + 1)
+  let day = '' + date.getDate()
+
+  if (month.length < 2) month = '0' + month
+  if (day.length < 2) day = '0' + day
+
+  return `${day}, ${month}, ${year}`
+}
+
 export default function Post({ post }) {
   const [user, _loading, _error] = useAuthState(auth)
 
@@ -142,15 +153,18 @@ export default function Post({ post }) {
           `}
         />
         <p>
-          <Link href={`/${post.author.name}`} passHref 
-          css={css`
+          <Link href={`/${post.author.name}`} passHref>
+            <a
+              css={css`
                 color: inherit;
                 text-decoration: none;
                 border-bottom: 1px dotted var(--grey-2);
-              `}>
+              `}
+            >
               {post.author.displayName}
+            </a>
           </Link>{' '}
-          / {new Date(post.lastEdited).toDateString()}
+          / {formatDate(new Date(post.lastEdited))}
         </p>
       </div>
 
