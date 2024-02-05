@@ -141,20 +141,20 @@ export default function Post({ post }) {
             margin-right: 1rem;
           `}
         />
-        <p>
-          <Link href={`/${post.author.name}`}>
-            <a
-              style={{
-                color: 'inherit',
-                textDecoration: 'none',
-                borderBottom: `1px dotted var(--grey-2)`,
-              }}
-            >
-              {post.author.displayName}
-            </a>
-          </Link>{' '}
-          / {new Date(post.lastEdited).toDateString()}
-        </p>
+    <p>
+  <Link href={`/${post.author.name}`}>
+    <a
+      style={{
+        color: 'inherit',
+        textDecoration: 'none',
+        borderBottom: `1px dotted var(--grey-2)`,
+      }}
+    >
+      {post.author.displayName}
+    </a>
+  </Link>{' '}
+  / {new Date(post.lastEdited).toDateString()}
+    </p>
       </div>
 
       <PostContainer
