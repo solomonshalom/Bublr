@@ -141,8 +141,8 @@ export default function Post({ post }) {
             margin-right: 1rem;
           `}
         />
-    <p>
-  <Link href={`/${post.author.name}`}>
+<p>
+  <Link href={`/${post.author.name}`} passHref>
     <a
       style={{
         color: 'inherit',
@@ -154,7 +154,7 @@ export default function Post({ post }) {
     </a>
   </Link>{' '}
   / {new Date(post.lastEdited).toDateString()}
-    </p>
+</p>
       </div>
 
       <PostContainer
