@@ -61,13 +61,13 @@ export default function Dashboard() {
       <Header>
 
         <Link href="/dashboard/list">
-          <a>Reading List</a>
+          Reading List
         </Link>
 
        {/*Adds a new Link to the Contact Page*/}
 
         <Link href="https://linktr.ee/bublr">
-          <a>Contact</a>
+          Contact
         </Link>
 
         <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
