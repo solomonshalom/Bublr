@@ -158,6 +158,8 @@ function SelectionMenu({ editor }) {
           >
             <FontItalicIcon />
           </button>
+
+          {/* Gotta fix; Showing Yellow instead of Purple
           <button 
             onClick={() => editor.chain().focus().toggleHighlight({ color: '#7628AD' }).run()}
             className={editor.isActive('highlight', { color: '#7628AD' }) ? 'is-active' : ''}
@@ -165,6 +167,8 @@ function SelectionMenu({ editor }) {
 
            <Pencil1Icon />
            </button>
+           */}
+           
           <button
             onClick={() => editor.chain().focus().toggleStrike().run()}
             className={editor.isActive('strike') ? 'is-active' : ''}
