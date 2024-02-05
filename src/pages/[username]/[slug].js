@@ -50,7 +50,7 @@ function AddToReadingListButton({ uid, pid }) {
         setUser({
           ...user,
           readingList: inList
-            ? user.readingList.filter(id => id != pid)
+            ? user.readingList.filter(id => id !== pid)
             : [...user.readingList, pid],
         })
       }}
@@ -93,14 +93,8 @@ function AddToReadingListButton({ uid, pid }) {
 }
 
 function formatDate(date) {
-  const year = date.getFullYear()
-  let month = '' + (date.getMonth() + 1)
-  let day = '' + date.getDate()
-
-  if (month.length < 2) month = '0' + month
-  if (day.length < 2) day = '0' + day
-
-  return `${day}, ${month}, ${year}`
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
 export default function Post({ post }) {
@@ -153,18 +147,16 @@ export default function Post({ post }) {
           `}
         />
         <p>
-          <Link href={`/${post.author.name}`} passHref>
-            <a
-              css={css`
-                color: inherit;
-                text-decoration: none;
-                border-bottom: 1px dotted var(--grey-2);
-              `}
-            >
-              {post.author.displayName}
-            </a>
+          <Link href={`/${post.author.name}`} passHref 
+            css={css`
+              color: inherit;
+              text-decoration: none;
+              border-bottom: 1px dotted var(--grey-2);
+            `}
+          >
+            {post.author.displayName}
           </Link>{' '}
-          / {formatDate(new Date(post.lastEdited))}
+          / <time>{formatDate(new Date(post.lastEdited))}</time>
         </p>
       </div>
 
