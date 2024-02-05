@@ -142,16 +142,13 @@ export default function Post({ post }) {
           `}
         />
         <p>
-          <Link href={`/${post.author.name}`} passHref>
-            <span
-              css={css`
+          <Link href={`/${post.author.name}`} passHref 
+          css={css`
                 color: inherit;
                 text-decoration: none;
                 border-bottom: 1px dotted var(--grey-2);
-              `}
-            >
+              `}>
               {post.author.displayName}
-            </span>
           </Link>{' '}
           / {new Date(post.lastEdited).toDateString()}
         </p>
