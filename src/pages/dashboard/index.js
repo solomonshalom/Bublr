@@ -73,7 +73,7 @@ export default function Dashboard() {
         {/* Profile settings */}
         <Link href="#" onClick={() => console.log('Profile clicked')}>
           <ProfileSettingsModal Trigger={() => 'Profile'} uid={user?.uid} />
-      </Link>
+        </Link>
 
           {/* Sign out */}
         <Link href="#" onClick={() => auth.signOut()}>
