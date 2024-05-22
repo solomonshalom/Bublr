@@ -46,13 +46,18 @@ function List({ uid }) {
           li {
             max-width: 25rem;
             margin: 2.5rem 0;
+
+            a {
+              text-decoration: none !important;
+              color: inherit;
+            }
           }
         `}
       >
         {list.map(post => (
           <li key={post.id}>
             <Link href={`/${post.author.name}/${post.slug}`}>
-              <a style={{ textDecoration: 'none', color: 'inherit' }}>
+              <a>
                 <h3
                   css={css`
                     font-size: 1rem;
