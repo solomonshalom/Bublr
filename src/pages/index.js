@@ -74,8 +74,8 @@ export default function Home() {
         `}
       >
         <li>Express Yourself without Limitations</li>
-        <li>A Digital Garden for your Thoughts</li>
-        <li>Meet other like-minded People</li>
+        <li>A Sanctuary for Unconscious Expression</li>
+        <li>A Fusion of Expression and Art</li>
       </ul>
       {loading ? (
         <Button>
@@ -142,14 +142,14 @@ export default function Home() {
           align-items: center;
         `}
       >
-        <img src="https://via.placeholder.com/60" alt="Icon 1" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 2" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 3" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 4" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 5" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 6" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 7" css={getRandomPositionStyle()} />
-        <img src="https://via.placeholder.com/60" alt="Icon 8" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.1036782397.4635/st,small,507x507-pad,600x600,f8f8f8.u3.jpg" alt="Icon 1" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.2459600231.0196/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Icon 2" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.3201547758.6973/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Icon 3" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.690252207.5825/st,small,507x507-pad,600x600,f8f8f8.u2.jpg" alt="Icon 4" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.386415119.6222/st,small,507x507-pad,600x600,f8f8f8.u3.jpg" alt="Icon 5" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.3085646484.6809/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Icon 6" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.755509379.3759/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Icon 7" css={getRandomPositionStyle()} />
+        <img src="https://ih1.redbubble.net/image.959340792.0433/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="Icon 8" css={getRandomPositionStyle()} />
       </div>
     </div>
   )
@@ -164,10 +164,6 @@ const getRandomPositionStyle = () => {
     top: ${randomTop};
     left: ${randomLeft};
     z-index: ${randomZIndex};
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
-    background-color: #f0f0f0; /* Placeholder background */
   `;
 };
 
@@ -187,3 +183,4 @@ Home.getLayout = function HomeLayout(page) {
     </Container>
   )
 }
+
