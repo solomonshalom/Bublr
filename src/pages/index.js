@@ -27,24 +27,24 @@ export default function Home() {
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 1rem;
+          position: relative;
+          right: 1rem;
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
 
-              width: 120px;
-              height: 120px;
+          width: 120px;
+          height: 120px;
 
-              background-image: url('/images/logo-2.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
+          background-image: url('/images/logo-2.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        `}
       ></div>
       <h1
         css={css`
@@ -132,6 +132,31 @@ css={css`
           <AnonymousLoginButton />
         </div>
       )}
+      <div
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 2rem;
+
+          img {
+            width: 60px;
+            height: 60px;
+            margin: 0.5rem;
+            border-radius: 8px;
+            background-color: #f0f0f0; /* Placeholder background */
+          }
+        `}
+      >
+        <img src="https://via.placeholder.com/60" alt="Icon 1" />
+        <img src="https://via.placeholder.com/60" alt="Icon 2" />
+        <img src="https://via.placeholder.com/60" alt="Icon 3" />
+        <img src="https://via.placeholder.com/60" alt="Icon 4" />
+        <img src="https://via.placeholder.com/60" alt="Icon 5" />
+        <img src="https://via.placeholder.com/60" alt="Icon 6" />
+        <img src="https://via.placeholder.com/60" alt="Icon 7" />
+        <img src="https://via.placeholder.com/60" alt="Icon 8" />
+      </div>
     </div>
   )
 }
