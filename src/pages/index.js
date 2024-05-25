@@ -12,6 +12,18 @@ import Spinner from '../components/spinner'
 import Container from '../components/container'
 import Button, { LinkButton } from '../components/button'
 
+const imageUrls = [
+  "https://static-lyart.vercel.app/The%20Abyss/The%20Abyss%20-%20Related%20-%201.png",
+  "https://static-lyart.vercel.app/The%20Abyss/The%20Abyss%20-%20Related%20-%202.png",
+  "https://static-lyart.vercel.app/The%20Abyss/The%20Abyss%20-%20Related%20-%203.png",
+  "https://static-lyart.vercel.app/The%20Abyss/The%20Abyss%20-%20Related%20-%204.png",
+  "https://static-lyart.vercel.app/The%20Abyss/Abyss%20-%20Related%20-%205.png",
+  "https://static-lyart.vercel.app/The%20Abyss/Abyss%20-%20Related%20-%206.png",
+  "https://static-lyart.vercel.app/The%20Abyss/Abyss%20-%20related%20-%207.png",
+  "https://static-lyart.vercel.app/The%20Abyss/Abyss%20-%20related%20-%209.png",
+  "https://static-lyart.vercel.app/The%20Abyss/Abyss%20-%20Related%20-%2011.png"
+];
+
 export default function Home() {
   const [user, loading, error] = useAuthState(auth)
 
@@ -27,24 +39,24 @@ export default function Home() {
   return (
     <div>
       <div
-css={css`
-                margin-top: 0rem;
-                margin-bottom: 1rem;
-                position: relative;
-                right: 1rem;
+        css={css`
+          margin-top: 0rem;
+          margin-bottom: 1rem;
+          position: relative;
+          right: 1rem;
 
-                @media (max-width: 500px) {
-                    margin-bottom: 1rem;
-                }
+          @media (max-width: 500px) {
+            margin-bottom: 1rem;
+          }
 
-              width: 120px;
-              height: 120px;
+          width: 120px;
+          height: 120px;
 
-              background-image: url('/images/logo-2.png');
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: contain;
-`}
+          background-image: url('/images/logo-2.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        `}
       ></div>
       <h1
         css={css`
@@ -128,10 +140,34 @@ css={css`
           >
             User ⛹️
           </Button>
-          {/*Implementing an Avater functionality + Makes code much better! Praise, God (Couldn't have done it w/o him <3):D*/}
           <AnonymousLoginButton />
         </div>
       )}
+      <div
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 2rem;
+
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 0.5rem;
+
+            @media (max-width: 500px) {
+              width: 50px;
+              height: 50px;
+              margin: 0.25rem;
+            }
+          }
+        `}
+      >
+        {imageUrls.map((url, index) => (
+          <img key={index} src={url} alt={`Image ${index + 1}`} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -142,8 +178,7 @@ Home.getLayout = function HomeLayout(page) {
       <Head>
         {meta({
           title: 'Bublr',
-          description:
-            'An ultra-minimal platform to let your thoughts out~',
+          description: 'An ultra-minimal platform to let your thoughts out~',
           url: '/',
           image: '/images/socials.jpg',
         })}
