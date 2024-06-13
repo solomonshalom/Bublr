@@ -73,9 +73,9 @@ css={css`
           }
         `}
       >
-        <li>Express Yourself without Limitations</li>
-        <li>A Digital Garden for your Thoughts</li>
-        <li>Meet other like-minded People</li>
+        <li>A cozy corner in the internet</li>
+        <li>Be yourself, we won't judge</li>
+        <li>Meet other cool people!</li>
       </ul>
       {loading ? (
         <Button>
@@ -117,7 +117,7 @@ css={css`
                   await setUser(cred.user.uid, {
                     name: cred.user.uid,
                     displayName: cred.user.displayName || 'Anonymous',
-                    about: 'Say something about yourself 😃 or 🔫',
+                    about: 'hii',
                     posts: [],
                     photo: cred.user.photoURL,
                     readingList: [],
