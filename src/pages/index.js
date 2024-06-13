@@ -74,7 +74,7 @@ css={css`
         `}
       >
         <li>A cozy corner in the internet</li>
-        <li>Be yourself, we won't judge</li>
+        <li>Be yourself, we won&apos;t judge</li>
         <li>Meet other cool people!</li>
       </ul>
       {loading ? (
