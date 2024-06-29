@@ -1,5 +1,3 @@
-![image](https://github.com/solomonshalom/the-abyss/assets/71135230/1430bda3-840a-43f5-b657-c4458eb969ba)
-
 # Bublr
 
 **Bublr** is an ultra-minimal platform designed to provide you with a space to express your thoughts, no matter how deep or profound they may be. It's a place where you can release your innermost musings without any limitations or judgments. Dive into Bublr and let your thoughts flow freely, like bubbles exploding into a space!
